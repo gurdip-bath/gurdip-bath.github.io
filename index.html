@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Gurdip Mikey Bath — Microsoft Power Platform Developer. Building production-grade enterprise solutions on Dataverse, Power Automate, and Power Apps." />
+  <title>Gurdip Mikey Bath · Power Platform Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Tokens ────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0a0a0a;       /* near-black base */
+      --surface:   #111111;       /* card/section bg */
+      --border:    #1e1e1e;       /* subtle dividers */
+      --accent:    #00c8a0;       /* teal — Power Platform green-adjacent */
+      --accent2:   #005f4b;       /* deep teal for hover fills */
+      --text:      #e8e8e8;       /* primary text */
+      --muted:     #666666;       /* secondary text */
+      --mono:      'DM Mono', monospace;
+      --serif:     'DM Serif Display', serif;
+      --sans:      'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── Noise texture overlay ─────────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    /* ── Scrollbar ─────────────────────────────────────────────── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+
+    /* ── Nav ───────────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 4rem;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── Hero ──────────────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 8rem 4rem 4rem;
+      gap: 4rem;
+      position: relative;
+    }
+
+    /* Diagonal accent line */
+    #hero::after {
+      content: '';
+      position: absolute;
+      top: 20%;
+      right: 0;
+      width: 1px;
+      height: 60%;
+      background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+      opacity: 0.3;
+    }
+
+    .hero-text { position: relative; z-index: 1; }
+
+    .hero-label {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.1s forwards;
+    }
+
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.2s forwards;
+    }
+
+    .hero-name span { color: var(--accent); }
+
+    .hero-title {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.3s forwards;
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 460px;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.4s forwards;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.5s forwards;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.75rem;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: all 0.25s;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #000;
+      border: 1px solid var(--accent);
+    }
+
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--accent);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Hero photo */
+    .hero-photo {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      animation: fadeIn 0.8s 0.6s forwards;
+    }
+
+    .hero-photo::before {
+      content: '';
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,200,160,0.12) 0%, transparent 70%);
+    }
+
+    .hero-photo img {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--accent);
+      position: relative;
+      z-index: 1;
+      filter: grayscale(20%);
+    }
+
+    /* Placeholder avatar when no image */
+    .avatar-placeholder {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      background: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .avatar-placeholder svg {
+      width: 100px;
+      height: 100px;
+      opacity: 0.3;
+    }
+
+    /* ── Section base ──────────────────────────────────────────── */
+    section {
+      padding: 6rem 4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    section + section { border-top: 1px solid var(--border); }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-heading {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      margin-bottom: 3rem;
+      color: var(--text);
+    }
+
+    /* ── Skills ────────────────────────────────────────────────── */
+    #skills { background: var(--surface); }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-card {
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.75rem;
+      background: var(--bg);
+      transition: border-color 0.25s, transform 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px;
+      height: 0;
+      background: var(--accent);
+      transition: height 0.3s;
+    }
+
+    .skill-card:hover::before { height: 100%; }
+    .skill-card:hover { border-color: var(--accent2); transform: translateY(-2px); }
+
+    .skill-icon {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .skill-name {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .skill-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── Project ───────────────────────────────────────────────── */
+    #project { background: var(--bg); }
+
+    .project-card {
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--surface);
+    }
+
+    .project-header {
+      padding: 2.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+
+    .project-badge {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #000;
+      background: var(--accent);
+      padding: 0.3rem 0.75rem;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+
+    .project-title {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-subtitle {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    .project-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .project-section {
+      padding: 2rem 2.5rem;
+      border-right: 1px solid var(--border);
+    }
+
+    .project-section:last-child { border-right: none; }
+    .project-section:nth-child(n+3) { border-top: 1px solid var(--border); }
+
+    .project-section-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .project-section p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* Component tags */
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+
+    .tag {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 0.25rem 0.6rem;
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+
+    .tag:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* Decision rows */
+    .decision-list { list-style: none; margin-top: 0.5rem; }
+
+    .decision-list li {
+      font-size: 0.85rem;
+      color: var(--muted);
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 0.75rem;
+      line-height: 1.5;
+    }
+
+    .decision-list li:last-child { border-bottom: none; }
+
+    .decision-list li::before {
+      content: '→';
+      color: var(--accent);
+      font-family: var(--mono);
+      flex-shrink: 0;
+    }
+
+    /* Flow pills */
+    .flow-list { list-style: none; margin-top: 0.5rem; }
+
+    .flow-list li {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--text);
+      padding: 0.5rem 0.75rem;
+      margin-bottom: 0.4rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Certs ─────────────────────────────────────────────────── */
+    #certifications { background: var(--surface); }
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .cert-card {
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.75rem;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .cert-status {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .cert-status.in-progress { color: #f5a623; }
+    .cert-status.complete { color: var(--accent); }
+
+    .cert-name {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .cert-body {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .cert-bar {
+      height: 2px;
+      background: var(--border);
+      border-radius: 1px;
+      margin-top: 0.5rem;
+      overflow: hidden;
+    }
+
+    .cert-bar-fill {
+      height: 100%;
+      background: #f5a623;
+      border-radius: 1px;
+      animation: barGrow 1s 0.5s both;
+    }
+
+    @keyframes barGrow {
+      from { width: 0; }
+    }
+
+    /* ── Contact ───────────────────────────────────────────────── */
+    #contact { background: var(--bg); }
+
+    .contact-inner {
+      display: flex;
+      gap: 4rem;
+      align-items: flex-start;
+    }
+
+    .contact-text { flex: 1; }
+
+    .contact-text p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      max-width: 440px;
+    }
+
+    .contact-links {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.25rem 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      text-decoration: none;
+      color: var(--text);
+      background: var(--surface);
+      transition: all 0.25s;
+    }
+
+    .contact-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateX(4px);
+    }
+
+    .contact-link-label {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.1rem;
+    }
+
+    .contact-link-value {
+      font-size: 0.9rem;
+    }
+
+    /* ── Footer ────────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer p {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+
+    /* ── Animations ────────────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s, transform 0.6s;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── Responsive ────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 2rem; }
+      #hero { grid-template-columns: 1fr; padding: 7rem 2rem 3rem; text-align: center; }
+      #hero::after { display: none; }
+      .hero-photo { order: -1; }
+      .hero-cta { justify-content: center; }
+      .hero-desc { max-width: 100%; }
+      section { padding: 4rem 2rem; }
+      .project-body { grid-template-columns: 1fr; }
+      .project-section { border-right: none; border-top: 1px solid var(--border); }
+      .project-section:first-child { border-top: none; }
+      .contact-inner { flex-direction: column; gap: 2rem; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem 2rem; }
+      .nav-links { gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <span class="nav-logo">GMB · Power Platform</span>
+    <ul class="nav-links">
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#project">Project</a></li>
+      <li><a href="#certifications">Certs</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-text">
+      <p class="hero-label">// Microsoft Power Platform Developer</p>
+      <h1 class="hero-name">Gurdip<br /><span>Mikey Bath</span></h1>
+      <p class="hero-title">Dataverse · Power Automate · Model-Driven Apps · Canvas Apps</p>
+      <p class="hero-desc">
+        Building production-grade enterprise solutions on the Microsoft Power Platform.
+        Every architecture decision is made with a reason, a trade-off, and a failure mode in mind.
+      </p>
+      <div class="hero-cta">
+        <a href="#project" class="btn btn-primary">View Live Project</a>
+        <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <!--
+        REPLACE the avatar-placeholder below with your LinkedIn photo.
+        Save your photo as "photo.jpg" in the same folder as index.html, then swap:
+
+        <div class="avatar-placeholder"> ... </div>
+
+        for:
+
+        <img src="photo.jpg" alt="Gurdip Mikey Bath" />
+      -->
+      <div class="avatar-placeholder">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#00c8a0" stroke-width="1">
+          <circle cx="12" cy="8" r="4"/>
+          <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <p class="section-label reveal">// Core Competencies</p>
+    <h2 class="section-heading reveal">What I Build With</h2>
+    <div class="skills-grid">
+
+      <div class="skill-card reveal">
+        <p class="skill-icon">01 · Data Layer</p>
+        <p class="skill-name">Microsoft Dataverse</p>
+        <p class="skill-desc">Relational table design with lookup columns, OData filtering, star-schema architecture, and column security profiles for PII compliance.</p>
+      </div>
+
+      <div class="skill-card reveal">
+        <p class="skill-icon">02 · Automation</p>
+        <p class="skill-name">Power Automate</p>
+        <p class="skill-desc">Production flows with trigger gates, idempotency checks, per-iteration error handling, exponential backoff retry, and environment variable portability.</p>
+      </div>
+
+      <div class="skill-card reveal">
+        <p class="skill-icon">03 · Enterprise Apps</p>
+        <p class="skill-name">Model-Driven Apps</p>
+        <p class="skill-desc">Role-based views, form configuration, Business Unit structure, and sitemap design for multi-persona HR workflows.</p>
+      </div>
+
+      <div class="skill-card reveal">
+        <p class="skill-icon">04 · Line Manager UX</p>
+        <p class="skill-name">Canvas Apps</p>
+        <p class="skill-desc">RBAC via <code style="color:var(--accent);font-family:var(--mono);font-size:0.8em">User().Email</code>, direct report filtering, delegation-safe queries, and responsive layout for non-HR personas.</p>
+      </div>
+
+      <div class="skill-card reveal">
+        <p class="skill-icon">05 · Reporting</p>
+        <p class="skill-name">Power BI</p>
+        <p class="skill-desc">Import mode, star-schema modelling with Dataverse GUIDs as join keys, DAX measures, and MDA-embedded reports scoped to HR Manager and HRBP personas.</p>
+      </div>
+
+      <div class="skill-card reveal">
+        <p class="skill-icon">06 · Lifecycle</p>
+        <p class="skill-name">ALM · Managed Solutions</p>
+        <p class="skill-desc">DEV → PROD promotion via managed solutions, publisher prefix discipline, connection reference management, and environment variable separation.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECT -->
+  <section id="project">
+    <p class="section-label reveal">// Live Client Engagement</p>
+    <h2 class="section-heading reveal">Featured Project</h2>
+
+    <div class="project-card reveal">
+
+      <div class="project-header">
+        <div>
+          <h3 class="project-title">Realty Enterprise</h3>
+          <p class="project-subtitle">Employee Lifecycle Hub · UK Real Estate · Microsoft Power Platform</p>
+        </div>
+        <span class="project-badge">Live Client</span>
+      </div>
+
+      <div class="project-body">
+
+        <!-- What it is -->
+        <div class="project-section">
+          <p class="project-section-label">// What It Is</p>
+          <p>
+            A production-grade Employee Lifecycle Hub built for a UK real estate company.
+            Manages the full employee journey — onboarding, internal transfers, and offboarding —
+            across HR Admin, HR Team Leader, HR Manager, and HR Business Partner personas.
+          </p>
+          <div class="tag-list">
+            <span class="tag">Dataverse</span>
+            <span class="tag">Power Automate</span>
+            <span class="tag">Model-Driven App</span>
+            <span class="tag">Canvas App</span>
+            <span class="tag">Power BI</span>
+            <span class="tag">Managed Solution</span>
+          </div>
+        </div>
+
+        <!-- Architecture -->
+        <div class="project-section">
+          <p class="project-section-label">// Architecture Decisions</p>
+          <ul class="decision-list">
+            <li>Dataverse over SharePoint — relational integrity, lookup enforcement, and RBAC at the data layer</li>
+            <li>Model-Driven App as primary HR interface — Dataverse-native, zero custom form code</li>
+            <li>Canvas App for line managers — filtered to direct reports only via <code style="color:var(--accent);font-family:var(--mono);font-size:0.8em">User().Email</code></li>
+            <li>Import mode in Power BI — consistent performance over DirectQuery for scheduled reporting</li>
+            <li>Managed solutions for ALM — DEV changes never touch PROD directly</li>
+          </ul>
+        </div>
+
+        <!-- Flows -->
+        <div class="project-section">
+          <p class="project-section-label">// Automated Flows</p>
+          <ul class="flow-list">
+            <li>Generate Onboarding Tasks</li>
+            <li>Generate Offboarding Tasks</li>
+            <li>Stage-Change Notification</li>
+            <li>Overdue Case Reminder (Scheduled)</li>
+          </ul>
+          <p style="margin-top:1rem;font-size:0.82rem;color:var(--muted);">
+            Every flow includes idempotency guards, per-iteration Try/Catch scoping,
+            exponential backoff retry, and PII-compliant Secure Inputs/Outputs on email actions.
+          </p>
+        </div>
+
+        <!-- Security -->
+        <div class="project-section">
+          <p class="project-section-label">// Security Model</p>
+          <ul class="decision-list">
+            <li>Four custom security roles scoped by Business Unit (HR and Finance child BUs)</li>
+            <li>Two Column Security Profiles restricting salary and sensitive HR fields</li>
+            <li>Secure Inputs and Outputs enabled on all email actions containing PII — UK GDPR compliant</li>
+            <li>Environment variables for all recipient addresses — no hardcoded values across environments</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <p class="section-label reveal">// Professional Development</p>
+    <h2 class="section-heading reveal">Certifications</h2>
+    <div class="cert-grid">
+
+      <div class="cert-card reveal">
+        <span class="cert-status in-progress">● In Progress</span>
+        <p class="cert-name">PL-900</p>
+        <p class="cert-body">Microsoft Power Platform Fundamentals — establishing the certified foundation across Power Apps, Power Automate, Power BI, and Power Virtual Agents.</p>
+        <div class="cert-bar"><div class="cert-bar-fill" style="width:75%"></div></div>
+      </div>
+
+      <div class="cert-card reveal">
+        <span class="cert-status in-progress">● In Progress</span>
+        <p class="cert-name">PL-200</p>
+        <p class="cert-body">Microsoft Power Platform Functional Consultant — solution design, Dataverse modelling, security configuration, and ALM for enterprise deployments.</p>
+        <div class="cert-bar"><div class="cert-bar-fill" style="width:30%"></div></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <p class="section-label reveal">// Let's Talk</p>
+    <h2 class="section-heading reveal">Get In Touch</h2>
+    <div class="contact-inner reveal">
+      <div class="contact-text">
+        <p>
+          I'm actively looking for Power Platform roles in the West Midlands / Birmingham area
+          from July 2026. If you're hiring or want to discuss what I've built, reach out directly.
+        </p>
+      </div>
+      <div class="contact-links">
+        <a href="https://www.linkedin.com/in/gurdip-mikey-b-07aa12292/" target="_blank" rel="noopener" class="contact-link">
+          <div>
+            <span class="contact-link-label">LinkedIn</span>
+            <span class="contact-link-value">Gurdip Mikey Bath</span>
+          </div>
+        </a>
+        <a href="mailto:bathgurdip1@gmail.com" class="contact-link">
+          <div>
+            <span class="contact-link-label">Email</span>
+            <span class="contact-link-value">bathgurdip1@gmail.com</span>
+          </div>
+        </a>
+        <a href="https://github.com/gurdip-bath" target="_blank" rel="noopener" class="contact-link">
+          <div>
+            <span class="contact-link-label">GitHub</span>
+            <span class="contact-link-value">github.com/gurdip-bath</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Gurdip Mikey Bath</p>
+    <p>Microsoft Power Platform · West Midlands, UK</p>
+  </footer>
+
+  <!-- Scroll reveal script -->
+  <script>
+    // Observe each .reveal element and add .visible when it enters the viewport
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
