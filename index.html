@@ -22,6 +22,7 @@
       --mono:      'DM Mono', monospace;
       --serif:     'DM Serif Display', serif;
       --sans:      'DM Sans', sans-serif;
+      --hero-width: 35%;
     }
 
     html { scroll-behavior: smooth; }
@@ -49,121 +50,6 @@
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
-
-    /* ── Nav ───────────────────────────────────────────────────── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.25rem 4rem;
-      background: rgba(10,10,10,0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-logo {
-      font-family: var(--mono);
-      font-size: 0.8rem;
-      color: var(--accent);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--accent); }
-
-    /* ── Hero ──────────────────────────────────────────────────── */
-    #hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      padding: 8rem 4rem 4rem;
-      gap: 4rem;
-      position: relative;
-    }
-
-    /* Diagonal accent line */
-    #hero::after {
-      content: '';
-      position: absolute;
-      top: 20%;
-      right: 0;
-      width: 1px;
-      height: 60%;
-      background: linear-gradient(to bottom, transparent, var(--accent), transparent);
-      opacity: 0.3;
-    }
-
-    .hero-text { position: relative; z-index: 1; }
-
-    .hero-label {
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1.5rem;
-      opacity: 0;
-      animation: fadeUp 0.6s 0.1s forwards;
-    }
-
-    .hero-name {
-      font-family: var(--serif);
-      font-size: clamp(2.8rem, 5vw, 4.5rem);
-      line-height: 1.1;
-      color: var(--text);
-      margin-bottom: 1rem;
-      opacity: 0;
-      animation: fadeUp 0.6s 0.2s forwards;
-    }
-
-    .hero-name span { color: var(--accent); }
-
-    .hero-title {
-      font-family: var(--mono);
-      font-size: 0.85rem;
-      color: var(--muted);
-      letter-spacing: 0.05em;
-      margin-bottom: 2rem;
-      opacity: 0;
-      animation: fadeUp 0.6s 0.3s forwards;
-    }
-
-    .hero-desc {
-      font-size: 1rem;
-      color: var(--muted);
-      max-width: 460px;
-      line-height: 1.8;
-      margin-bottom: 2.5rem;
-      opacity: 0;
-      animation: fadeUp 0.6s 0.4s forwards;
-    }
-
-    .hero-cta {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      opacity: 0;
-      animation: fadeUp 0.6s 0.5s forwards;
-    }
 
     .btn {
       display: inline-block;
@@ -199,214 +85,331 @@
       color: var(--accent);
     }
 
-    /* Hero photo */
-    .hero-photo {
-      position: relative;
+    /* ── Fixed sidebar (Strata-style header) ───────────────────── */
+    .intro-hero {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: var(--hero-width);
+      height: 100vh;
+      z-index: 2;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      opacity: 0;
-      animation: fadeIn 0.8s 0.6s forwards;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding: 4em 3em 3em;
+      text-align: right;
+      overflow: hidden;
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      color: var(--muted);
     }
 
-    .hero-photo::before {
+    .intro-hero::after {
       content: '';
       position: absolute;
-      width: 320px;
-      height: 320px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,200,160,0.12) 0%, transparent 70%);
+      top: 15%;
+      right: 0;
+      width: 1px;
+      height: 70%;
+      background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+      opacity: 0.35;
+      pointer-events: none;
     }
 
-    .hero-photo img {
-      width: 260px;
-      height: 260px;
+    .scroll-main {
+      margin-left: var(--hero-width);
+      width: calc(100% - var(--hero-width));
+      max-width: 54em;
+      padding: 5em 4em 4em;
+      min-height: 100vh;
+      position: relative;
+      z-index: 1;
+      background: var(--bg);
+    }
+
+    .intro-hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 85% 40%, rgba(0, 200, 160, 0.12) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 70% at 20% 80%, rgba(0, 95, 75, 0.08) 0%, transparent 50%),
+        linear-gradient(165deg, var(--bg) 0%, var(--surface) 45%, #0d1210 100%);
+    }
+
+    .intro-hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 48px 48px;
+      opacity: 0.35;
+      mask-image: radial-gradient(ellipse 90% 80% at 70% 50%, black 20%, transparent 75%);
+    }
+
+    .intro-hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to left, transparent 0%, var(--surface) 92%);
+    }
+
+    .intro-hero > * { flex-shrink: 0; width: 100%; }
+
+    .intro-hero-inner {
+      position: relative;
+      z-index: 1;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      margin-bottom: 2em;
+    }
+
+    .intro-photo {
+      width: 6.25em;
+      height: 6.25em;
       border-radius: 50%;
       object-fit: cover;
       border: 2px solid var(--accent);
-      position: relative;
-      z-index: 1;
-      filter: grayscale(20%);
+      margin: 0 0 1em 0;
+      box-shadow: 0 0 40px rgba(0, 200, 160, 0.15);
     }
 
-    /* Placeholder avatar when no image */
-    .avatar-placeholder {
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      border: 2px solid var(--accent);
-      background: var(--surface);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    .avatar-placeholder svg {
-      width: 100px;
-      height: 100px;
-      opacity: 0.3;
-    }
-
-    /* ── Section base ──────────────────────────────────────────── */
-    section {
-      padding: 6rem 4rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    section + section { border-top: 1px solid var(--border); }
-
-    .section-label {
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
-    }
-
-    .section-heading {
-      font-family: var(--serif);
-      font-size: clamp(1.8rem, 3vw, 2.8rem);
-      margin-bottom: 3rem;
+    .intro-name {
+      font-family: var(--sans);
+      font-size: 1.35em;
+      line-height: 1.75em;
+      font-weight: 400;
       color: var(--text);
+      margin: 0 0 0.25em 0;
     }
 
-    /* ── Skills ────────────────────────────────────────────────── */
-    #skills { background: var(--surface); }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .skill-card {
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 1.75rem;
-      background: var(--bg);
-      transition: border-color 0.25s, transform 0.25s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .skill-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 3px;
-      height: 0;
-      background: var(--accent);
-      transition: height 0.3s;
-    }
-
-    .skill-card:hover::before { height: 100%; }
-    .skill-card:hover { border-color: var(--accent2); transform: translateY(-2px); }
-
-    .skill-icon {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
-    }
-
-    .skill-name {
-      font-size: 1rem;
-      font-weight: 500;
-      margin-bottom: 0.5rem;
-      color: var(--text);
-    }
-
-    .skill-desc {
-      font-size: 0.85rem;
+    .intro-role {
+      font-size: 0.95em;
       color: var(--muted);
+      margin: 0 0 0.75em 0;
       line-height: 1.6;
     }
 
-    /* ── Project ───────────────────────────────────────────────── */
-    #project { background: var(--bg); }
-
-    .project-card {
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      overflow: hidden;
-      background: var(--surface);
-    }
-
-    .project-header {
-      padding: 2.5rem;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 2rem;
-    }
-
-    .project-badge {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: #000;
-      background: var(--accent);
-      padding: 0.3rem 0.75rem;
-      border-radius: 2px;
-      white-space: nowrap;
-    }
-
-    .project-title {
-      font-family: var(--serif);
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .project-subtitle {
-      font-family: var(--mono);
-      font-size: 0.75rem;
+    .intro-keywords {
+      font-size: 0.85em;
+      line-height: 1.65;
       color: var(--muted);
-      letter-spacing: 0.05em;
+      margin: 0;
     }
 
-    .project-body {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
+    .intro-cert {
+      height: 72px;
+      width: auto;
+      margin-top: 1.25em;
+      border-radius: 4px;
+      filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.45));
     }
 
-    .project-section {
-      padding: 2rem 2.5rem;
-      border-right: 1px solid var(--border);
+    .sidebar-nav {
+      list-style: none;
+      margin-top: 1.5em;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35em;
+      align-items: flex-end;
     }
 
-    .project-section:last-child { border-right: none; }
-    .project-section:nth-child(n+3) { border-top: 1px solid var(--border); }
-
-    .project-section-label {
+    .sidebar-nav a {
       font-family: var(--mono);
       font-size: 0.65rem;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
     }
 
-    .project-section p {
-      font-size: 0.9rem;
+    .sidebar-nav a:hover { color: var(--accent); }
+
+    .intro-hero-footer {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      text-align: right;
+    }
+
+    .intro-social-label {
+      font-size: 0.8em;
+      color: var(--muted);
+      margin-bottom: 0.75em;
+    }
+
+    .intro-social {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.5em;
+      margin-bottom: 1em;
+    }
+
+    .intro-social a {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(232, 232, 232, 0.45);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--border);
+      padding-bottom: 0.15em;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .intro-social a:hover {
+      color: var(--accent);
+      border-bottom-color: transparent;
+    }
+
+    .intro-copyright {
+      font-size: 0.8em;
+      color: rgba(232, 232, 232, 0.35);
+      line-height: 1.5;
+    }
+
+    /* ── Main content sections (Strata-style) ──────────────────── */
+    .scroll-main > section {
+      border-top: solid 2px var(--border);
+      margin: 4em 0 0 0;
+      padding: 4em 0 0 0;
+    }
+
+    .scroll-main > section:first-child {
+      border-top: 0;
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    .block-title {
+      font-family: var(--serif);
+      font-size: 1.5em;
+      line-height: 1.5em;
+      color: var(--text);
+      margin: 0 0 1em 0;
+      font-weight: 400;
+    }
+
+    .block-title--major {
+      font-size: clamp(1.75rem, 2.5vw, 2.25rem);
+      margin-bottom: 1.25em;
+    }
+
+    .block-subtitle {
+      font-size: 1.1em;
+      color: var(--text);
+      margin: 2em 0 0.75em 0;
+      font-weight: 500;
+    }
+
+    .content-block p {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.75em;
+      margin: 0 0 1.5em 0;
+    }
+
+    .content-block p:last-child { margin-bottom: 0; }
+
+    .topic-block {
+      margin-bottom: 2.5em;
+    }
+
+    .topic-block:last-child { margin-bottom: 0; }
+
+    .topic-block h3 {
+      font-size: 1.15em;
+      color: var(--text);
+      margin: 0 0 0.65em 0;
+      font-weight: 500;
+    }
+
+    .topic-block p {
+      font-size: 0.95em;
       color: var(--muted);
       line-height: 1.7;
+      margin: 0;
     }
 
-    /* Component tags */
+    .about-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2em;
+    }
+
+    .about-cta .btn-primary {
+      box-shadow: 0 0 24px rgba(0, 200, 160, 0.25);
+    }
+
+    /* Work experience */
+    .work-item {
+      margin: 0 0 2.5em 0;
+      padding-bottom: 2.5em;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .work-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .work-item h3 {
+      font-size: 1.1em;
+      color: var(--text);
+      margin: 0 0 0.35em 0;
+      font-weight: 500;
+    }
+
+    .work-item h4 {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      margin: 0 0 1em 0;
+      font-weight: 500;
+    }
+
+    .work-item p,
+    .work-item li {
+      font-size: 0.95em;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .work-item ul {
+      list-style: none;
+      margin: 1em 0 0 0;
+      padding: 0;
+    }
+
+    .work-item li {
+      padding: 0.45em 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 0.75em;
+    }
+
+    .work-item li:last-child { border-bottom: none; }
+
+    .work-item li::before {
+      content: '→';
+      color: var(--accent);
+      font-family: var(--mono);
+      flex-shrink: 0;
+    }
+
     .tag-list {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
-      margin-top: 0.75rem;
+      margin-top: 1em;
     }
 
     .tag {
@@ -418,180 +421,85 @@
       color: var(--muted);
       padding: 0.25rem 0.6rem;
       border-radius: 2px;
-      transition: all 0.2s;
     }
 
-    .tag:hover { border-color: var(--accent); color: var(--accent); }
-
-    /* Decision rows */
-    .decision-list { list-style: none; margin-top: 0.5rem; }
-
-    .decision-list li {
-      font-size: 0.85rem;
-      color: var(--muted);
-      padding: 0.6rem 0;
-      border-bottom: 1px solid var(--border);
+    /* Certifications */
+    .cert-showcase {
       display: flex;
-      gap: 0.75rem;
-      line-height: 1.5;
+      flex-wrap: wrap;
+      gap: 2em;
+      align-items: flex-start;
+      margin-top: 1em;
     }
 
-    .decision-list li:last-child { border-bottom: none; }
-
-    .decision-list li::before {
-      content: '→';
-      color: var(--accent);
-      font-family: var(--mono);
-      flex-shrink: 0;
-    }
-
-    /* Flow pills */
-    .flow-list { list-style: none; margin-top: 0.5rem; }
-
-    .flow-list li {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      color: var(--text);
-      padding: 0.5rem 0.75rem;
-      margin-bottom: 0.4rem;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      letter-spacing: 0.04em;
-    }
-
-    /* ── Certs ─────────────────────────────────────────────────── */
-    #certifications { background: var(--surface); }
-
-    .cert-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .cert-card {
-      border: 1px solid var(--border);
+    .cert-showcase img {
+      height: 110px;
+      width: auto;
       border-radius: 4px;
-      padding: 1.75rem;
-      background: var(--bg);
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
+      filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.4));
     }
 
-    .cert-status {
+    .cert-list {
+      list-style: none;
+      flex: 1;
+      min-width: 220px;
+    }
+
+    .cert-list li {
+      padding: 0.85em 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95em;
+      color: var(--muted);
+    }
+
+    .cert-list li:last-child { border-bottom: none; }
+
+    .cert-list strong {
+      display: block;
+      color: var(--text);
+      font-weight: 500;
+      margin-bottom: 0.2em;
+    }
+
+    .cert-list .status {
       font-family: var(--mono);
       font-size: 0.65rem;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
+      color: var(--accent);
     }
 
-    .cert-status.in-progress { color: #f5a623; }
-    .cert-status.complete { color: var(--accent); }
+    .cert-list .status.in-progress { color: #f5a623; }
 
-    .cert-name {
-      font-size: 1rem;
+    /* Contact */
+    .contact-list {
+      list-style: none;
+      margin-top: 1.5em;
+    }
+
+    .contact-list li {
+      padding: 0.6em 0;
+      font-size: 0.95em;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .contact-list li:last-child { border-bottom: none; }
+
+    .contact-list strong {
+      color: var(--text);
       font-weight: 500;
-      color: var(--text);
+      margin-right: 0.35em;
     }
 
-    .cert-body {
-      font-size: 0.82rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .cert-bar {
-      height: 2px;
-      background: var(--border);
-      border-radius: 1px;
-      margin-top: 0.5rem;
-      overflow: hidden;
-    }
-
-    .cert-bar-fill {
-      height: 100%;
-      background: #f5a623;
-      border-radius: 1px;
-      animation: barGrow 1s 0.5s both;
-    }
-
-    @keyframes barGrow {
-      from { width: 0; }
-    }
-
-    /* ── Contact ───────────────────────────────────────────────── */
-    #contact { background: var(--bg); }
-
-    .contact-inner {
-      display: flex;
-      gap: 4rem;
-      align-items: flex-start;
-    }
-
-    .contact-text { flex: 1; }
-
-    .contact-text p {
-      color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.8;
-      max-width: 440px;
-    }
-
-    .contact-links {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .contact-link {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 1.25rem 1.5rem;
-      border: 1px solid var(--border);
-      border-radius: 4px;
+    .contact-list a {
+      color: var(--accent);
       text-decoration: none;
-      color: var(--text);
-      background: var(--surface);
-      transition: all 0.25s;
+      border-bottom: 1px dotted var(--accent2);
     }
 
-    .contact-link:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateX(4px);
-    }
-
-    .contact-link-label {
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
-      display: block;
-      margin-bottom: 0.1rem;
-    }
-
-    .contact-link-value {
-      font-size: 0.9rem;
-    }
-
-    /* ── Footer ────────────────────────────────────────────────── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 1.5rem 4rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    footer p {
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      color: var(--muted);
-      letter-spacing: 0.08em;
+    .contact-list a:hover {
+      border-bottom-color: transparent;
     }
 
     /* ── Animations ────────────────────────────────────────────── */
@@ -619,239 +527,176 @@
 
     /* ── Responsive ────────────────────────────────────────────── */
     @media (max-width: 900px) {
-      nav { padding: 1rem 2rem; }
-      #hero { grid-template-columns: 1fr; padding: 7rem 2rem 3rem; text-align: center; }
-      #hero::after { display: none; }
-      .hero-photo { order: -1; }
-      .hero-cta { justify-content: center; }
-      .hero-desc { max-width: 100%; }
-      section { padding: 4rem 2rem; }
-      .project-body { grid-template-columns: 1fr; }
-      .project-section { border-right: none; border-top: 1px solid var(--border); }
-      .project-section:first-child { border-top: none; }
-      .contact-inner { flex-direction: column; gap: 2rem; }
-      footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem 2rem; }
-      .nav-links { gap: 1.5rem; }
+      :root { --hero-width: 0; }
+      .intro-hero {
+        position: relative;
+        width: 100%;
+        height: auto;
+        align-items: center;
+        text-align: center;
+        padding: 3em 2em 2em;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+      .intro-hero::after { display: none; }
+      .intro-hero-inner { align-items: center; margin-bottom: 1.5em; }
+      .sidebar-nav { align-items: center; }
+      .intro-hero-footer { text-align: center; }
+      .intro-social { justify-content: center; flex-wrap: wrap; }
+      .scroll-main {
+        margin-left: 0;
+        width: 100%;
+        max-width: none;
+        padding: 3em 2em;
+      }
+      .about-cta { justify-content: center; }
+      .cert-showcase { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <span class="nav-logo">GMB · Power Platform</span>
-    <ul class="nav-links">
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#project">Project</a></li>
-      <li><a href="#certifications">Certs</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-text">
-      <p class="hero-label">// Microsoft Power Platform Developer</p>
-      <h1 class="hero-name">Gurdip<br /><span>Mikey Bath</span></h1>
-      <p class="hero-title">Dataverse · Power Automate · Model-Driven Apps · Canvas Apps</p>
-      <p class="hero-desc">
-        Building production-grade enterprise solutions on the Microsoft Power Platform.
-        Every architecture decision is made with a reason, a trade-off, and a failure mode in mind.
+  <!-- Fixed sidebar -->
+  <aside class="intro-hero" id="header" aria-label="Introduction">
+    <div class="intro-hero-bg" aria-hidden="true"></div>
+    <div class="intro-hero-inner">
+      <img class="intro-photo" src="photo.jpg" alt="Gurdip Mikey Bath" />
+      <h1 class="intro-name">Gurdip Mikey Bath</h1>
+      <p class="intro-role">Microsoft Power Platform Developer</p>
+      <p class="intro-keywords">
+        Power Apps &nbsp;||&nbsp; Power Automate &nbsp;||&nbsp; SharePoint Application Lifecycle Management
       </p>
-      <div class="hero-cta">
-        <a href="#project" class="btn btn-primary">View Live Project</a>
-        <a href="#contact" class="btn btn-ghost">Get In Touch</a>
-      </div>
+      <img
+        class="intro-cert"
+        src="powerplatformfundamental.jpg"
+        alt="Microsoft Certified: Power Platform Fundamentals (PL-900)"
+      />
+      <ul class="sidebar-nav">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </div>
-    <div class="hero-photo">
-      <img src="photo.jpg" alt="Gurdip Mikey Bath" />
-    </div>
-  </section>
+    <footer class="intro-hero-footer">
+      <p class="intro-social-label">Follow My Social Networks</p>
+      <div class="intro-social">
+        <a href="https://github.com/gurdip-bath" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/gurdip-mikey-b-07aa12292/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:bathgurdip1@gmail.com">Email</a>
+      </div>
+      <p class="intro-copyright">© 2026 Gurdip Mikey Bath<br />West Midlands, UK</p>
+    </footer>
+  </aside>
 
-  <!-- SKILLS -->
-  <section id="skills">
-    <p class="section-label reveal">// Core Competencies</p>
-    <h2 class="section-heading reveal">What I Build With</h2>
-    <div class="skills-grid">
+  <!-- Scrollable main column -->
+  <main id="main" class="scroll-main">
 
-      <div class="skill-card reveal">
-        <p class="skill-icon">01 · Data Layer</p>
-        <p class="skill-name">Microsoft Dataverse</p>
-        <p class="skill-desc">Relational table design with lookup columns, OData filtering, star-schema architecture, and column security profiles for PII compliance.</p>
+    <section id="about" class="content-block">
+      <h2 class="block-title block-title--major">About Me</h2>
+      <p>
+        Microsoft Power Platform Developer with 12+ months building production-grade enterprise solutions for commercial clients — Dataverse schema design, security modelling, Power Automate, model-driven and canvas apps, and ALM via managed solutions.
+      </p>
+      <p>
+        Recent delivery: an Employee Lifecycle Hub for UK real estate (onboarding, transfers, offboarding, automated reminders) — cutting onboarding admin time and reducing missed tasks through idempotent flows and role-based access at the data layer.
+      </p>
+      <div class="about-cta">
+        <a href="Gurdip_Bath_CV_Final.pdf" class="btn btn-primary" target="_blank" rel="noopener">View My CV</a>
+        <a href="Gurdip_Bath_CV_Final.docx" class="btn btn-ghost" download="Gurdip_Bath_CV_Final.docx">Download My CV</a>
+        <a href="#experience" class="btn btn-ghost">View Live Project</a>
+      </div>
+    </section>
+
+    <section id="skills" class="content-block">
+      <h2 class="block-title block-title--major">Power Apps, Canvas Apps and Power Automate</h2>
+      <div class="topic-block">
+        <h3>Canvas &amp; Model-Driven Apps</h3>
+        <p>Model-driven apps for HR personas with role-based views, forms, and sitemaps. Canvas apps for line managers with RBAC via <code style="color:var(--accent);font-family:var(--mono);font-size:0.9em">User().Email</code>, delegation-safe queries, and responsive layout.</p>
+      </div>
+      <div class="topic-block">
+        <h3>Power Automate</h3>
+        <p>Production flows with trigger gates, idempotency checks, per-iteration error handling, exponential backoff retry, and environment variable portability across environments.</p>
       </div>
 
-      <div class="skill-card reveal">
-        <p class="skill-icon">02 · Automation</p>
-        <p class="skill-name">Power Automate</p>
-        <p class="skill-desc">Production flows with trigger gates, idempotency checks, per-iteration error handling, exponential backoff retry, and environment variable portability.</p>
-      </div>
+      <h2 class="block-title">Power Platform Database: Dataverse and SharePoint</h2>
+      <p>
+        Relational table design with lookup columns, OData filtering, star-schema architecture, column security profiles for PII compliance, and SharePoint Online integration within ALM-managed solution deployments.
+      </p>
 
-      <div class="skill-card reveal">
-        <p class="skill-icon">03 · Enterprise Apps</p>
-        <p class="skill-name">Model-Driven Apps</p>
-        <p class="skill-desc">Role-based views, form configuration, Business Unit structure, and sitemap design for multi-persona HR workflows.</p>
-      </div>
+      <h2 class="block-title">Power BI &amp; Enterprise Reporting</h2>
+      <p>
+        Import-mode modelling with Dataverse GUIDs as join keys, DAX measures, and model-driven embedded reports scoped to HR Manager and HRBP personas.
+      </p>
 
-      <div class="skill-card reveal">
-        <p class="skill-icon">04 · Line Manager UX</p>
-        <p class="skill-name">Canvas Apps</p>
-        <p class="skill-desc">RBAC via <code style="color:var(--accent);font-family:var(--mono);font-size:0.8em">User().Email</code>, direct report filtering, delegation-safe queries, and responsive layout for non-HR personas.</p>
-      </div>
+      <h2 class="block-title">ALM, Managed Solutions &amp; Security</h2>
+      <p>
+        DEV → PROD promotion via managed solutions, publisher prefix discipline, connection references, environment variables, custom security roles, and column security profiles.
+      </p>
+    </section>
 
-      <div class="skill-card reveal">
-        <p class="skill-icon">05 · Reporting</p>
-        <p class="skill-name">Power BI</p>
-        <p class="skill-desc">Import mode, star-schema modelling with Dataverse GUIDs as join keys, DAX measures, and MDA-embedded reports scoped to HR Manager and HRBP personas.</p>
-      </div>
+    <section id="experience" class="content-block">
+      <h2 class="block-title block-title--major">Work Experience</h2>
 
-      <div class="skill-card reveal">
-        <p class="skill-icon">06 · Lifecycle</p>
-        <p class="skill-name">ALM · Managed Solutions</p>
-        <p class="skill-desc">DEV → PROD promotion via managed solutions, publisher prefix discipline, connection reference management, and environment variable separation.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- PROJECT -->
-  <section id="project">
-    <p class="section-label reveal">// Live Client Engagement</p>
-    <h2 class="section-heading reveal">Featured Project</h2>
-
-    <div class="project-card reveal">
-
-      <div class="project-header">
-        <div>
-          <h3 class="project-title">Realty Enterprise</h3>
-          <p class="project-subtitle">Employee Lifecycle Hub · UK Real Estate · Microsoft Power Platform</p>
-        </div>
-        <span class="project-badge">Live Client</span>
-      </div>
-
-      <div class="project-body">
-
-        <!-- What it is -->
-        <div class="project-section">
-          <p class="project-section-label">// What It Is</p>
-          <p>
-            A production-grade Employee Lifecycle Hub built for a UK real estate company.
-            Manages the full employee journey — onboarding, internal transfers, and offboarding —
-            across HR Admin, HR Team Leader, HR Manager, and HR Business Partner personas.
-          </p>
-          <div class="tag-list">
-            <span class="tag">Dataverse</span>
-            <span class="tag">Power Automate</span>
-            <span class="tag">Model-Driven App</span>
-            <span class="tag">Canvas App</span>
-            <span class="tag">Power BI</span>
-            <span class="tag">Managed Solution</span>
-          </div>
-        </div>
-
-        <!-- Architecture -->
-        <div class="project-section">
-          <p class="project-section-label">// Architecture Decisions</p>
-          <ul class="decision-list">
-            <li>Dataverse over SharePoint — relational integrity, lookup enforcement, and RBAC at the data layer</li>
-            <li>Model-Driven App as primary HR interface — Dataverse-native, zero custom form code</li>
-            <li>Canvas App for line managers — filtered to direct reports only via <code style="color:var(--accent);font-family:var(--mono);font-size:0.8em">User().Email</code></li>
-            <li>Import mode in Power BI — consistent performance over DirectQuery for scheduled reporting</li>
-            <li>Managed solutions for ALM — DEV changes never touch PROD directly</li>
-          </ul>
-        </div>
-
-        <!-- Flows -->
-        <div class="project-section">
-          <p class="project-section-label">// Automated Flows</p>
-          <ul class="flow-list">
-            <li>Generate Onboarding Tasks</li>
-            <li>Generate Offboarding Tasks</li>
-            <li>Stage-Change Notification</li>
-            <li>Overdue Case Reminder (Scheduled)</li>
-          </ul>
-          <p style="margin-top:1rem;font-size:0.82rem;color:var(--muted);">
-            Every flow includes idempotency guards, per-iteration Try/Catch scoping,
-            exponential backoff retry, and PII-compliant Secure Inputs/Outputs on email actions.
-          </p>
-        </div>
-
-        <!-- Security -->
-        <div class="project-section">
-          <p class="project-section-label">// Security Model</p>
-          <ul class="decision-list">
-            <li>Four custom security roles scoped by Business Unit (HR and Finance child BUs)</li>
-            <li>Two Column Security Profiles restricting salary and sensitive HR fields</li>
-            <li>Secure Inputs and Outputs enabled on all email actions containing PII — UK GDPR compliant</li>
-            <li>Environment variables for all recipient addresses — no hardcoded values across environments</li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- CERTIFICATIONS -->
-  <section id="certifications">
-    <p class="section-label reveal">// Professional Development</p>
-    <h2 class="section-heading reveal">Certifications</h2>
-    <div class="cert-grid">
-
-      <div class="cert-card reveal">
-        <span class="cert-status in-progress">● In Progress</span>
-        <p class="cert-name">PL-900</p>
-        <p class="cert-body">Microsoft Power Platform Fundamentals — establishing the certified foundation across Power Apps, Power Automate, Power BI, and Power Virtual Agents.</p>
-        <div class="cert-bar"><div class="cert-bar-fill" style="width:75%"></div></div>
-      </div>
-
-      <div class="cert-card reveal">
-        <span class="cert-status in-progress">● In Progress</span>
-        <p class="cert-name">PL-200</p>
-        <p class="cert-body">Microsoft Power Platform Functional Consultant — solution design, Dataverse modelling, security configuration, and ALM for enterprise deployments.</p>
-        <div class="cert-bar"><div class="cert-bar-fill" style="width:30%"></div></div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <p class="section-label reveal">// Let's Talk</p>
-    <h2 class="section-heading reveal">Get In Touch</h2>
-    <div class="contact-inner reveal">
-      <div class="contact-text">
+      <article class="work-item reveal">
+        <h3>Realty Enterprise · UK Real Estate</h3>
+        <h4>Power Platform Developer — Employee Lifecycle Hub (Live Client)</h4>
         <p>
-          I'm actively looking for Power Platform roles in the West Midlands / Birmingham area
-          from July 2026. If you're hiring or want to discuss what I've built, reach out directly.
+          Built an Employee Lifecycle Hub supporting onboarding, transfers, offboarding, reminders, and notifications — cutting onboarding admin time by 5 hours per week and reducing missed tasks by 50% through automated reminders and state-change notifications.
         </p>
-      </div>
-      <div class="contact-links">
-        <a href="https://www.linkedin.com/in/gurdip-mikey-b-07aa12292/" target="_blank" rel="noopener" class="contact-link">
-          <div>
-            <span class="contact-link-label">LinkedIn</span>
-            <span class="contact-link-value">Gurdip Mikey Bath</span>
-          </div>
-        </a>
-        <a href="mailto:bathgurdip1@gmail.com" class="contact-link">
-          <div>
-            <span class="contact-link-label">Email</span>
-            <span class="contact-link-value">bathgurdip1@gmail.com</span>
-          </div>
-        </a>
-        <a href="https://github.com/gurdip-bath" target="_blank" rel="noopener" class="contact-link">
-          <div>
-            <span class="contact-link-label">GitHub</span>
-            <span class="contact-link-value">github.com/gurdip-bath</span>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
+        <ul>
+          <li>Requirements capture with business owner and HR stakeholders</li>
+          <li>Dataverse data model, security roles, and PII-safe column security</li>
+          <li>Model-driven app for HR; canvas app for line managers (direct reports only)</li>
+          <li>Power Automate flows: onboarding/offboarding tasks, stage-change alerts, overdue reminders</li>
+          <li>Managed solution ALM with environment variables and connection references</li>
+        </ul>
+        <div class="tag-list">
+          <span class="tag">Dataverse</span>
+          <span class="tag">Power Automate</span>
+          <span class="tag">Model-Driven App</span>
+          <span class="tag">Canvas App</span>
+          <span class="tag">Power BI</span>
+          <span class="tag">Managed Solution</span>
+        </div>
+      </article>
+    </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2026 Gurdip Mikey Bath</p>
-    <p>Microsoft Power Platform · West Midlands, UK</p>
-  </footer>
+    <section id="certifications" class="content-block">
+      <h2 class="block-title block-title--major">Certifications and Training</h2>
+      <h3 class="block-subtitle">Microsoft Certifications</h3>
+      <div class="cert-showcase reveal">
+        <img src="powerplatformfundamental.jpg" alt="Microsoft Certified: Power Platform Fundamentals" />
+        <ul class="cert-list">
+          <li>
+            <span class="status">Completed May 2026</span>
+            <strong>PL-900 — Microsoft Power Platform Fundamentals</strong>
+            Power Apps, Power Automate, Power BI, and platform foundations.
+          </li>
+          <li>
+            <span class="status in-progress">In Progress</span>
+            <strong>PL-200 — Power Platform Functional Consultant</strong>
+            Solution design, Dataverse modelling, security, and ALM for enterprise deployments.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact" class="content-block">
+      <h2 class="block-title block-title--major">Contact Me</h2>
+      <p>
+        I'm actively looking for Power Platform roles in the West Midlands / Birmingham area.
+        If you're hiring or want to discuss what I've built, reach out directly. Follow me on LinkedIn for opportunities.
+      </p>
+      <ul class="contact-list">
+        <li><strong>Location</strong> West Midlands, United Kingdom</li>
+        <li><strong>Email</strong> <a href="mailto:bathgurdip1@gmail.com">bathgurdip1@gmail.com</a></li>
+        <li><strong>LinkedIn</strong> <a href="https://www.linkedin.com/in/gurdip-mikey-b-07aa12292/" target="_blank" rel="noopener">Gurdip Mikey Bath</a></li>
+        <li><strong>GitHub</strong> <a href="https://github.com/gurdip-bath" target="_blank" rel="noopener">github.com/gurdip-bath</a></li>
+      </ul>
+    </section>
+
+  </main>
 
   <!-- Scroll reveal script -->
   <script>
