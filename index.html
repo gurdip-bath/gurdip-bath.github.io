@@ -526,6 +526,120 @@
       border-bottom-color: transparent;
     }
 
+    /* Portfolio slideshow (Jay-style) */
+    .portfolio-project {
+      margin-top: 1.5em;
+    }
+
+    .portfolio-project h3 {
+      font-size: 1.1em;
+      color: var(--text);
+      margin: 0 0 0.5em 0;
+      font-weight: 500;
+    }
+
+    .portfolio-project .project-intro {
+      font-size: 0.95em;
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0 0 1.5em 0;
+    }
+
+    .slideshow-container {
+      position: relative;
+      max-width: 100%;
+      margin: 0 auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .portfolio-slide {
+      display: none;
+      padding: 1rem 1rem 1.25rem;
+      text-align: center;
+    }
+
+    .portfolio-slide.is-active {
+      display: block;
+    }
+
+    .portfolio-slide img {
+      max-width: 100%;
+      width: auto;
+      max-height: 420px;
+      height: auto;
+      border-radius: 2px;
+      border: 1px solid var(--border);
+      cursor: zoom-in;
+    }
+
+    .slide-caption {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      margin: 1em 0 0 0;
+      text-align: center;
+    }
+
+    .slide-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      background: rgba(10, 10, 10, 0.85);
+      color: var(--text);
+      font-size: 1.5rem;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 2;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+
+    .slide-nav:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: rgba(0, 200, 160, 0.12);
+    }
+
+    .slide-nav:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .slide-prev { left: 0.75rem; }
+    .slide-next { right: 0.75rem; }
+
+    .slide-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0 1rem 1rem;
+    }
+
+    .slide-dot {
+      width: 8px;
+      height: 8px;
+      padding: 0;
+      border: none;
+      border-radius: 50%;
+      background: var(--border);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .slide-dot.is-active,
+    .slide-dot:hover {
+      background: var(--accent);
+      transform: scale(1.15);
+    }
+
     /* ── Animations ────────────────────────────────────────────── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(16px); }
@@ -598,6 +712,7 @@
       <ul class="sidebar-nav">
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
+        <li><a href="#model-driven-apps">Model-Driven Apps</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#certifications">Certifications</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -634,7 +749,7 @@
       <div class="about-cta">
         <a href="Gurdip_Bath_CV_Final.pdf" class="btn btn-primary" target="_blank" rel="noopener">View My CV</a>
         <a href="Gurdip_Bath_CV_Final.docx" class="btn btn-ghost" download="Gurdip_Bath_CV_Final.docx">Download My CV</a>
-        <a href="#experience" class="btn btn-ghost">View Live Project</a>
+        <a href="#model-driven-apps" class="btn btn-ghost">View Live Project</a>
       </div>
     </section>
 
@@ -663,6 +778,47 @@
       <p>
         DEV → PROD promotion via managed solutions, publisher prefix discipline, connection references, environment variables, custom security roles, and column security profiles.
       </p>
+    </section>
+
+    <section id="model-driven-apps" class="content-block">
+      <h2 class="block-title block-title--major">Model-Driven Apps</h2>
+      <div class="portfolio-project reveal">
+        <h3>Employee Lifecycle Hub — HR Portal</h3>
+        <p class="project-intro">
+          Model-driven app on Dataverse for lifecycle cases, onboarding/offboarding workflows, and task management.
+          Use the arrows to browse screenshots from the live solution.
+        </p>
+
+        <div class="slideshow-container" data-slideshow="mda">
+          <div class="portfolio-slide mda-slide is-active">
+            <a href="images/portfolio/model-driven/01-lifecycle-case-view.png?v=2" target="_blank" rel="noopener">
+              <img src="images/portfolio/model-driven/01-lifecycle-case-view.png?v=2" alt="Lifecycle cases list view in model-driven app" />
+            </a>
+            <p class="slide-caption">Lifecycle cases — main list view for HR users</p>
+          </div>
+          <div class="portfolio-slide mda-slide">
+            <a href="images/portfolio/model-driven/02-create-lifecycle-case.png" target="_blank" rel="noopener">
+              <img src="images/portfolio/model-driven/02-create-lifecycle-case.png" alt="Create new lifecycle case form" />
+            </a>
+            <p class="slide-caption">Create lifecycle case — guided HR intake form</p>
+          </div>
+          <div class="portfolio-slide mda-slide">
+            <a href="images/portfolio/model-driven/03-tasks-page.png" target="_blank" rel="noopener">
+              <img src="images/portfolio/model-driven/03-tasks-page.png" alt="Tasks generated on tasks page" />
+            </a>
+            <p class="slide-caption">Tasks page — onboarding tasks generated from case workflow</p>
+          </div>
+
+          <button type="button" class="slide-nav slide-prev" data-target="mda" aria-label="Previous screenshot">‹</button>
+          <button type="button" class="slide-nav slide-next" data-target="mda" aria-label="Next screenshot">›</button>
+        </div>
+
+        <div class="slide-dots" data-dots="mda" aria-hidden="true">
+          <button type="button" class="slide-dot is-active" data-target="mda" data-index="0" aria-label="Screenshot 1"></button>
+          <button type="button" class="slide-dot" data-target="mda" data-index="1" aria-label="Screenshot 2"></button>
+          <button type="button" class="slide-dot" data-target="mda" data-index="2" aria-label="Screenshot 3"></button>
+        </div>
+      </div>
     </section>
 
     <section id="experience" class="content-block">
@@ -727,14 +883,45 @@
 
   </main>
 
-  <!-- Scroll reveal script -->
+  <!-- Scroll reveal + portfolio slideshow -->
   <script>
-    // Observe each .reveal element and add .visible when it enters the viewport
     const observer = new IntersectionObserver(
       (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
       { threshold: 0.12 }
     );
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    const slideshowState = {};
+
+    function initSlideshow(id) {
+      const slides = [...document.querySelectorAll(`.${id}-slide`)];
+      const dots = [...document.querySelectorAll(`.slide-dot[data-target="${id}"]`)];
+      if (!slides.length) return;
+
+      slideshowState[id] = { index: 0, slides, dots };
+
+      function show(index) {
+        const n = slides.length;
+        const i = ((index % n) + n) % n;
+        slideshowState[id].index = i;
+        slides.forEach((s, j) => s.classList.toggle('is-active', j === i));
+        dots.forEach((d, j) => d.classList.toggle('is-active', j === i));
+      }
+
+      document.querySelectorAll(`.slide-prev[data-target="${id}"]`).forEach(btn => {
+        btn.addEventListener('click', () => show(slideshowState[id].index - 1));
+      });
+      document.querySelectorAll(`.slide-next[data-target="${id}"]`).forEach(btn => {
+        btn.addEventListener('click', () => show(slideshowState[id].index + 1));
+      });
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => show(Number(dot.dataset.index)));
+      });
+
+      show(0);
+    }
+
+    initSlideshow('mda');
   </script>
 
 </body>
