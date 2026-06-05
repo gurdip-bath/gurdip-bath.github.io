@@ -360,6 +360,93 @@
       margin: 0;
     }
 
+    /* Skills matrix (quick-skim) */
+    .skills-matrix {
+      margin-top: 1.25em;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--surface);
+    }
+
+    .skills-row {
+      display: grid;
+      grid-template-columns: minmax(200px, 240px) 1fr;
+      gap: 1.25rem;
+      padding: 1.25rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+
+    .skills-row:last-child { border-bottom: none; }
+
+    .skills-label {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      line-height: 1.4;
+      padding-top: 0.15rem;
+    }
+
+    .skills-details {
+      color: var(--muted);
+      font-size: 0.95em;
+      line-height: 1.7;
+    }
+
+    .skills-bullets {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .skills-bullets li {
+      display: flex;
+      gap: 0.65rem;
+      align-items: flex-start;
+      padding: 0.25rem 0;
+      border-bottom: 1px solid rgba(30, 30, 30, 0.65);
+    }
+
+    .skills-bullets li:last-child { border-bottom: none; }
+
+    .skills-bullets li::before {
+      content: '→';
+      color: var(--accent);
+      font-family: var(--mono);
+      flex-shrink: 0;
+      margin-top: 0.05rem;
+    }
+
+    .skills-chipline {
+      margin-top: 0.85rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .chip {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      background: var(--bg);
+    }
+
+    .chip--strong {
+      border-color: var(--accent2);
+      color: var(--accent);
+      background: rgba(0, 200, 160, 0.08);
+    }
+
     .about-cta {
       display: flex;
       flex-wrap: wrap;
@@ -702,7 +789,8 @@
       <h1 class="intro-name">Gurdip Mikey Bath</h1>
       <p class="intro-role">Microsoft Power Platform Developer</p>
       <p class="intro-keywords">
-        Power Apps &nbsp;||&nbsp; Power Automate &nbsp;||&nbsp; SharePoint Application Lifecycle Management
+        Power Apps (Model-Driven & Canvas) &nbsp;||&nbsp; Power Automate &nbsp;||<br> &nbsp; Application Lifecycle Management
+         &nbsp;||&nbsp; Dataverse & SharePoint &nbsp;||&nbsp; Power-BI 
       </p>
       <img
         class="intro-cert"
@@ -713,7 +801,6 @@
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#model-driven-apps">Model-Driven Apps</a></li>
-        <li><a href="#experience">Experience</a></li>
         <li><a href="#certifications">Certifications</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -741,10 +828,10 @@
     <section id="about" class="content-block">
       <h2 class="block-title block-title--major">About Me</h2>
       <p>
-        Microsoft Power Platform Developer with 12+ months building production-grade enterprise solutions for commercial clients — Dataverse schema design, security modelling, Power Automate, model-driven and canvas apps, and ALM via managed solutions.
+        Microsoft Power Platform Developer with 12+ months building production-grade enterprise solutions using the entire Power Platform Stack — Dataverse schema design, security modelling, Power Automate, model-driven and canvas apps, and ALM via managed solutions.
       </p>
       <p>
-        Recent delivery: an Employee Lifecycle Hub for UK real estate (onboarding, transfers, offboarding, automated reminders) — cutting onboarding admin time and reducing missed tasks through idempotent flows and role-based access at the data layer.
+        Recent delivery: An End to End HR Based Onboarding & Offboarding Solution Hub cutting onboarding admin time and reducing missed tasks through idempotent flows and role-based access at the data layer.
       </p>
       <div class="about-cta">
         <a href="Gurdip_Bath_CV_Final.pdf" class="btn btn-primary" target="_blank" rel="noopener">View My CV</a>
@@ -753,40 +840,15 @@
       </div>
     </section>
 
-    <section id="skills" class="content-block">
-      <h2 class="block-title block-title--major">Power Apps, Canvas Apps and Power Automate</h2>
-      <div class="topic-block">
-        <h3>Canvas &amp; Model-Driven Apps</h3>
-        <p>Model-driven apps for HR personas with role-based views, forms, and sitemaps. Canvas apps for line managers with RBAC via <code style="color:var(--accent);font-family:var(--mono);font-size:0.9em">User().Email</code>, delegation-safe queries, and responsive layout.</p>
-      </div>
-      <div class="topic-block">
-        <h3>Power Automate</h3>
-        <p>Production flows with trigger gates, idempotency checks, per-iteration error handling, exponential backoff retry, and environment variable portability across environments.</p>
-      </div>
-
-      <h2 class="block-title">Power Platform Database: Dataverse and SharePoint</h2>
-      <p>
-        Relational table design with lookup columns, OData filtering, star-schema architecture, column security profiles for PII compliance, and SharePoint Online integration within ALM-managed solution deployments.
-      </p>
-
-      <h2 class="block-title">Power BI &amp; Enterprise Reporting</h2>
-      <p>
-        Import-mode modelling with Dataverse GUIDs as join keys, DAX measures, and model-driven embedded reports scoped to HR Manager and HRBP personas.
-      </p>
-
-      <h2 class="block-title">ALM, Managed Solutions &amp; Security</h2>
-      <p>
-        DEV → PROD promotion via managed solutions, publisher prefix discipline, connection references, environment variables, custom security roles, and column security profiles.
-      </p>
-    </section>
 
     <section id="model-driven-apps" class="content-block">
-      <h2 class="block-title block-title--major">Model-Driven Apps</h2>
+      <h2 class="block-title block-title--major">Model-Driven Apps & Canvas Apps & Power Automate</h2>
       <div class="portfolio-project reveal">
         <h3>Employee Lifecycle Hub — HR Portal</h3>
         <p class="project-intro">
-          Model-driven app on Dataverse for lifecycle cases, onboarding/offboarding workflows, and task management.
+          Model-driven app for HR users and canvas app for line managers — lifecycle cases, onboarding/offboarding workflows, task management, and automated Outlook notifications.
           Use the arrows to browse screenshots from the live solution.
+          <br><br>Skills: Power Apps (Model-Driven &amp; Canvas), Power Automate, Dataverse, Power BI embedding, Outlook 365 integration
         </p>
 
         <div class="slideshow-container" data-slideshow="mda">
@@ -808,6 +870,30 @@
             </a>
             <p class="slide-caption">Tasks page — onboarding tasks generated from case workflow</p>
           </div>
+          <div class="portfolio-slide mda-slide">
+            <a href="images/portfolio/model-driven/04-outlook-email.png" target="_blank" rel="noopener">
+              <img src="images/portfolio/model-driven/04-outlook-email.png" alt="Outlook email notification from Power Automate workflow" />
+            </a>
+            <p class="slide-caption">Outlook email — automated notification from lifecycle workflow</p>
+          </div>
+          <div class="portfolio-slide mda-slide">
+            <a href="images/portfolio/canvas/01-canvas-homepage.png" target="_blank" rel="noopener">
+              <img src="images/portfolio/canvas/01-canvas-homepage.png" alt="Canvas app homepage for line managers" />
+            </a>
+            <p class="slide-caption">Canvas app — line manager homepage (direct reports only)</p>
+          </div>
+          <div class="portfolio-slide mda-slide">
+            <a href="images/portfolio/canvas/02-canvas-case-details.png" target="_blank" rel="noopener">
+              <img src="images/portfolio/canvas/02-canvas-case-details.png" alt="Canvas app case details view" />
+            </a>
+            <p class="slide-caption">Canvas app — lifecycle case details for line managers</p>
+          </div>
+          <div class="portfolio-slide mda-slide">
+            <a href="images/portfolio/canvas/03-canvas-task-list.png" target="_blank" rel="noopener">
+              <img src="images/portfolio/canvas/03-canvas-task-list.png" alt="Canvas app task list view" />
+            </a>
+            <p class="slide-caption">Canvas app — task list filtered to manager's team</p>
+          </div>
 
           <button type="button" class="slide-nav slide-prev" data-target="mda" aria-label="Previous screenshot">‹</button>
           <button type="button" class="slide-nav slide-next" data-target="mda" aria-label="Next screenshot">›</button>
@@ -817,35 +903,14 @@
           <button type="button" class="slide-dot is-active" data-target="mda" data-index="0" aria-label="Screenshot 1"></button>
           <button type="button" class="slide-dot" data-target="mda" data-index="1" aria-label="Screenshot 2"></button>
           <button type="button" class="slide-dot" data-target="mda" data-index="2" aria-label="Screenshot 3"></button>
+          <button type="button" class="slide-dot" data-target="mda" data-index="3" aria-label="Screenshot 4"></button>
+          <button type="button" class="slide-dot" data-target="mda" data-index="4" aria-label="Screenshot 5"></button>
+          <button type="button" class="slide-dot" data-target="mda" data-index="5" aria-label="Screenshot 6"></button>
+          <button type="button" class="slide-dot" data-target="mda" data-index="6" aria-label="Screenshot 7"></button>
         </div>
       </div>
     </section>
 
-    <section id="experience" class="content-block">
-      <h2 class="block-title block-title--major">Work Experience</h2>
-
-      <article class="work-item reveal">
-        <h4>Power Platform Developer — Employee Lifecycle Hub</h4>
-        <p>
-          Built an Employee Lifecycle Hub supporting onboarding, transfers, offboarding, reminders, and notifications — cutting onboarding admin time by 5 hours per week and reducing missed tasks by 50% through automated reminders and state-change notifications.
-        </p>
-        <ul>
-          <li>Requirements capture with business owner and HR stakeholders</li>
-          <li>Dataverse data model, security roles, and PII-safe column security</li>
-          <li>Model-driven app for HR; canvas app for line managers (direct reports only)</li>
-          <li>Power Automate flows: onboarding/offboarding tasks, stage-change alerts, overdue reminders</li>
-          <li>Managed solution ALM with environment variables and connection references</li>
-        </ul>
-        <div class="tag-list">
-          <span class="tag">Dataverse</span>
-          <span class="tag">Power Automate</span>
-          <span class="tag">Model-Driven App</span>
-          <span class="tag">Canvas App</span>
-          <span class="tag">Power BI</span>
-          <span class="tag">Managed Solution</span>
-        </div>
-      </article>
-    </section>
 
     <section id="certifications" class="content-block">
       <h2 class="block-title block-title--major">Certifications and Training</h2>
