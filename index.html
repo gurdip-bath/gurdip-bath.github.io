@@ -197,11 +197,13 @@
 
     .intro-tagline {
       font-family: var(--mono);
-      font-size: 0.68rem;
+      font-size: 0.81rem;
+      font-weight: 600;
       letter-spacing: 0.06em;
       color: var(--accent);
       margin: 0 0 0.75em 0;
       line-height: 1.5;
+      opacity: 1;
     }
 
     .intro-portfolio-link {
@@ -419,6 +421,11 @@
       line-height: 1.7;
     }
 
+    .skills-matrix .skills-bullets li {
+      color: rgba(232, 232, 232, 0.78);
+      font-weight: 500;
+    }
+
     .skills-bullets {
       list-style: none;
       margin: 0;
@@ -433,6 +440,11 @@
       align-items: flex-start;
       padding: 0.25rem 0;
       border-bottom: 1px solid rgba(30, 30, 30, 0.65);
+    }
+
+    .portfolio-project .skills-bullets li {
+      color: rgba(232, 232, 232, 0.82);
+      font-weight: 500;
     }
 
     .skills-bullets li:last-child { border-bottom: none; }
@@ -546,11 +558,14 @@
 
     .project-owned-title {
       font-family: var(--mono);
-      font-size: 0.7rem;
+      font-size: 0.75rem;
+      font-weight: 700;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--accent);
       margin: 0 0 0.75em 0;
+      opacity: 1;
+      filter: brightness(1.2);
     }
 
     /* Work experience */
@@ -897,7 +912,7 @@
         alt="Microsoft Certified: Power Platform Fundamentals (PL-900)"
       />
       <ul class="sidebar-nav">
-        <li><bold><a href="#about">About</a></bold></ul>  li>
+        <li><bold><a href="#about">About</a></bold></li>  
         <li><a href="#skills">Skills</a></li>
         <li><a href="#employee-lifecycle-hub">Projects</a></li>
         <li><a href="#experience">Experience</a></li>
