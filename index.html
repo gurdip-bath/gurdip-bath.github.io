@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Gurdip Mikey Bath — Microsoft Power Platform Developer. Building production-grade enterprise solutions on Dataverse, Power Automate, and Power Apps." />
-  <title>Gurdip Mikey Bath · Power Platform Developer</title>
+  <meta name="description" content="Gurdip Mikey Bath — Junior Power Platform Developer. HR domain background, PL-900 certified, production Dataverse solutions. West Midlands, UK." />
+  <title>Gurdip Mikey Bath · Junior Power Platform Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
@@ -189,10 +189,33 @@
 
     .intro-role {
       font-size: 0.95em;
-      color: var(--muted);
-      margin: 0 0 0.75em 0;
+      color: var(--text);
+      margin: 0 0 0.35em 0;
       line-height: 1.6;
+      font-weight: 500;
     }
+
+    .intro-tagline {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      margin: 0 0 0.75em 0;
+      line-height: 1.5;
+    }
+
+    .intro-portfolio-link {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      text-decoration: none;
+      margin-top: 0.5em;
+      display: inline-block;
+      border-bottom: 1px dotted var(--border);
+    }
+
+    .intro-portfolio-link:hover { color: var(--accent); border-bottom-color: transparent; }
 
     .intro-keywords {
       font-size: 0.85em;
@@ -456,6 +479,78 @@
 
     .about-cta .btn-primary {
       box-shadow: 0 0 24px rgba(0, 200, 160, 0.25);
+    }
+
+    .why-hire {
+      list-style: none;
+      margin: 1.75em 0 0 0;
+      padding: 1.25rem 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 4px 4px 0;
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    .why-hire li {
+      display: flex;
+      gap: 0.65rem;
+      font-size: 0.92em;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .why-hire li::before {
+      content: '✓';
+      color: var(--accent);
+      font-family: var(--mono);
+      flex-shrink: 0;
+      font-weight: 500;
+    }
+
+    .why-hire strong { color: var(--text); font-weight: 500; }
+
+    .project-results {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.75rem;
+      margin: 1.25em 0 1.5em 0;
+    }
+
+    .result-card {
+      padding: 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .result-card strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+      line-height: 1.2;
+    }
+
+    .result-card span {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .project-owned-title {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 0.75em 0;
     }
 
     /* Work experience */
@@ -776,6 +871,8 @@
       }
       .about-cta { justify-content: center; }
       .cert-showcase { flex-direction: column; align-items: center; }
+      .project-results { grid-template-columns: repeat(2, 1fr); }
+      .skills-row { grid-template-columns: 1fr; gap: 0.75rem; }
     }
   </style>
 </head>
@@ -787,11 +884,13 @@
     <div class="intro-hero-inner">
       <img class="intro-photo" src="photo.jpg" alt="Gurdip Mikey Bath" />
       <h1 class="intro-name">Gurdip Mikey Bath</h1>
-      <p class="intro-role">Microsoft Power Platform Developer</p>
+      <p class="intro-role">Junior Power Platform Developer</p>
+      <p class="intro-tagline">12+ months production delivery · HR domain background · PL-900 certified</p>
       <p class="intro-keywords">
-        Power Apps (Model-Driven & Canvas) &nbsp;||&nbsp; Power Automate &nbsp;||<br> &nbsp; Application Lifecycle Management
-         &nbsp;||&nbsp; Dataverse & SharePoint &nbsp;||&nbsp; Power-BI 
+        Power Apps (Model-Driven &amp; Canvas) &nbsp;||&nbsp; Power Automate &nbsp;||<br>
+        Dataverse &amp; SharePoint &nbsp;||&nbsp; ALM &nbsp;||&nbsp; Power BI
       </p>
+      <a class="intro-portfolio-link" href="https://gurdip-bath.github.io" target="_blank" rel="noopener">gurdip-bath.github.io</a>
       <img
         class="intro-cert"
         src="powerplatformfundamental.jpg"
@@ -800,7 +899,8 @@
       <ul class="sidebar-nav">
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
-        <li><a href="#model-driven-apps">Model-Driven Apps</a></li>
+        <li><a href="#employee-lifecycle-hub">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
         <li><a href="#certifications">Certifications</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -828,28 +928,145 @@
     <section id="about" class="content-block">
       <h2 class="block-title block-title--major">About Me</h2>
       <p>
-        Microsoft Power Platform Developer with 12+ months building production-grade enterprise solutions using the entire Power Platform Stack — Dataverse schema design, security modelling, Power Automate, model-driven and canvas apps, and ALM via managed solutions.
+        Junior Microsoft Power Platform Developer with <strong>12+ months hands-on delivery</strong> and a background in <strong>HR Shared Services</strong>. I've independently built two production-style portfolio solutions on Dataverse — an Employee Lifecycle Hub and a Contractor Management system — covering model-driven apps, canvas apps, Power Automate, security, and ALM.
       </p>
       <p>
-        Recent delivery: An End to End HR Based Onboarding & Offboarding Solution Hub cutting onboarding admin time and reducing missed tasks through idempotent flows and role-based access at the data layer.
+        <strong>What makes me different:</strong> I design from real HR process experience — onboarding, offboarding, case management, and SLAs from Shaw Trust and UK Home Office resourcing work — not tutorial scenarios.
       </p>
+      <p>
+        <strong>Currently:</strong> PL-900 certified · PL-200 scheduled July 2026 · Open to junior Power Platform roles in the <strong>West Midlands / Birmingham</strong> (hybrid or remote UK). Active on <a href="https://www.linkedin.com/in/gurdip-mikey-b-07aa12292/" target="_blank" rel="noopener" style="color:var(--accent)">LinkedIn</a> sharing Power Platform content (2,000+ followers).
+      </p>
+      <ul class="why-hire" aria-label="Why hire me">
+        <li><strong>2 Power Platform solutions</strong> built end-to-end — Dataverse, apps, flows, security, ALM</li>
+        <li><strong>2 portfolio solutions</strong> on Dataverse + live PWA client delivery via GMB Software Solutions</li>
+        <li><strong>HR domain expertise</strong> from Shaw Trust &amp; UK Home Office — rare for junior developers</li>
+        <li><strong>PL-900 certified</strong> · PL-200 scheduled July 2026</li>
+      </ul>
       <div class="about-cta">
         <a href="Gurdip_Bath_CV_Final.pdf" class="btn btn-primary" target="_blank" rel="noopener">View My CV</a>
         <a href="Gurdip_Bath_CV_Final.docx" class="btn btn-ghost" download="Gurdip_Bath_CV_Final.docx">Download My CV</a>
-        <a href="#model-driven-apps" class="btn btn-ghost">View Live Project</a>
+        <a href="#employee-lifecycle-hub" class="btn btn-ghost">View Live Project</a>
       </div>
     </section>
 
+    <section id="skills" class="content-block">
+      <h2 class="block-title block-title--major">Skills Snapshot</h2>
+      <div class="skills-matrix reveal" aria-label="Skills matrix">
+        <div class="skills-row">
+          <div class="skills-label">Power Apps<br />Canvas + Model-Driven</div>
+          <div class="skills-details">
+            <ul class="skills-bullets">
+              <li>Model-driven apps for HR personas: role-based views, forms, dashboards, sitemap.</li>
+              <li>Canvas apps for line managers: RBAC using Power FX Formula delegation-safe queries, responsive layout.</li>
+              <li>Multi-persona workflows with consistent UX and data integrity.</li>
+            </ul>
+            <div class="skills-chipline">
+              <span class="chip chip--strong">Model-Driven Apps</span>
+              <span class="chip chip--strong">Canvas Apps</span>
+              <span class="chip">Views &amp; Forms</span>
+              <span class="chip">Sitemap</span>
+            </div>
+          </div>
+        </div>
+        <div class="skills-row">
+          <div class="skills-label">Power Automate</div>
+          <div class="skills-details">
+            <ul class="skills-bullets">
+              <li>Production flows with trigger gates and idempotency checks.</li>
+              <li>Scoped try/catch error handling and exponential backoff retry.</li>
+              <li>Environment variables for portability across DEV → PROD.</li>
+            </ul>
+            <div class="skills-chipline">
+              <span class="chip chip--strong">Cloud flows</span>
+              <span class="chip">Idempotency</span>
+              <span class="chip">Retries</span>
+              <span class="chip">Env variables</span>
+            </div>
+          </div>
+        </div>
+        <div class="skills-row">
+          <div class="skills-label">Dataverse + SharePoint</div>
+          <div class="skills-details">
+            <ul class="skills-bullets">
+              <li>Relational table design with lookups and validation rules.</li>
+              <li>OData filtering and star-schema thinking for reporting readiness.</li>
+              <li>Column security profiles for PII compliance.</li>
+            </ul>
+            <div class="skills-chipline">
+              <span class="chip chip--strong">Dataverse</span>
+              <span class="chip">Lookups</span>
+              <span class="chip">OData</span>
+              <span class="chip">Column security</span>
+            </div>
+          </div>
+        </div>
+        <div class="skills-row">
+          <div class="skills-label">Power BI<br />Reporting</div>
+          <div class="skills-details">
+            <ul class="skills-bullets">
+              <li>Import-mode modelling with Dataverse GUIDs as join keys.</li>
+              <li>DAX measures and operational KPI reporting.</li>
+              <li>Embedded reports scoped to HR Manager / HRBP personas.</li>
+            </ul>
+            <div class="skills-chipline">
+              <span class="chip chip--strong">Power BI</span>
+              <span class="chip">DAX</span>
+              <span class="chip">Star schema</span>
+              <span class="chip">Import mode</span>
+            </div>
+          </div>
+        </div>
+        <div class="skills-row">
+          <div class="skills-label">ALM + Security</div>
+          <div class="skills-details">
+            <ul class="skills-bullets">
+              <li>Managed solutions for DEV → PROD promotion.</li>
+              <li>Connection references and environment-aware configuration.</li>
+              <li>Custom security roles and column security (least privilege).</li>
+            </ul>
+            <div class="skills-chipline">
+              <span class="chip chip--strong">Managed solutions</span>
+              <span class="chip">Security roles</span>
+              <span class="chip">Column security</span>
+              <span class="chip">GDPR</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <section id="model-driven-apps" class="content-block">
-      <h2 class="block-title block-title--major">Model-Driven Apps & Canvas Apps & Power Automate</h2>
+    <section id="employee-lifecycle-hub" class="content-block">
+      <h2 class="block-title block-title--major">Featured Project — Employee Lifecycle Hub</h2>
       <div class="portfolio-project reveal">
-        <h3>Employee Lifecycle Hub — HR Portal</h3>
+        <h3>Employee Lifecycle Hub · Dataverse Solution</h3>
         <p class="project-intro">
-          Model-driven app for HR users and canvas app for line managers — lifecycle cases, onboarding/offboarding workflows, task management, and automated Outlook notifications.
-          Use the arrows to browse screenshots from the live solution.
-          <br><br>Skills: Power Apps (Model-Driven &amp; Canvas), Power Automate, Dataverse, Power BI embedding, Outlook 365 integration
+          Portfolio project — enterprise HR lifecycle solution on Dataverse with model-driven app for HR users, canvas app for line managers, Power Automate workflows, and Outlook notifications. Browse screenshots below.
         </p>
+
+        <div class="project-results">
+          <div class="result-card"><strong>5 hrs</strong><span>Less admin / week</span></div>
+          <div class="result-card"><strong>50%</strong><span>Fewer missed tasks</span></div>
+          <div class="result-card"><strong>4–6</strong><span>HR processes automated</span></div>
+          <div class="result-card"><strong>3</strong><span>Production flows</span></div>
+        </div>
+
+        <p class="project-owned-title">What I owned</p>
+        <ul class="skills-bullets" style="margin-bottom:1.5em">
+          <li>Dataverse schema (5-table model) + security roles and column security profiles</li>
+          <li>Model-driven app for HR and canvas app for line managers (direct reports only)</li>
+          <li>Power Automate: onboarding/offboarding tasks, stage-change alerts, overdue reminders</li>
+          <li>Managed solution ALM with environment variables and connection references</li>
+          <li>UAT support, go-live readiness, and post-deploy fixes</li>
+        </ul>
+
+        <div class="tag-list" style="margin-bottom:1.5em">
+          <span class="tag">Dataverse</span>
+          <span class="tag">Power Automate</span>
+          <span class="tag">Model-Driven App</span>
+          <span class="tag">Canvas App</span>
+          <span class="tag">Power BI</span>
+          <span class="tag">Managed Solution</span>
+        </div>
 
         <div class="slideshow-container" data-slideshow="mda">
           <div class="portfolio-slide mda-slide is-active">
@@ -911,17 +1128,67 @@
       </div>
     </section>
 
-    <section id="model-driven-apps" class="content-block">
+    <section id="contractor-hub" class="content-block">
+      <h2 class="block-title block-title--major">Contractor Hub</h2>
       <div class="portfolio-project reveal">
-        <h3>Contractor Management System</h3>
+        <h3>Contractor Management System · Dataverse Solution</h3>
         <p class="project-intro">
-          Model-driven app for HR users and canvas app for line managers — lifecycle cases, onboarding/offboarding workflows, task management, and automated Outlook notifications.
-          Use the arrows to browse screenshots from the live solution.
-          <br><br>Skills: Power Apps (Model-Driven &amp; Canvas), Power Automate, Dataverse, Power BI embedding, Outlook 365 integration
+          Full contractor management solution — intake through project delivery: contracts, certifications, compliance docs, assignments, and timesheets in one model-driven app backed by a 13-table Dataverse model.
         </p>
+        <ul class="skills-bullets" style="margin-bottom:1.25em">
+          <li>Designed 13 custom Dataverse tables with auto-number IDs, lookups, and a junction table for contractor certifications</li>
+          <li>Two-stage Business Process Flow guiding contractor intake; Power Automate fires on BPF stage advance</li>
+          <li>Automated Outlook/Teams notification flow with write-back to Dataverse for auditability</li>
+          <li>Model-driven app with split nav: Contractor Management and Project Delivery areas</li>
+          <li>Three custom JavaScript web resources — contract risk-scoring banner for expired contracts, missing email, or untagged skills</li>
+          <li>Three security roles (Contractor, Project Management, General Management) + managed solution packaging</li>
+        </ul>
+        <div class="tag-list">
+          <span class="tag">Dataverse</span>
+          <span class="tag">Model-Driven App</span>
+          <span class="tag">Business Process Flow</span>
+          <span class="tag">Power Automate</span>
+          <span class="tag">JavaScript Web Resources</span>
+          <span class="tag">Managed Solution</span>
+          <span class="tag">Security Roles</span>
+        </div>
       </div>
     </section>
 
+    <section id="experience" class="content-block">
+      <h2 class="block-title block-title--major">Work Experience</h2>
+
+      <article class="work-item reveal">
+        <h3>Shaw Trust</h3>
+        <h4>HR Shared Services Administrator · Oldbury, UK · Oct 2024 — Present</h4>
+        <p>Administer end-to-end employee lifecycle processes including onboarding, offboarding, and contract changes. Apply direct HR domain knowledge to Power Platform solution design and portfolio development.</p>
+        <ul>
+          <li>Manage high-volume transactional HR cases to strict SLA and data accuracy standards</li>
+          <li>Working knowledge of HR data structures, business rules, and compliance requirements</li>
+        </ul>
+      </article>
+
+      <article class="work-item reveal">
+        <h3>UK Home Office / Brook Street</h3>
+        <h4>HR Support Officer · Remote, UK · Jul 2022 — Oct 2024</h4>
+        <p>Candidate lifecycle administration across live resourcing campaigns — experience that directly informed the Employee Lifecycle Hub entity and automation design.</p>
+        <ul>
+          <li>Structured onboarding workflows and real-time candidate pipeline tracking</li>
+          <li>Smart Forms lifecycle: data gathering, government forms, and automated routing to departments</li>
+          <li>Diagnosed progression blockers — same solution-oriented approach used in Power Automate flows</li>
+        </ul>
+      </article>
+
+      <article class="work-item reveal">
+        <h3>GMB Software Solutions</h3>
+        <h4>Freelance Developer · Birmingham, UK · 2024</h4>
+        <p>Sole developer contracted to design, build, and deploy a production Progressive Web App for Bengal Welding — a real UK business client.</p>
+        <ul>
+          <li>Built with React, Node.js, Express, Supabase — deployed live on Vercel with real user traffic</li>
+          <li>Full project lifecycle: requirements gathering, delivery, and invoicing as a registered freelance business</li>
+        </ul>
+      </article>
+    </section>
 
     <section id="certifications" class="content-block">
       <h2 class="block-title block-title--major">Certifications and Training</h2>
@@ -935,9 +1202,9 @@
             Power Apps, Power Automate, Power BI, and platform foundations.
           </li>
           <li>
-            <span class="status in-progress">In Progress</span>
+            <span class="status in-progress">Scheduled July 2026</span>
             <strong>PL-200 — Power Platform Functional Consultant</strong>
-            Solution design, Dataverse modelling, security, and ALM for enterprise deployments.
+            Studying toward Functional Consultant certification while delivering client-style solutions on Dataverse, security, and ALM.
           </li>
         </ul>
       </div>
@@ -946,13 +1213,15 @@
     <section id="contact" class="content-block">
       <h2 class="block-title block-title--major">Contact Me</h2>
       <p>
-        I'm actively looking for Power Platform roles in the West Midlands / Birmingham area.
-        If you're hiring or want to discuss what I've built, reach out directly. Follow me on LinkedIn for opportunities.
+        Open to <strong>junior Power Platform developer</strong> and <strong>associate functional consultant</strong> roles. Based in Oldbury / West Midlands — happy with hybrid Birmingham or remote UK.
       </p>
       <ul class="contact-list">
-        <li><strong>Location</strong> West Midlands, United Kingdom</li>
+        <li><strong>Roles sought</strong> Junior Power Platform Developer · Associate Functional Consultant</li>
+        <li><strong>Location</strong> West Midlands / Birmingham — hybrid or remote UK</li>
+        <li><strong>Availability</strong> Open to opportunities now</li>
         <li><strong>Email</strong> <a href="mailto:bathgurdip1@gmail.com">bathgurdip1@gmail.com</a></li>
-        <li><strong>LinkedIn</strong> <a href="https://www.linkedin.com/in/gurdip-mikey-b-07aa12292/" target="_blank" rel="noopener">Gurdip Mikey Bath</a></li>
+        <li><strong>LinkedIn</strong> <a href="https://www.linkedin.com/in/gurdip-mikey-b-07aa12292/" target="_blank" rel="noopener">Gurdip Mikey Bath</a> (2,000+ followers)</li>
+        <li><strong>Portfolio</strong> <a href="https://gurdip-bath.github.io" target="_blank" rel="noopener">gurdip-bath.github.io</a></li>
         <li><strong>GitHub</strong> <a href="https://github.com/gurdip-bath" target="_blank" rel="noopener">github.com/gurdip-bath</a></li>
       </ul>
     </section>
