@@ -7,6 +7,7 @@
   <title>Gurdip Mikey Bath · Junior Power Platform Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/project.css" />
   <style>
     /* ── Reset & Tokens ────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -14,11 +15,11 @@
     :root {
       --bg:        #0a0a0a;       /* near-black base */
       --surface:   #111111;       /* card/section bg */
-      --border:    #1e1e1e;       /* subtle dividers */
+      --border:    #2e2e2e;       /* dividers — visible without competing with text */
       --accent:    #00c8a0;       /* teal — Power Platform green-adjacent */
       --accent2:   #005f4b;       /* deep teal for hover fills */
-      --text:      #e8e8e8;       /* primary text */
-      --muted:     #666666;       /* secondary text */
+      --text:      #f5f5f5;       /* primary text */
+      --muted:     #d8d8d8;       /* secondary / body text — high contrast on dark bg */
       --mono:      'DM Mono', monospace;
       --serif:     'DM Serif Display', serif;
       --sans:      'DM Sans', sans-serif;
@@ -31,7 +32,7 @@
       background: var(--bg);
       color: var(--text);
       font-family: var(--sans);
-      font-weight: 300;
+      font-weight: 400;
       line-height: 1.7;
       overflow-x: hidden;
     }
@@ -102,7 +103,7 @@
       overflow: hidden;
       background: var(--surface);
       border-right: 1px solid var(--border);
-      color: var(--muted);
+      color: var(--text);
     }
 
     .intro-hero::after {
@@ -210,7 +211,7 @@
       font-family: var(--mono);
       font-size: 0.65rem;
       letter-spacing: 0.08em;
-      color: var(--muted);
+      color: var(--text);
       text-decoration: none;
       margin-top: 0.5em;
       display: inline-block;
@@ -222,7 +223,7 @@
     .intro-keywords {
       font-size: 0.85em;
       line-height: 1.65;
-      color: var(--muted);
+      color: var(--text);
       margin: 0;
     }
 
@@ -245,10 +246,11 @@
 
     .sidebar-nav a {
       font-family: var(--mono);
-      font-size: 0.65rem;
+      font-size: 0.68rem;
+      font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--text);
       text-decoration: none;
       transition: color 0.2s;
     }
@@ -318,7 +320,7 @@
 
     .intro-copyright {
       font-size: 0.8em;
-      color: rgba(232, 232, 232, 0.35);
+      color: var(--text);
       line-height: 1.5;
     }
 
@@ -357,13 +359,19 @@
     }
 
     .content-block p {
-      color: var(--muted);
+      color: var(--text);
       font-size: 1rem;
+      font-weight: 400;
       line-height: 1.75em;
       margin: 0 0 1.5em 0;
     }
 
     .content-block p:last-child { margin-bottom: 0; }
+
+    .content-block p strong {
+      color: var(--text);
+      font-weight: 500;
+    }
 
     .topic-block {
       margin-bottom: 2.5em;
@@ -380,7 +388,7 @@
 
     .topic-block p {
       font-size: 0.95em;
-      color: var(--muted);
+      color: var(--text);
       line-height: 1.7;
       margin: 0;
     }
@@ -416,14 +424,14 @@
     }
 
     .skills-details {
-      color: var(--muted);
+      color: var(--text);
       font-size: 0.95em;
       line-height: 1.7;
     }
 
     .skills-matrix .skills-bullets li {
-      color: rgba(232, 232, 232, 0.78);
-      font-weight: 500;
+      color: var(--text);
+      font-weight: 400;
     }
 
     .skills-bullets {
@@ -443,8 +451,8 @@
     }
 
     .portfolio-project .skills-bullets li {
-      color: rgba(232, 232, 232, 0.82);
-      font-weight: 500;
+      color: var(--text);
+      font-weight: 400;
     }
 
     .skills-bullets li:last-child { border-bottom: none; }
@@ -470,7 +478,7 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       border: 1px solid var(--border);
-      color: var(--muted);
+      color: var(--text);
       padding: 0.25rem 0.55rem;
       border-radius: 999px;
       background: var(--bg);
@@ -509,7 +517,7 @@
       display: flex;
       gap: 0.65rem;
       font-size: 0.92em;
-      color: var(--muted);
+      color: var(--text);
       line-height: 1.55;
     }
 
@@ -527,7 +535,17 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
       gap: 0.75rem;
-      margin: 1.25em 0 1.5em 0;
+      margin: 1.25em 0 0.5em 0;
+    }
+
+    .project-results-footnote {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.05em;
+      color: var(--text);
+      opacity: 0.8;
+      margin: 0 0 1.5em 0;
+      line-height: 1.5;
     }
 
     .result-card {
@@ -552,11 +570,12 @@
       font-size: 0.62rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--text);
       line-height: 1.4;
     }
 
-    .project-owned-title {
+    .project-owned-title,
+    .case-label {
       font-family: var(--mono);
       font-size: 0.75rem;
       font-weight: 700;
@@ -566,6 +585,213 @@
       margin: 0 0 0.75em 0;
       opacity: 1;
       filter: brightness(1.2);
+    }
+
+    .case-block {
+      margin-bottom: 2em;
+    }
+
+    .case-block:last-child { margin-bottom: 0; }
+
+    .case-text {
+      font-size: 0.95em;
+      color: var(--text);
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    .case-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.65rem;
+      margin-bottom: 2em;
+    }
+
+    .case-meta-item {
+      padding: 0.75rem 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+    }
+
+    .case-meta-item dt {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+
+    .case-meta-item dd {
+      font-size: 0.88em;
+      color: var(--text);
+      margin: 0;
+      line-height: 1.45;
+    }
+
+    .project-type-badge {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent2);
+      background: rgba(0, 200, 160, 0.08);
+      padding: 0.3rem 0.55rem;
+      border-radius: 2px;
+      margin-bottom: 1em;
+    }
+
+    .case-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .case-list li {
+      font-size: 0.92em;
+      color: var(--text);
+      line-height: 1.6;
+      padding-left: 1.1rem;
+      position: relative;
+    }
+
+    .case-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-family: var(--mono);
+    }
+
+    .star-block {
+      display: grid;
+      gap: 0.65rem;
+      padding: 1.1rem 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 4px 4px 0;
+    }
+
+    .star-item {
+      display: grid;
+      grid-template-columns: 1.75rem 1fr;
+      gap: 0.65rem;
+      align-items: start;
+    }
+
+    .star-letter {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.6;
+    }
+
+    .star-item p {
+      font-size: 0.9em;
+      color: var(--text);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.5em;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      padding: 1.35rem 1.35rem 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent2);
+      transform: translateY(-2px);
+    }
+
+    .project-card-badge {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.65rem;
+    }
+
+    .project-card h3 {
+      font-size: 1.1em;
+      color: var(--text);
+      margin: 0 0 0.35em 0;
+      font-weight: 500;
+    }
+
+    .project-card-domain {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.06em;
+      color: var(--text);
+      opacity: 0.85;
+      margin: 0 0 1em 0;
+    }
+
+    .project-card-hook {
+      font-size: 0.95em;
+      color: var(--text);
+      margin: 0 0 0.5em 0;
+      line-height: 1.5;
+    }
+
+    .project-card-hook strong {
+      color: var(--accent);
+      font-family: var(--serif);
+      font-size: 1.15em;
+    }
+
+    .project-card-stack {
+      font-size: 0.85em;
+      color: var(--text);
+      opacity: 0.9;
+      margin: 0 0 1.25em 0;
+      flex-grow: 1;
+      line-height: 1.55;
+    }
+
+    .project-card .btn {
+      align-self: flex-start;
+      margin-top: auto;
+    }
+
+    .evidence-chapters {
+      display: grid;
+      gap: 2em;
+    }
+
+    .evidence-chapter h4 {
+      font-size: 0.95em;
+      font-weight: 500;
+      color: var(--text);
+      margin: 0 0 0.35em 0;
+    }
+
+    .evidence-chapter-desc {
+      font-size: 0.88em;
+      color: var(--text);
+      opacity: 0.9;
+      margin: 0 0 1em 0;
+      line-height: 1.55;
     }
 
     /* Work experience */
@@ -600,7 +826,7 @@
     .work-item p,
     .work-item li {
       font-size: 0.95em;
-      color: var(--muted);
+      color: var(--text);
       line-height: 1.75;
     }
 
@@ -639,7 +865,7 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       border: 1px solid var(--border);
-      color: var(--muted);
+      color: var(--text);
       padding: 0.25rem 0.6rem;
       border-radius: 2px;
     }
@@ -670,7 +896,7 @@
       padding: 0.85em 0;
       border-bottom: 1px solid var(--border);
       font-size: 0.95em;
-      color: var(--muted);
+      color: var(--text);
     }
 
     .cert-list li:last-child { border-bottom: none; }
@@ -701,7 +927,7 @@
     .contact-list li {
       padding: 0.6em 0;
       font-size: 0.95em;
-      color: var(--muted);
+      color: var(--text);
       border-bottom: 1px solid var(--border);
     }
 
@@ -737,7 +963,7 @@
 
     .portfolio-project .project-intro {
       font-size: 0.95em;
-      color: var(--muted);
+      color: var(--text);
       line-height: 1.7;
       margin: 0 0 1.5em 0;
     }
@@ -774,11 +1000,13 @@
 
     .slide-caption {
       font-family: var(--mono);
-      font-size: 0.7rem;
+      font-size: 0.72rem;
+      font-weight: 500;
       letter-spacing: 0.06em;
       color: var(--accent);
       margin: 1em 0 0 0;
       text-align: center;
+      filter: brightness(1.15);
     }
 
     .slide-nav {
@@ -887,6 +1115,8 @@
       .about-cta { justify-content: center; }
       .cert-showcase { flex-direction: column; align-items: center; }
       .project-results { grid-template-columns: repeat(2, 1fr); }
+      .projects-grid { grid-template-columns: 1fr; }
+      .case-meta { grid-template-columns: repeat(2, 1fr); }
       .skills-row { grid-template-columns: 1fr; gap: 0.75rem; }
     }
   </style>
@@ -903,7 +1133,7 @@
       <p class="intro-tagline">12+ months production delivery · HR domain background · PL-900 certified</p>
       <p class="intro-keywords">
         Power Apps (Model-Driven &amp; Canvas) &nbsp;||&nbsp; Power Automate &nbsp;||<br>
-        Dataverse &amp; SharePoint &nbsp;||&nbsp; ALM &nbsp;||&nbsp; Power BI
+        Dataverse &amp; SharePoint &nbsp;||&nbsp; ALM
       </p>
       <a class="intro-portfolio-link" href="https://gurdip-bath.github.io" target="_blank" rel="noopener">gurdip-bath.github.io</a>
       <img
@@ -912,9 +1142,9 @@
         alt="Microsoft Certified: Power Platform Fundamentals (PL-900)"
       />
       <ul class="sidebar-nav">
-        <li><bold><a href="#about">About</a></bold></li>  
+        <li><a href="#about">About</a></li>  
         <li><a href="#skills">Skills</a></li>
-        <li><a href="#employee-lifecycle-hub">Projects</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#certifications">Certifications</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -960,7 +1190,7 @@
       <div class="about-cta">
         <a href="Gurdip_Bath_CV_Final.pdf" class="btn btn-primary" target="_blank" rel="noopener">View My CV</a>
         <a href="Gurdip_Bath_CV_Final.docx" class="btn btn-ghost" download="Gurdip_Bath_CV_Final.docx">Download My CV</a>
-        <a href="#employee-lifecycle-hub" class="btn btn-ghost">View Live Project</a>
+        <a href="#projects" class="btn btn-ghost">View Project Case Study</a>
       </div>
     </section>
 
@@ -1016,22 +1246,6 @@
           </div>
         </div>
         <div class="skills-row">
-          <div class="skills-label">Power BI<br />Reporting</div>
-          <div class="skills-details">
-            <ul class="skills-bullets">
-              <li>Import-mode modelling with Dataverse GUIDs as join keys.</li>
-              <li>DAX measures and operational KPI reporting.</li>
-              <li>Embedded reports scoped to HR Manager / HRBP personas.</li>
-            </ul>
-            <div class="skills-chipline">
-              <span class="chip chip--strong">Power BI</span>
-              <span class="chip">DAX</span>
-              <span class="chip">Star schema</span>
-              <span class="chip">Import mode</span>
-            </div>
-          </div>
-        </div>
-        <div class="skills-row">
           <div class="skills-label">ALM + Security</div>
           <div class="skills-details">
             <ul class="skills-bullets">
@@ -1050,195 +1264,95 @@
       </div>
     </section>
 
-    <section id="employee-lifecycle-hub" class="content-block">
-      <h2 class="block-title block-title--major">Featured Project — Employee Lifecycle Hub</h2>
-      <div class="portfolio-project reveal">
-        <h3>Employee Lifecycle Hub · Dataverse Solution</h3>
-        <p class="project-intro">
-          Portfolio project — enterprise HR lifecycle solution on Dataverse with model-driven app for HR users, canvas app for line managers, Power Automate workflows, and Outlook notifications. Browse screenshots below.
-        </p>
+    <section id="projects" class="content-block">
+      <h2 class="block-title block-title--major">Projects</h2>
+      <p class="case-text">
+        Two end-to-end Dataverse portfolio solutions — built solo from schema design through apps, automation, security, and ALM. Click <strong>View project</strong> for the full case study and scroll-through screenshots.
+      </p>
 
-        <div class="project-results">
-          <div class="result-card"><strong>5 hrs</strong><span>Less admin / week</span></div>
-          <div class="result-card"><strong>50%</strong><span>Fewer missed tasks</span></div>
-          <div class="result-card"><strong>3</strong><span>HR processes automated</span></div>
-          <div class="result-card"><strong>3</strong><span>Production flows</span></div>
-        </div>
+      <div class="projects-showcase-list">
+        <article class="project-showcase reveal">
+          <div class="project-showcase-content">
+            <h3 class="project-showcase-title">Employee Lifecycle Hub</h3>
+            <span class="project-showcase-accent" aria-hidden="true"></span>
+            <p class="project-showcase-desc">
+              Enterprise HR lifecycle solution on Dataverse — model-driven app for HR users, canvas app for line managers, Power Automate workflows, and Outlook notifications. Cuts onboarding admin and reduces missed lifecycle tasks.
+            </p>
+            <div class="project-showcase-tags">
+              <span class="tech-pill tech-pill--pink">Model-Driven App</span>
+              <span class="tech-pill tech-pill--green">Dataverse</span>
+              <span class="tech-pill tech-pill--purple">Canvas App</span>
+              <span class="tech-pill tech-pill--blue">Power Automate</span>
+              <span class="tech-pill tech-pill--peach">Security &amp; ALM</span>
+            </div>
+            <div class="project-showcase-actions">
+              <a href="projects/employee-lifecycle-hub.html" class="btn-pill btn-pill--primary">
+                <span>View project</span>
+                <span class="btn-pill-icon" aria-hidden="true">↗</span>
+              </a>
+              <a href="#contact" class="btn-pill btn-pill--secondary">
+                <span>Contact me</span>
+                <span class="btn-pill-icon" aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+          <div class="project-showcase-visual">
+            <div class="visual-frame">
+              <img
+                class="visual-main"
+                src="employee%20lifecycle%20hub/model-driven/01-lifecycle-case-view.png?v=2"
+                alt="Employee Lifecycle Hub — lifecycle cases list view"
+              />
+              <img
+                class="visual-overlay"
+                src="employee%20lifecycle%20hub/canvas%20app%20images/1%20-%20Canvas%20App%20Homepage.png"
+                alt="Canvas app homepage preview"
+              />
+            </div>
+          </div>
+        </article>
 
-        <p class="project-owned-title">What I owned</p>
-        <ul class="skills-bullets" style="margin-bottom:1.5em">
-          <li>Dataverse schema (5-table model) + security roles and column security profiles</li>
-          <li>Model-driven app for HR and canvas app for line managers (direct reports only)</li>
-          <li>Power Automate: onboarding/offboarding tasks, stage-change alerts, overdue reminders</li>
-          <li>Managed solution ALM with environment variables and connection references</li>
-          <li>UAT support, go-live readiness, and post-deploy fixes</li>
-        </ul>
-
-        <div class="tag-list" style="margin-bottom:1.5em">
-          <span class="tag">Dataverse</span>
-          <span class="tag">Power Automate</span>
-          <span class="tag">Model-Driven App</span>
-          <span class="tag">Canvas App</span>
-          <span class="tag">Power BI</span>
-          <span class="tag">Managed Solution</span>
-        </div>
-
-        <div class="slideshow-container" data-slideshow="mda">
-          <div class="portfolio-slide mda-slide is-active">
-            <a href="employee%20lifecycle%20hub/model-driven/01-lifecycle-case-view.png?v=2" target="_blank" rel="noopener">
-              <img src="employee%20lifecycle%20hub/model-driven/01-lifecycle-case-view.png?v=2" alt="Lifecycle cases list view in model-driven app" />
-            </a>
-            <p class="slide-caption">Lifecycle cases — main list view for HR users</p>
+        <article class="project-showcase reveal">
+          <div class="project-showcase-content">
+            <h3 class="project-showcase-title">Contractor Hub</h3>
+            <span class="project-showcase-accent" aria-hidden="true"></span>
+            <p class="project-showcase-desc">
+              Full contractor management solution — intake through project delivery. Contracts, certifications, compliance docs, assignments, and timesheets in one model-driven app backed by a 13-table Dataverse model with BPF-guided intake and on-form compliance checks.
+            </p>
+            <div class="project-showcase-tags">
+              <span class="tech-pill tech-pill--pink">Model-Driven App</span>
+              <span class="tech-pill tech-pill--green">Dataverse</span>
+              <span class="tech-pill tech-pill--purple">Business Process Flow</span>
+              <span class="tech-pill tech-pill--blue">Power Automate</span>
+              <span class="tech-pill tech-pill--yellow">JavaScript</span>
+              <span class="tech-pill tech-pill--peach">Security Roles</span>
+            </div>
+            <div class="project-showcase-actions">
+              <a href="projects/contractor-hub.html" class="btn-pill btn-pill--primary">
+                <span>View project</span>
+                <span class="btn-pill-icon" aria-hidden="true">↗</span>
+              </a>
+              <a href="#contact" class="btn-pill btn-pill--secondary">
+                <span>Contact me</span>
+                <span class="btn-pill-icon" aria-hidden="true">↗</span>
+              </a>
+            </div>
           </div>
-          <div class="portfolio-slide mda-slide">
-            <a href="employee%20lifecycle%20hub/model-driven/02-create-lifecycle-case.png" target="_blank" rel="noopener">
-              <img src="employee%20lifecycle%20hub/model-driven/02-create-lifecycle-case.png" alt="Create new lifecycle case form" />
-            </a>
-            <p class="slide-caption">Create lifecycle case — guided HR intake form</p>
+          <div class="project-showcase-visual">
+            <div class="visual-frame">
+              <img
+                class="visual-main"
+                src="images/portfolio/contractor/01-create-contractor.png"
+                alt="Contractor Hub — create contractor intake form"
+              />
+              <img
+                class="visual-overlay"
+                src="images/portfolio/contractor/05-bpf-trigger-flow.png"
+                alt="Business Process Flow preview"
+              />
+            </div>
           </div>
-          <div class="portfolio-slide mda-slide">
-            <a href="employee%20lifecycle%20hub/model-driven/03-tasks-page.png" target="_blank" rel="noopener">
-              <img src="employee%20lifecycle%20hub/model-driven/03-tasks-page.png" alt="Tasks generated on tasks page" />
-            </a>
-            <p class="slide-caption">Tasks page — onboarding tasks generated from case workflow</p>
-          </div>
-          <div class="portfolio-slide mda-slide">
-            <a href="employee%20lifecycle%20hub/model-driven/04-outlook-email.png" target="_blank" rel="noopener">
-              <img src="employee%20lifecycle%20hub/model-driven/04-outlook-email.png" alt="Outlook email notification from Power Automate workflow" />
-            </a>
-            <p class="slide-caption">Outlook email — automated notification from lifecycle workflow</p>
-          </div>
-          <div class="portfolio-slide mda-slide">
-            <a href="employee%20lifecycle%20hub/canvas%20app%20images/1%20-%20Canvas%20App%20Homepage.png" target="_blank" rel="noopener">
-              <img src="employee%20lifecycle%20hub/canvas%20app%20images/1%20-%20Canvas%20App%20Homepage.png" alt="Canvas app homepage for line managers" />
-            </a>
-            <p class="slide-caption">Canvas app — line manager homepage (direct reports only)</p>
-          </div>
-          <div class="portfolio-slide mda-slide">
-            <a href="employee%20lifecycle%20hub/canvas%20app%20images/2%20-%20Canvas%20App%20Case%20Details.png" target="_blank" rel="noopener">
-              <img src="employee%20lifecycle%20hub/canvas%20app%20images/2%20-%20Canvas%20App%20Case%20Details.png" alt="Canvas app case details view" />
-            </a>
-            <p class="slide-caption">Canvas app — lifecycle case details for line managers</p>
-          </div>
-          <div class="portfolio-slide mda-slide">
-            <a href="employee%20lifecycle%20hub/canvas%20app%20images/3%20-%20Task%20List.png" target="_blank" rel="noopener">
-              <img src="employee%20lifecycle%20hub/canvas%20app%20images/3%20-%20Task%20List.png" alt="Canvas app task list view" />
-            </a>
-            <p class="slide-caption">Canvas app — task list filtered to manager's team</p>
-          </div>
-
-          <button type="button" class="slide-nav slide-prev" data-target="mda" aria-label="Previous screenshot">‹</button>
-          <button type="button" class="slide-nav slide-next" data-target="mda" aria-label="Next screenshot">›</button>
-        </div>
-
-        <div class="slide-dots" data-dots="mda" aria-hidden="true">
-          <button type="button" class="slide-dot is-active" data-target="mda" data-index="0" aria-label="Screenshot 1"></button>
-          <button type="button" class="slide-dot" data-target="mda" data-index="1" aria-label="Screenshot 2"></button>
-          <button type="button" class="slide-dot" data-target="mda" data-index="2" aria-label="Screenshot 3"></button>
-          <button type="button" class="slide-dot" data-target="mda" data-index="3" aria-label="Screenshot 4"></button>
-          <button type="button" class="slide-dot" data-target="mda" data-index="4" aria-label="Screenshot 5"></button>
-          <button type="button" class="slide-dot" data-target="mda" data-index="5" aria-label="Screenshot 6"></button>
-          <button type="button" class="slide-dot" data-target="mda" data-index="6" aria-label="Screenshot 7"></button>
-        </div>
-      </div>
-    </section>
-
-    <section id="contractor-hub" class="content-block">
-      <h2 class="block-title block-title--major">Contractor Hub</h2>
-      <div class="portfolio-project reveal">
-        <h3>Contractor Management System · Dataverse Solution</h3>
-        <p class="project-intro">
-          Full contractor management solution — intake through project delivery: contracts, certifications, compliance docs, assignments, and timesheets in one model-driven app backed by a 13-table Dataverse model. Browse screenshots below.
-        </p>
-        <ul class="skills-bullets" style="margin-bottom:1.25em">
-          <li>Designed 13 custom Dataverse tables with auto-number IDs, lookups, and a junction table for contractor certifications</li>
-          <li>Two-stage Business Process Flow guiding contractor intake; Power Automate fires on BPF stage advance</li>
-          <li>Automated Outlook/Teams notification flow with write-back to Dataverse for auditability</li>
-          <li>Model-driven app with split nav: Contractor Management and Project Delivery areas</li>
-          <li>Three custom JavaScript web resources — contract risk-scoring banner for expired contracts, missing email, or untagged skills</li>
-          <li>Three security roles (Contractor, Project Management, General Management) + managed solution packaging</li>
-        </ul>
-        <div class="tag-list" style="margin-bottom:1.5em">
-          <span class="tag">Dataverse</span>
-          <span class="tag">Model-Driven App</span>
-          <span class="tag">Business Process Flow</span>
-          <span class="tag">Power Automate</span>
-          <span class="tag">JavaScript Web Resources</span>
-          <span class="tag">Managed Solution</span>
-          <span class="tag">Security Roles</span>
-        </div>
-
-        <div class="slideshow-container" data-slideshow="contractor">
-          <div class="portfolio-slide contractor-slide is-active">
-            <a href="images/portfolio/contractor/01-create-contractor.png" target="_blank" rel="noopener">
-              <img src="images/portfolio/contractor/01-create-contractor.png" alt="Create new contractor record in model-driven app" />
-            </a>
-            <p class="slide-caption">Create new contractor — intake form in model-driven app</p>
-          </div>
-          <div class="portfolio-slide contractor-slide">
-            <a href="images/portfolio/contractor/02-certificate-view.png" target="_blank" rel="noopener">
-              <img src="images/portfolio/contractor/02-certificate-view.png" alt="Certificate view on contractor record" />
-            </a>
-            <p class="slide-caption">Contractor record — certifications subgrid view</p>
-          </div>
-          <div class="portfolio-slide contractor-slide">
-            <a href="images/portfolio/contractor/03-create-cert.png" target="_blank" rel="noopener">
-              <img src="images/portfolio/contractor/03-create-cert.png" alt="Create new certification for contractor" />
-            </a>
-            <p class="slide-caption">Create certification — linked to contractor record</p>
-          </div>
-          <div class="portfolio-slide contractor-slide">
-            <a href="images/portfolio/contractor/04-cert-linked.png" target="_blank" rel="noopener">
-              <img src="images/portfolio/contractor/04-cert-linked.png" alt="Certification created and linked to contractor" />
-            </a>
-            <p class="slide-caption">Certification saved — junction relationship enforced in Dataverse</p>
-          </div>
-          <div class="portfolio-slide contractor-slide">
-            <a href="images/portfolio/contractor/05-bpf-trigger-flow.png" target="_blank" rel="noopener">
-              <img src="images/portfolio/contractor/05-bpf-trigger-flow.png" alt="BPF step to trigger Power Automate flow" />
-            </a>
-            <p class="slide-caption">Business Process Flow — trigger notify-team automation on stage advance</p>
-          </div>
-          <div class="portfolio-slide contractor-slide">
-            <a href="images/portfolio/contractor/06-reason-popup.png" target="_blank" rel="noopener">
-              <img src="images/portfolio/contractor/06-reason-popup.png" alt="Reason popup for contractor creation email body" />
-            </a>
-            <p class="slide-caption">Reason capture popup — user input becomes Outlook email body</p>
-          </div>
-          <div class="portfolio-slide contractor-slide">
-            <a href="images/portfolio/contractor/07-bpf-success.png" target="_blank" rel="noopener">
-              <img src="images/portfolio/contractor/07-bpf-success.png" alt="BPF success confirmation after email sent" />
-            </a>
-            <p class="slide-caption">BPF complete — flow succeeded and team notification sent</p>
-          </div>
-          <div class="portfolio-slide contractor-slide">
-            <a href="images/portfolio/contractor/08-email-sent.png" target="_blank" rel="noopener">
-              <img src="images/portfolio/contractor/08-email-sent.png" alt="Outlook email sent to team" />
-            </a>
-            <p class="slide-caption">Outlook 365 — team notification email delivered</p>
-          </div>
-          <div class="portfolio-slide contractor-slide">
-            <a href="images/portfolio/contractor/09-power-automate-flow.png" target="_blank" rel="noopener">
-              <img src="images/portfolio/contractor/09-power-automate-flow.png" alt="Power Automate flow for contractor email notification" />
-            </a>
-            <p class="slide-caption">Power Automate — flow sends email when contractor added to MDA</p>
-          </div>
-
-          <button type="button" class="slide-nav slide-prev" data-target="contractor" aria-label="Previous screenshot">‹</button>
-          <button type="button" class="slide-nav slide-next" data-target="contractor" aria-label="Next screenshot">›</button>
-        </div>
-
-        <div class="slide-dots" data-dots="contractor" aria-hidden="true">
-          <button type="button" class="slide-dot is-active" data-target="contractor" data-index="0" aria-label="Screenshot 1"></button>
-          <button type="button" class="slide-dot" data-target="contractor" data-index="1" aria-label="Screenshot 2"></button>
-          <button type="button" class="slide-dot" data-target="contractor" data-index="2" aria-label="Screenshot 3"></button>
-          <button type="button" class="slide-dot" data-target="contractor" data-index="3" aria-label="Screenshot 4"></button>
-          <button type="button" class="slide-dot" data-target="contractor" data-index="4" aria-label="Screenshot 5"></button>
-          <button type="button" class="slide-dot" data-target="contractor" data-index="5" aria-label="Screenshot 6"></button>
-          <button type="button" class="slide-dot" data-target="contractor" data-index="6" aria-label="Screenshot 7"></button>
-          <button type="button" class="slide-dot" data-target="contractor" data-index="7" aria-label="Screenshot 8"></button>
-          <button type="button" class="slide-dot" data-target="contractor" data-index="8" aria-label="Screenshot 9"></button>
-        </div>
+        </article>
       </div>
     </section>
 
@@ -1286,7 +1400,7 @@
           <li>
             <span class="status">Completed May 2026</span>
             <strong>PL-900 — Microsoft Power Platform Fundamentals</strong>
-            Power Apps, Power Automate, Power BI, and platform foundations.
+            Power Apps, Power Automate, and platform foundations.
           </li>
           <li>
             <span class="status in-progress">Scheduled July 2026</span>
@@ -1322,39 +1436,6 @@
       { threshold: 0.12 }
     );
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    const slideshowState = {};
-
-    function initSlideshow(id) {
-      const slides = [...document.querySelectorAll(`.${id}-slide`)];
-      const dots = [...document.querySelectorAll(`.slide-dot[data-target="${id}"]`)];
-      if (!slides.length) return;
-
-      slideshowState[id] = { index: 0, slides, dots };
-
-      function show(index) {
-        const n = slides.length;
-        const i = ((index % n) + n) % n;
-        slideshowState[id].index = i;
-        slides.forEach((s, j) => s.classList.toggle('is-active', j === i));
-        dots.forEach((d, j) => d.classList.toggle('is-active', j === i));
-      }
-
-      document.querySelectorAll(`.slide-prev[data-target="${id}"]`).forEach(btn => {
-        btn.addEventListener('click', () => show(slideshowState[id].index - 1));
-      });
-      document.querySelectorAll(`.slide-next[data-target="${id}"]`).forEach(btn => {
-        btn.addEventListener('click', () => show(slideshowState[id].index + 1));
-      });
-      dots.forEach(dot => {
-        dot.addEventListener('click', () => show(Number(dot.dataset.index)));
-      });
-
-      show(0);
-    }
-
-    initSlideshow('mda');
-    initSlideshow('contractor');
   </script>
 
 </body>

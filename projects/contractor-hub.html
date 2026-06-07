@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contractor Hub — Dataverse contractor management portfolio project by Gurdip Mikey Bath. BPF, Power Automate, and compliance checks." />
+  <title>Contractor Hub · Gurdip Mikey Bath</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/project.css" />
+</head>
+<body class="project-page">
+
+  <div class="project-page-inner">
+    <a href="../index.html#projects" class="project-back">← Back to portfolio</a>
+
+    <header>
+      <h1 class="project-hero-title">Contractor Hub</h1>
+      <p class="project-hero-sub">Contractor Management System · Dataverse Solution</p>
+      <span class="project-type-badge">Portfolio project</span>
+    </header>
+
+    <div class="project-case">
+      <dl class="case-meta">
+        <div class="case-meta-item">
+          <dt>Role</dt>
+          <dd>Sole developer — data model, app, BPF, flows, JS, ALM</dd>
+        </div>
+        <div class="case-meta-item">
+          <dt>Domain</dt>
+          <dd>Contractor management · Compliance</dd>
+        </div>
+        <div class="case-meta-item">
+          <dt>Type</dt>
+          <dd>Portfolio build · UAT-tested</dd>
+        </div>
+        <div class="case-meta-item">
+          <dt>Stack</dt>
+          <dd>Dataverse · MDA · BPF · Power Automate · JS</dd>
+        </div>
+      </dl>
+
+      <div>
+        <p class="case-label">The problem</p>
+        <p class="case-text">
+          Contractor intake, certifications, and contract status lived across spreadsheets and email. Coordinators manually chased teams when new contractors were onboarded. Compliance gaps — expired contracts, missing contact details, untagged skills — were only caught late.
+        </p>
+      </div>
+
+      <div>
+        <p class="case-label">Key decisions</p>
+        <ul class="case-list">
+          <li>13-table Dataverse model with junction table for contractor certifications</li>
+          <li>Two-stage BPF to guide intake and trigger Power Automate on stage advance</li>
+          <li>JavaScript web resources for on-form compliance warnings before assignment</li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="case-label">Impact</p>
+        <div class="project-results">
+          <div class="result-card"><strong>3 hrs</strong><span>Less intake admin / week</span></div>
+          <div class="result-card"><strong>3</strong><span>On-form compliance checks</span></div>
+          <div class="result-card"><strong>13</strong><span>Custom Dataverse tables</span></div>
+          <div class="result-card"><strong>2</strong><span>Guided intake BPF stages</span></div>
+        </div>
+        <p class="project-results-footnote">Estimated from UAT feedback / process mapping.</p>
+      </div>
+
+      <div>
+        <p class="case-label">What I built</p>
+        <ul class="case-list">
+          <li>End-to-end Dataverse data model — 13 custom tables, auto-number IDs, lookups, and junction table</li>
+          <li>Two-stage Business Process Flow with Power Automate on BPF stage advance</li>
+          <li>Notification flow — Outlook email, reason capture popup, and Dataverse write-back</li>
+          <li>Split sitemap for Contractor Management and Project Delivery personas</li>
+          <li>Three JavaScript web resources for certification logic and contract risk warnings</li>
+          <li>Three custom security roles and managed solution packaging</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <section class="project-chapters" aria-label="Project walkthrough — scroll to explore">
+    <div class="project-chapters-intro">
+      <h2>Walkthrough</h2>
+      <p>Scroll down — each section pairs a screenshot with what it does in the solution.</p>
+    </div>
+
+    <article class="project-chapter">
+      <div class="chapter-visual">
+        <a class="chapter-frame" href="../images/portfolio/contractor/01-create-contractor.png" target="_blank" rel="noopener">
+          <img src="../images/portfolio/contractor/01-create-contractor.png" alt="Create new contractor record" />
+        </a>
+      </div>
+      <div class="chapter-content">
+        <h2>Create A Contractor Record</h2>
+        <ul class="chapter-features">
+          <li>Model-driven intake form captures contractor details at the start of the lifecycle</li>
+          <li>Auto-number IDs and required fields enforce consistent data entry from day one</li>
+          <li>Lookups connect the contractor to contracts, projects, and compliance records</li>
+          <li>Replaces spreadsheet-based onboarding with a governed Dataverse record</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="project-chapter project-chapter--reverse">
+      <div class="chapter-visual">
+        <a class="chapter-frame" href="../images/portfolio/contractor/02-certificate-view.png" target="_blank" rel="noopener">
+          <img src="../images/portfolio/contractor/02-certificate-view.png" alt="Certifications subgrid on contractor record" />
+        </a>
+      </div>
+      <div class="chapter-content">
+        <h2>Contractor Certifications View</h2>
+        <ul class="chapter-features">
+          <li>Certifications subgrid on the contractor record shows linked compliance at a glance</li>
+          <li>Coordinators see expiry status without opening separate spreadsheets</li>
+          <li>Junction table relationship keeps certs tied to the correct contractor</li>
+          <li>Supports audit and assignment decisions before a contractor is deployed</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="project-chapter">
+      <div class="chapter-visual">
+        <a class="chapter-frame" href="../images/portfolio/contractor/03-create-cert.png" target="_blank" rel="noopener">
+          <img src="../images/portfolio/contractor/03-create-cert.png" alt="Create new certification form" />
+        </a>
+      </div>
+      <div class="chapter-content">
+        <h2>Add A Certification</h2>
+        <ul class="chapter-features">
+          <li>Dedicated form to create a new certification record for a contractor</li>
+          <li>JavaScript web resources validate certification fields before save</li>
+          <li>Captures cert type, issue date, and expiry for compliance tracking</li>
+          <li>Links directly to the contractor record on submission</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="project-chapter project-chapter--reverse">
+      <div class="chapter-visual">
+        <a class="chapter-frame" href="../images/portfolio/contractor/04-cert-linked.png" target="_blank" rel="noopener">
+          <img src="../images/portfolio/contractor/04-cert-linked.png" alt="Certification linked to contractor" />
+        </a>
+      </div>
+      <div class="chapter-content">
+        <h2>Certification Linked</h2>
+        <ul class="chapter-features">
+          <li>Junction table enforces the many-to-many contractor–certification relationship</li>
+          <li>Saved cert appears immediately on the contractor subgrid — no manual linking</li>
+          <li>Data integrity rules prevent orphaned certification records</li>
+          <li>Foundation for on-form compliance warnings before assignment</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="project-chapter">
+      <div class="chapter-visual">
+        <a class="chapter-frame" href="../images/portfolio/contractor/05-bpf-trigger-flow.png" target="_blank" rel="noopener">
+          <img src="../images/portfolio/contractor/05-bpf-trigger-flow.png" alt="BPF stage triggering Power Automate flow" />
+        </a>
+      </div>
+      <div class="chapter-content">
+        <h2>BPF Triggers Automation</h2>
+        <ul class="chapter-features">
+          <li>Two-stage Business Process Flow guides contractor intake step by step</li>
+          <li>Advancing a BPF stage fires the Power Automate notify-team flow</li>
+          <li>Users cannot skip intake steps — process is enforced in the model-driven app</li>
+          <li>BPF provides a visual progress bar for coordinators and hiring managers</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="project-chapter project-chapter--reverse">
+      <div class="chapter-visual">
+        <a class="chapter-frame" href="../images/portfolio/contractor/06-reason-popup.png" target="_blank" rel="noopener">
+          <img src="../images/portfolio/contractor/06-reason-popup.png" alt="Reason capture popup for email body" />
+        </a>
+      </div>
+      <div class="chapter-content">
+        <h2>Reason Capture Popup</h2>
+        <ul class="chapter-features">
+          <li>Popup prompts the user for the reason a contractor is being onboarded</li>
+          <li>Captured text becomes the body of the automated Outlook notification</li>
+          <li>Reason is written back to Dataverse for auditability and traceability</li>
+          <li>Ensures context travels with the notification — not just a blank system alert</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="project-chapter">
+      <div class="chapter-visual">
+        <a class="chapter-frame" href="../images/portfolio/contractor/07-bpf-success.png" target="_blank" rel="noopener">
+          <img src="../images/portfolio/contractor/07-bpf-success.png" alt="BPF success confirmation" />
+        </a>
+      </div>
+      <div class="chapter-content">
+        <h2>BPF Success Confirmation</h2>
+        <ul class="chapter-features">
+          <li>BPF confirms the automation ran successfully before the user moves on</li>
+          <li>Clear success state reduces uncertainty about whether the team was notified</li>
+          <li>Failed flows surface in the process — not silently missed in the background</li>
+          <li>Closes the intake loop with visible confirmation in the app</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="project-chapter project-chapter--reverse">
+      <div class="chapter-visual">
+        <a class="chapter-frame" href="../images/portfolio/contractor/08-email-sent.png" target="_blank" rel="noopener">
+          <img src="../images/portfolio/contractor/08-email-sent.png" alt="Outlook email sent to team" />
+        </a>
+      </div>
+      <div class="chapter-content">
+        <h2>Team Email Delivered</h2>
+        <ul class="chapter-features">
+          <li>Outlook 365 delivers the notification to the team inbox automatically</li>
+          <li>No manual email drafting or distribution lists to maintain</li>
+          <li>Email includes the user-entered reason from the intake popup</li>
+          <li>Estimated 3 hrs/week less coordinator admin from removing manual chasing</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="project-chapter">
+      <div class="chapter-visual">
+        <a class="chapter-frame" href="../images/portfolio/contractor/09-power-automate-flow.png" target="_blank" rel="noopener">
+          <img src="../images/portfolio/contractor/09-power-automate-flow.png" alt="Power Automate flow designer" />
+        </a>
+      </div>
+      <div class="chapter-content">
+        <h2>Power Automate Flow</h2>
+        <ul class="chapter-features">
+          <li>Cloud flow triggered from BPF stage advance in the model-driven app</li>
+          <li>Sends Outlook email, captures reason, and writes back to Dataverse</li>
+          <li>Scoped error handling and idempotency checks for reliable production behaviour</li>
+          <li>Packaged in a managed solution for DEV → PROD promotion via ALM</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <div class="project-page-inner">
+    <div class="project-case" style="margin-top:3rem;border-bottom:none;padding-bottom:0">
+      <div>
+        <p class="case-label">Learnings</p>
+        <ul class="case-list">
+          <li>BPF-triggered flows need clear stage criteria — documenting advance conditions early avoids silent failures</li>
+          <li>On-form JS warnings caught compliance issues faster than post-save validation rules alone</li>
+          <li>Split sitemap by persona reduced clutter for intake vs delivery users</li>
+        </ul>
+      </div>
+    </div>
+
+    <footer class="project-footer-cta">
+      <p>Open to junior Power Platform roles · West Midlands / remote UK</p>
+      <a href="../index.html#contact" class="btn-pill btn-pill--primary">
+        <span>Get in touch</span>
+        <span class="btn-pill-icon" aria-hidden="true">↗</span>
+      </a>
+    </footer>
+  </div>
+
+</body>
+</html>

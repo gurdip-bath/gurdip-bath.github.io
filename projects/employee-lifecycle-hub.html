@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Employee Lifecycle Hub — Dataverse HR portfolio project by Gurdip Mikey Bath. Model-driven app, canvas app, and Power Automate." />
+  <title>Employee Lifecycle Hub · Gurdip Mikey Bath</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/project.css" />
+</head>
+<body class="project-page">
+
+  <div class="project-page-inner">
+    <a href="../index.html#projects" class="project-back">← Back to portfolio</a>
+
+    <header>
+      <h1 class="project-hero-title">Employee Lifecycle Hub</h1>
+      <p class="project-hero-sub">Dataverse Solution · HR onboarding &amp; offboarding</p>
+      <span class="project-type-badge">Portfolio project</span>
+    </header>
+
+    <div class="project-case">
+      <dl class="case-meta">
+        <div class="case-meta-item">
+          <dt>Role</dt>
+          <dd>Sole developer — schema, apps, flows, security, ALM</dd>
+        </div>
+        <div class="case-meta-item">
+          <dt>Domain</dt>
+          <dd>HR · Onboarding &amp; offboarding</dd>
+        </div>
+        <div class="case-meta-item">
+          <dt>Type</dt>
+          <dd>Portfolio build · UAT-tested</dd>
+        </div>
+        <div class="case-meta-item">
+          <dt>Stack</dt>
+          <dd>Dataverse · MDA · Canvas · Power Automate</dd>
+        </div>
+      </dl>
+
+      <div>
+        <p class="case-label">The problem</p>
+        <p class="case-text">
+          HR coordinators chased onboarding and offboarding steps across email and spreadsheets. Line managers had no single view of their team's lifecycle cases. Missed tasks were common and hard to audit.
+        </p>
+      </div>
+
+      <div>
+        <p class="case-label">Key decisions</p>
+        <ul class="case-list">
+          <li>Model-driven app for HR vs canvas for line managers (delegation-safe Power Fx)</li>
+          <li>Task generation via Power Automate instead of manual checklists</li>
+          <li>Column security profiles for PII at the data layer</li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="case-label">Impact</p>
+        <div class="project-results">
+          <div class="result-card"><strong>5 hrs</strong><span>Less admin / week</span></div>
+          <div class="result-card"><strong>50%</strong><span>Fewer missed tasks</span></div>
+          <div class="result-card"><strong>3</strong><span>HR processes automated</span></div>
+          <div class="result-card"><strong>3</strong><span>Production flows</span></div>
+        </div>
+        <p class="project-results-footnote">Estimated from UAT feedback / process mapping.</p>
+      </div>
+
+      <div>
+        <p class="case-label">What I built</p>
+        <ul class="case-list">
+          <li>Dataverse schema (5-table model) + security roles and column security profiles</li>
+          <li>Model-driven app for HR and canvas app for line managers (direct reports only)</li>
+          <li>Power Automate: onboarding/offboarding tasks, stage-change alerts, overdue reminders</li>
+          <li>Managed solution ALM with environment variables and connection references</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <section class="project-chapters" aria-label="Project walkthrough — scroll to explore">
+    <div class="project-chapters-intro">
+      <h2>Walkthrough</h2>
+      <p>Scroll down — each section pairs a screenshot with what it does in the solution.</p>
+    </div>
+
+    <article class="project-chapter">
+      <div class="chapter-visual">
+        <a class="chapter-frame" href="../employee%20lifecycle%20hub/model-driven/01-lifecycle-case-view.png?v=2" target="_blank" rel="noopener">
+          <img src="../employee%20lifecycle%20hub/model-driven/01-lifecycle-case-view.png?v=2" alt="Lifecycle cases list view in model-driven app" />
+        </a>
+      </div>
+      <div class="chapter-content">
+        <h2>Lifecycle Cases Dashboard</h2>
+        <ul class="chapter-features">
+          <li>HR users see every open onboarding and offboarding case in one model-driven list view</li>
+          <li>Filter and sort lifecycle cases by status, type, and owner without leaving the app</li>
+          <li>Single system of record replaces spreadsheet tracking across the HR team</li>
+          <li>Role-based views ensure users only see cases their security profile allows</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="project-chapter project-chapter--reverse">
+      <div class="chapter-visual">
+        <a class="chapter-frame" href="../employee%20lifecycle%20hub/model-driven/02-create-lifecycle-case.png" target="_blank" rel="noopener">
+          <img src="../employee%20lifecycle%20hub/model-driven/02-create-lifecycle-case.png" alt="Create new lifecycle case form" />
+        </a>
+      </div>
+      <div class="chapter-content">
+        <h2>Create A Lifecycle Case</h2>
+        <ul class="chapter-features">
+          <li>Guided intake form captures employee details and lifecycle event type in one place</li>
+          <li>Required fields and validation rules enforce data quality at the point of entry</li>
+          <li>Lookup relationships link the case to employee records in the Dataverse model</li>
+          <li>Submitting a case kicks off automated task generation via Power Automate</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="project-chapter">
+      <div class="chapter-visual">
+        <a class="chapter-frame" href="../employee%20lifecycle%20hub/model-driven/03-tasks-page.png" target="_blank" rel="noopener">
+          <img src="../employee%20lifecycle%20hub/model-driven/03-tasks-page.png" alt="Tasks page with generated onboarding tasks" />
+        </a>
+      </div>
+      <div class="chapter-content">
+        <h2>Auto-Generated Tasks</h2>
+        <ul class="chapter-features">
+          <li>Power Automate creates onboarding and offboarding tasks when a lifecycle case is raised</li>
+          <li>Tasks page shows every action item linked to the parent case with status tracking</li>
+          <li>HR can monitor overdue and incomplete tasks without manual checklist chasing</li>
+          <li>Replaces ad-hoc email reminders with a governed, auditable task list in Dataverse</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="project-chapter project-chapter--reverse">
+      <div class="chapter-visual">
+        <a class="chapter-frame" href="../employee%20lifecycle%20hub/model-driven/04-outlook-email.png" target="_blank" rel="noopener">
+          <img src="../employee%20lifecycle%20hub/model-driven/04-outlook-email.png" alt="Outlook email notification from Power Automate" />
+        </a>
+      </div>
+      <div class="chapter-content">
+        <h2>Outlook Notifications</h2>
+        <ul class="chapter-features">
+          <li>Stage-change flows send automated Outlook emails to the right stakeholders</li>
+          <li>Notifications fire on lifecycle events — no manual copy-paste into email templates</li>
+          <li>Email content is driven by case data written back from Dataverse</li>
+          <li>Keeps HR, managers, and IT aligned when cases move through each stage</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="project-chapter">
+      <div class="chapter-visual">
+        <a class="chapter-frame" href="../employee%20lifecycle%20hub/canvas%20app%20images/1%20-%20Canvas%20App%20Homepage.png" target="_blank" rel="noopener">
+          <img src="../employee%20lifecycle%20hub/canvas%20app%20images/1%20-%20Canvas%20App%20Homepage.png" alt="Canvas app homepage for line managers" />
+        </a>
+      </div>
+      <div class="chapter-content">
+        <h2>Line Manager Homepage</h2>
+        <ul class="chapter-features">
+          <li>Canvas app gives line managers a dedicated, mobile-friendly entry point</li>
+          <li>Delegation-safe Power Fx queries scope data to each manager's direct reports only</li>
+          <li>Quick counts surface open cases and pending tasks for their team at a glance</li>
+          <li>Separate from the HR model-driven app — simpler UX for non-HR personas</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="project-chapter project-chapter--reverse">
+      <div class="chapter-visual">
+        <a class="chapter-frame" href="../employee%20lifecycle%20hub/canvas%20app%20images/2%20-%20Canvas%20App%20Case%20Details.png" target="_blank" rel="noopener">
+          <img src="../employee%20lifecycle%20hub/canvas%20app%20images/2%20-%20Canvas%20App%20Case%20Details.png" alt="Canvas app lifecycle case details" />
+        </a>
+      </div>
+      <div class="chapter-content">
+        <h2>Case Details For Managers</h2>
+        <ul class="chapter-features">
+          <li>Managers drill into lifecycle case details for employees on their team</li>
+          <li>Read-only fields protect sensitive HR data while showing relevant case progress</li>
+          <li>Consistent layout across onboarding and offboarding case types</li>
+          <li>No access to organisation-wide HR records outside their reporting line</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="project-chapter">
+      <div class="chapter-visual">
+        <a class="chapter-frame" href="../employee%20lifecycle%20hub/canvas%20app%20images/3%20-%20Task%20List.png" target="_blank" rel="noopener">
+          <img src="../employee%20lifecycle%20hub/canvas%20app%20images/3%20-%20Task%20List.png" alt="Canvas app task list for manager's team" />
+        </a>
+      </div>
+      <div class="chapter-content">
+        <h2>Team Task List</h2>
+        <ul class="chapter-features">
+          <li>Task list filtered to the manager's direct reports — closing the loop on missed steps</li>
+          <li>Managers can see which lifecycle tasks are overdue or still outstanding</li>
+          <li>Reduces HR admin chasing managers for onboarding action items</li>
+          <li>Same task data as the HR app, presented through a manager-scoped canvas view</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <div class="project-page-inner">
+    <div class="project-case" style="margin-top:3rem;border-bottom:none;padding-bottom:0">
+      <div>
+        <p class="case-label">Learnings</p>
+        <ul class="case-list">
+          <li>Testing flow idempotency earlier in UAT would have reduced rework on edge-case triggers</li>
+          <li>Splitting HR and manager experiences into separate apps kept RBAC and delegation logic cleaner</li>
+          <li>Environment variables from day one made DEV → PROD promotion straightforward</li>
+        </ul>
+      </div>
+    </div>
+
+    <footer class="project-footer-cta">
+      <p>Open to junior Power Platform roles · West Midlands / remote UK</p>
+      <a href="../index.html#contact" class="btn-pill btn-pill--primary">
+        <span>Get in touch</span>
+        <span class="btn-pill-icon" aria-hidden="true">↗</span>
+      </a>
+    </footer>
+  </div>
+
+</body>
+</html>
