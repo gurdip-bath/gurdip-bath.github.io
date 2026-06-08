@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Gurdip Mikey Bath — Junior Power Platform Developer. HR domain background, PL-900 certified, production Dataverse solutions. West Midlands, UK." />
+  <meta name="description" content="Gurdip Mikey Bath — Junior Power Platform Developer. Live canvas apps &amp; automation at Shaw Trust. Portfolio Dataverse solutions. HR background. PL-900 certified. West Midlands, UK." />
   <title>Gurdip Mikey Bath · Junior Power Platform Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -219,13 +219,6 @@
     }
 
     .intro-portfolio-link:hover { color: var(--accent); border-bottom-color: transparent; }
-
-    .intro-keywords {
-      font-size: 0.85em;
-      line-height: 1.65;
-      color: var(--text);
-      margin: 0;
-    }
 
     .intro-cert {
       height: 72px;
@@ -501,35 +494,90 @@
       box-shadow: 0 0 24px rgba(0, 200, 160, 0.25);
     }
 
-    .why-hire {
-      list-style: none;
-      margin: 1.75em 0 0 0;
-      padding: 1.25rem 1.5rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--accent);
-      border-radius: 0 4px 4px 0;
-      display: grid;
-      gap: 0.65rem;
+    .outcome-highlights {
+      margin: 2em 0 0 0;
     }
 
-    .why-hire li {
-      display: flex;
-      gap: 0.65rem;
-      font-size: 0.92em;
-      color: var(--text);
-      line-height: 1.55;
-    }
-
-    .why-hire li::before {
-      content: '✓';
-      color: var(--accent);
+    .outcome-highlights-title {
       font-family: var(--mono);
-      flex-shrink: 0;
-      font-weight: 500;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 0.85em 0;
     }
 
-    .why-hire strong { color: var(--text); font-weight: 500; }
+    .outcome-list {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--surface);
+    }
+
+    .outcome-row {
+      display: grid;
+      grid-template-columns: 7.5rem 1fr;
+      gap: 1.5rem;
+      padding: 1.15rem 1.35rem;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+
+    .outcome-row:last-child { border-bottom: none; }
+
+    .outcome-metric {
+      text-align: right;
+      padding-top: 0.1rem;
+    }
+
+    .outcome-value {
+      display: block;
+      font-family: var(--serif);
+      font-size: clamp(1.25rem, 2vw, 1.5rem);
+      color: var(--accent);
+      line-height: 1.15;
+      font-weight: 400;
+    }
+
+    .outcome-unit {
+      display: block;
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 0.2rem;
+      line-height: 1.35;
+    }
+
+    .outcome-detail p {
+      margin: 0 0 0.65rem 0;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: var(--text);
+    }
+
+    .outcome-detail p:last-child { margin-bottom: 0; }
+
+    .outcome-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .outcome-tags .tech-pill {
+      font-size: 0.56rem;
+      padding: 0.35rem 0.65rem;
+    }
+
+    @media (max-width: 560px) {
+      .outcome-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+      .outcome-metric { text-align: left; }
+    }
 
     .project-results {
       display: grid;
@@ -1103,6 +1151,8 @@
       }
       .intro-hero::after { display: none; }
       .intro-hero-inner { align-items: center; margin-bottom: 1.5em; }
+      .intro-tech-label { text-align: center; }
+      .intro-tech-pills { justify-content: center; }
       .sidebar-nav { align-items: center; }
       .intro-hero-footer { text-align: center; }
       .intro-social { justify-content: center; flex-wrap: wrap; }
@@ -1131,10 +1181,19 @@
       <h1 class="intro-name">Gurdip Mikey Bath</h1>
       <p class="intro-role">Junior Power Platform Developer</p>
       <p class="intro-tagline">12+ months production delivery · HR domain background · PL-900 certified</p>
-      <p class="intro-keywords">
-        Power Apps (Model-Driven &amp; Canvas) &nbsp;||&nbsp; Power Automate &nbsp;||<br>
-        Dataverse &amp; SharePoint &nbsp;||&nbsp; ALM
-      </p>
+      <div class="intro-tech-stack" aria-label="Power Platform stack">
+        <p class="intro-tech-label">Stack at a glance</p>
+        <div class="intro-tech-pills">
+          <span class="tech-pill tech-pill--purple">Canvas App</span>
+          <span class="tech-pill tech-pill--teal">SharePoint</span>
+          <span class="tech-pill tech-pill--blue">Power Automate</span>
+          <span class="tech-pill tech-pill--pink">Model-Driven App</span>
+          <span class="tech-pill tech-pill--green">Dataverse</span>
+          <span class="tech-pill tech-pill--purple">Business Process Flow</span>
+          <span class="tech-pill tech-pill--peach">Security &amp; ALM</span>
+          <span class="tech-pill tech-pill--yellow">JavaScript</span>
+        </div>
+      </div>
       <a class="intro-portfolio-link" href="https://gurdip-bath.github.io" target="_blank" rel="noopener">gurdip-bath.github.io</a>
       <img
         class="intro-cert"
@@ -1170,10 +1229,26 @@
   <!-- Scrollable main column -->
   <main id="main" class="scroll-main">
 
+    <div class="stack-glance" aria-label="Power Platform technologies at a glance">
+      <span class="stack-glance-eyebrow">At a glance</span>
+      <h2 class="stack-glance-title">Power Platform stack</h2>
+      <div class="stack-glance-pills">
+        <a href="#experience" class="tech-pill tech-pill--lg tech-pill--purple">Canvas App</a>
+        <a href="#experience" class="tech-pill tech-pill--lg tech-pill--teal">SharePoint</a>
+        <a href="#skills" class="tech-pill tech-pill--lg tech-pill--blue">Power Automate</a>
+        <a href="#projects" class="tech-pill tech-pill--lg tech-pill--pink">Model-Driven App</a>
+        <a href="#projects" class="tech-pill tech-pill--lg tech-pill--green">Dataverse</a>
+        <a href="#projects" class="tech-pill tech-pill--lg tech-pill--purple">Business Process Flow</a>
+        <a href="#skills" class="tech-pill tech-pill--lg tech-pill--peach">Security &amp; ALM</a>
+        <a href="#projects" class="tech-pill tech-pill--lg tech-pill--yellow">JavaScript</a>
+      </div>
+      <p class="stack-glance-hint">Live canvas + SharePoint + flows at Shaw Trust · portfolio Dataverse builds in Projects below</p>
+    </div>
+
     <section id="about" class="content-block">
       <h2 class="block-title block-title--major">About Me</h2>
       <p>
-        Junior Microsoft Power Platform Developer with <strong>12+ months hands-on delivery</strong> and a background in <strong>HR Shared Services</strong>. I've independently built two production-style portfolio solutions on Dataverse — an Employee Lifecycle Hub and a Contractor Management system — covering model-driven apps, canvas apps, Power Automate, security, and ALM.
+        Junior Microsoft Power Platform Developer with <strong>12+ months hands-on delivery</strong> and a background in <strong>HR Shared Services</strong>. I've delivered production canvas apps and Power Automate flows integrated with SharePoint. I've also built two independent <strong>portfolio</strong> solutions on Dataverse — Employee Lifecycle Hub and Contractor Hub — covering model-driven apps, canvas apps, security, and ALM.
       </p>
       <p>
         <strong>What makes me different:</strong> I design from real HR process experience — onboarding, offboarding, case management, and SLAs from Shaw Trust and UK Home Office resourcing work — not tutorial scenarios.
@@ -1181,12 +1256,61 @@
       <p>
         <strong>Currently:</strong> PL-900 certified · PL-200 scheduled July 2026 · Open to junior Power Platform roles in the <strong>West Midlands / Birmingham</strong> (hybrid or remote UK). Active on <a href="https://www.linkedin.com/in/gurdip-mikey-b-07aa12292/" target="_blank" rel="noopener" style="color:var(--accent)">LinkedIn</a> sharing Power Platform content (2,000+ followers).
       </p>
-      <ul class="why-hire" aria-label="Why hire me">
-        <li><strong>2 Power Platform solutions</strong> built end-to-end — Dataverse, apps, flows, security, ALM</li>
-        <li><strong>2 portfolio solutions</strong> on Dataverse + live PWA client delivery via GMB Software Solutions</li>
-        <li><strong>HR domain expertise</strong> from Shaw Trust &amp; UK Home Office — rare for junior developers</li>
-        <li><strong>PL-900 certified</strong> · PL-200 scheduled July 2026</li>
-      </ul>
+      <div class="outcome-highlights" aria-label="Deliverables and outcomes">
+        <h3 class="outcome-highlights-title">Deliverables &amp; outcomes</h3>
+        <div class="outcome-list">
+          <div class="outcome-row">
+            <div class="outcome-metric">
+              <span class="outcome-value">19 hrs</span>
+              <span class="outcome-unit">saved / week</span>
+            </div>
+            <div class="outcome-detail">
+              <p>Canvas app tied to SharePoint lists with Power Automate — repetitive HR admin removed from the weekly workload.</p>
+              <div class="outcome-tags">
+                <span class="tech-pill tech-pill--purple">Canvas App</span>
+                <span class="tech-pill tech-pill--teal">SharePoint</span>
+                <span class="tech-pill tech-pill--blue">Power Automate</span>
+              </div>
+            </div>
+          </div>
+          <div class="outcome-row">
+            <div class="outcome-metric">
+              <span class="outcome-value">4 hrs</span>
+              <span class="outcome-unit">saved / week</span>
+            </div>
+            <div class="outcome-detail">
+              <p>Probation review process automated with Power Automate — stage triggers, notifications, and manual chasing eliminated.</p>
+              <div class="outcome-tags">
+                <span class="tech-pill tech-pill--blue">Power Automate</span>
+              </div>
+            </div>
+          </div>
+          <div class="outcome-row">
+            <div class="outcome-metric">
+              <span class="outcome-value">2</span>
+              <span class="outcome-unit">Dataverse solutions</span>
+            </div>
+            <div class="outcome-detail">
+              <p>Built solo end-to-end — relational schema, model-driven and canvas apps, production-style flows, security roles, and managed-solution ALM.</p>
+              <div class="outcome-tags">
+                <span class="tech-pill tech-pill--green">Dataverse</span>
+                <span class="tech-pill tech-pill--pink">Model-Driven App</span>
+                <span class="tech-pill tech-pill--purple">Canvas App</span>
+                <span class="tech-pill tech-pill--peach">Security &amp; ALM</span>
+              </div>
+            </div>
+          </div>
+          <div class="outcome-row">
+            <div class="outcome-metric">
+              <span class="outcome-value">PL-900</span>
+              <span class="outcome-unit">certified</span>
+            </div>
+            <div class="outcome-detail">
+              <p>Microsoft Power Platform Fundamentals — PL-200 Functional Consultant scheduled July 2026.</p>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="about-cta">
         <a href="Gurdip_Bath_CV_Final.pdf" class="btn btn-primary" target="_blank" rel="noopener">View My CV</a>
         <a href="Gurdip_Bath_CV_Final.docx" class="btn btn-ghost" download="Gurdip_Bath_CV_Final.docx">Download My CV</a>
@@ -1206,10 +1330,10 @@
               <li>Multi-persona workflows with consistent UX and data integrity.</li>
             </ul>
             <div class="skills-chipline">
-              <span class="chip chip--strong">Model-Driven Apps</span>
-              <span class="chip chip--strong">Canvas Apps</span>
-              <span class="chip">Views &amp; Forms</span>
-              <span class="chip">Sitemap</span>
+              <span class="tech-pill tech-pill--pink">Model-Driven Apps</span>
+              <span class="tech-pill tech-pill--purple">Canvas Apps</span>
+              <span class="tech-pill tech-pill--peach">Views &amp; Forms</span>
+              <span class="tech-pill tech-pill--peach">Sitemap</span>
             </div>
           </div>
         </div>
@@ -1222,10 +1346,10 @@
               <li>Environment variables for portability across DEV → PROD.</li>
             </ul>
             <div class="skills-chipline">
-              <span class="chip chip--strong">Cloud flows</span>
-              <span class="chip">Idempotency</span>
-              <span class="chip">Retries</span>
-              <span class="chip">Env variables</span>
+              <span class="tech-pill tech-pill--blue">Cloud flows</span>
+              <span class="tech-pill tech-pill--blue">Idempotency</span>
+              <span class="tech-pill tech-pill--blue">Retries</span>
+              <span class="tech-pill tech-pill--blue">Env variables</span>
             </div>
           </div>
         </div>
@@ -1238,10 +1362,10 @@
               <li>Column security profiles for PII compliance.</li>
             </ul>
             <div class="skills-chipline">
-              <span class="chip chip--strong">Dataverse</span>
-              <span class="chip">Lookups</span>
-              <span class="chip">OData</span>
-              <span class="chip">Column security</span>
+              <span class="tech-pill tech-pill--green">Dataverse</span>
+              <span class="tech-pill tech-pill--green">Lookups</span>
+              <span class="tech-pill tech-pill--green">OData</span>
+              <span class="tech-pill tech-pill--green">Column security</span>
             </div>
           </div>
         </div>
@@ -1254,10 +1378,10 @@
               <li>Custom security roles and column security (least privilege).</li>
             </ul>
             <div class="skills-chipline">
-              <span class="chip chip--strong">Managed solutions</span>
-              <span class="chip">Security roles</span>
-              <span class="chip">Column security</span>
-              <span class="chip">GDPR</span>
+              <span class="tech-pill tech-pill--peach">Managed solutions</span>
+              <span class="tech-pill tech-pill--peach">Security roles</span>
+              <span class="tech-pill tech-pill--peach">Column security</span>
+              <span class="tech-pill tech-pill--peach">GDPR</span>
             </div>
           </div>
         </div>
@@ -1276,7 +1400,7 @@
             <h3 class="project-showcase-title">Employee Lifecycle Hub</h3>
             <span class="project-showcase-accent" aria-hidden="true"></span>
             <p class="project-showcase-desc">
-              Enterprise HR lifecycle solution on Dataverse — model-driven app for HR users, canvas app for line managers, Power Automate workflows, and Outlook notifications. Cuts onboarding admin and reduces missed lifecycle tasks.
+              Portfolio project — enterprise HR lifecycle solution on Dataverse with model-driven app for HR users, canvas app for line managers, Power Automate workflows, and Outlook notifications. Impact metrics from UAT / process mapping.
             </p>
             <div class="project-showcase-tags">
               <span class="tech-pill tech-pill--pink">Model-Driven App</span>
@@ -1317,7 +1441,7 @@
             <h3 class="project-showcase-title">Contractor Hub</h3>
             <span class="project-showcase-accent" aria-hidden="true"></span>
             <p class="project-showcase-desc">
-              Full contractor management solution — intake through project delivery. Contracts, certifications, compliance docs, assignments, and timesheets in one model-driven app backed by a 13-table Dataverse model with BPF-guided intake and on-form compliance checks.
+              Portfolio project — full contractor management solution from intake through project delivery. 13-table Dataverse model, model-driven app, BPF-guided intake, Power Automate, and on-form compliance checks.
             </p>
             <div class="project-showcase-tags">
               <span class="tech-pill tech-pill--pink">Model-Driven App</span>
@@ -1361,9 +1485,10 @@
 
       <article class="work-item reveal">
         <h3>Shaw Trust</h3>
-        <h4>HR Shared Services Administrator · Oldbury, UK · Oct 2024 — Present</h4>
-        <p>Administer end-to-end employee lifecycle processes including onboarding, offboarding, and contract changes. Apply direct HR domain knowledge to Power Platform solution design and portfolio development.</p>
+        <h4>HRSS Administrator &amp; Power Platform Developer · Oldbury, UK · Oct 2024 — Present</h4>
+        <p>Built a canvas app integrated with SharePoint and Power Automate, saving 15 hours of manual work per week. Administer end-to-end employee lifecycle processes including onboarding, offboarding, and contract changes. HR domain knowledge from this role directly informs how I design Power Platform solutions.</p>
         <ul>
+          <li>Automated employee probation process using Power Automate, reducing manual intervention by 4 hours per week</li>
           <li>Manage high-volume transactional HR cases to strict SLA and data accuracy standards</li>
           <li>Working knowledge of HR data structures, business rules, and compliance requirements</li>
         </ul>
@@ -1405,7 +1530,7 @@
           <li>
             <span class="status in-progress">Scheduled July 2026</span>
             <strong>PL-200 — Power Platform Functional Consultant</strong>
-            Studying toward Functional Consultant certification while delivering client-style solutions on Dataverse, security, and ALM.
+            Studying toward Functional Consultant certification while delivering production solutions at Shaw Trust and portfolio builds on Dataverse.
           </li>
         </ul>
       </div>

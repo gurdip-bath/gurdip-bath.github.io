@@ -16,6 +16,120 @@
   --pill-blue:   #8ecae6;
   --pill-peach:  #f4c4a0;
   --pill-yellow: #f7e08a;
+  --pill-teal:   #5eead4;
+}
+
+/* ── Tech pills (shared: sidebar, hero strip, projects, skills) ─ */
+.tech-pill {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  color: #0a0a0a;
+  border: none;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.tech-pill--lg {
+  font-size: 0.68rem;
+  padding: 0.52rem 1rem;
+}
+
+.tech-pill--pink   { background: var(--pill-pink); }
+.tech-pill--green  { background: var(--pill-green); }
+.tech-pill--purple { background: var(--pill-purple); }
+.tech-pill--blue   { background: var(--pill-blue); }
+.tech-pill--peach  { background: var(--pill-peach); }
+.tech-pill--yellow { background: var(--pill-yellow); }
+.tech-pill--teal   { background: var(--pill-teal); }
+
+a.tech-pill {
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+a.tech-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  filter: brightness(1.06);
+}
+
+a.tech-pill:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ── Landing: stack at a glance (top of main column) ─────────── */
+.stack-glance {
+  margin-bottom: 3.5em;
+  padding: 1.75rem 2rem 2rem;
+  background: linear-gradient(145deg, #121820 0%, #0e1118 100%);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 0 0 1px rgba(0, 200, 160, 0.06), 0 20px 48px rgba(0, 0, 0, 0.35);
+}
+
+.stack-glance-eyebrow {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.stack-glance-title {
+  font-family: var(--serif);
+  font-size: clamp(1.35rem, 2vw, 1.65rem);
+  font-weight: 400;
+  color: var(--text);
+  margin: 0 0 1.25rem 0;
+  line-height: 1.25;
+}
+
+.stack-glance-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.stack-glance-hint {
+  margin: 1.15rem 0 0 0;
+  font-size: 0.82rem;
+  color: var(--muted, #d8d8d8);
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+/* ── Sidebar tech stack ──────────────────────────────────────── */
+.intro-tech-stack {
+  width: 100%;
+  margin: 0.85em 0 0.5em 0;
+}
+
+.intro-tech-label {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.65em 0;
+  text-align: right;
+}
+
+.intro-tech-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: flex-end;
 }
 
 /* ── Showcase cards (reference-style layout) ─────────────────── */
@@ -75,24 +189,6 @@
   gap: 0.5rem;
   margin-bottom: 2rem;
 }
-
-.tech-pill {
-  font-family: var(--mono);
-  font-size: 0.62rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  padding: 0.45rem 0.85rem;
-  border-radius: 999px;
-  color: #0a0a0a;
-}
-
-.tech-pill--pink   { background: var(--pill-pink); }
-.tech-pill--green  { background: var(--pill-green); }
-.tech-pill--purple { background: var(--pill-purple); }
-.tech-pill--blue   { background: var(--pill-blue); }
-.tech-pill--peach  { background: var(--pill-peach); }
-.tech-pill--yellow { background: var(--pill-yellow); }
 
 .project-showcase-actions {
   display: flex;
@@ -265,6 +361,13 @@
   background: rgba(0, 200, 160, 0.08);
   padding: 0.3rem 0.55rem;
   border-radius: 2px;
+  margin-bottom: 1rem;
+}
+
+.project-hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
   margin-bottom: 2rem;
 }
 
@@ -635,6 +738,17 @@
   }
 
   .project-showcase-visual { order: -1; }
+
+  .stack-glance {
+    padding: 1.35rem 1.25rem 1.5rem;
+    margin-bottom: 2.5em;
+  }
+
+  .intro-tech-label,
+  .intro-tech-pills {
+    text-align: center;
+    justify-content: center;
+  }
   .visual-frame { min-height: 220px; }
   .visual-overlay { width: 32%; }
 
