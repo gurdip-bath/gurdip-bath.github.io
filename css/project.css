@@ -140,6 +140,11 @@ a.tech-pill:focus-visible {
   margin-top: 2em;
 }
 
+#employee-lifecycle-hub,
+#contractor-hub {
+  scroll-margin-top: 2rem;
+}
+
 .project-showcase {
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
