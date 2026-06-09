@@ -716,6 +716,25 @@
       font-family: var(--mono);
     }
 
+    .about-intro,
+    .about-portfolio-lead {
+      margin: 0 0 1.25em 0;
+    }
+
+    .about-portfolio-lead {
+      margin-bottom: 1em;
+    }
+
+    .about-highlights {
+      margin: 0 0 1.75em 0;
+      gap: 1rem;
+    }
+
+    .about-highlights li strong {
+      font-weight: 500;
+      color: var(--text);
+    }
+
     .star-block {
       display: grid;
       gap: 0.65rem;
@@ -1190,12 +1209,18 @@
 
     <section id="about" class="content-block">
       <h2 class="block-title block-title--major">About Me</h2>
-      <p>
-        Power Platform Functional Consultant with <strong>HR domain expertise</strong> and <strong>1+ year of hands-on delivery</strong>. I build production solutions that cut data-entry errors by <strong>50%</strong> and returned <strong>40+ hours</strong> of weekly team capacity. Delivered end-to-end across Dataverse, model-driven and canvas apps, Power Automate, and ALM — including <strong>Employee Lifecycle Hub</strong>, <strong>Contractor Hub</strong>, and <strong>Contoso IT Helpdesk Assistant</strong>.
+      <p class="about-intro">
+        <strong>Power Platform Functional Consultant</strong> with deep HR domain expertise and hands-on technical delivery experience. I specialize in bridging the gap between messy operational workflows and secure, intelligent infrastructure. By transforming manual procedures into structured Dataverse, Canvas, Model-Driven, and Copilot architectures, I build systems that measurably reclaim team capacity, eliminate data corruption, and automate user support.
       </p>
-      <p>
-        I design from real HR process experience with a focus on quantifiable outcomes. A model-driven app with Dataverse backend and 3 Power Automate flows returned <strong>40 hours per week</strong> for 10 HR admins. Probation process automation returned <strong>4+ hours</strong> of weekly capacity. Canvas app integrated with SharePoint cut data-entry errors by <strong>50%</strong>.
+      <p class="about-portfolio-lead">
+        My portfolio highlights how I design from real-world process experience to deliver quantifiable business value:
       </p>
+      <ul class="case-list about-highlights">
+        <li><strong>Employee Lifecycle Hub:</strong> Built a Model-Driven app on a 5-table Dataverse backend with 3 automated cloud flows, scaled for an administration team of 10.</li>
+        <li><strong>Probation Process Automation:</strong> Streamlined tracking workflows via multi-stage Business Process Flows, successfully returning <strong>4+ hours of weekly team capacity</strong>.</li>
+        <li><strong>Contractor Hub &amp; Canvas Apps:</strong> Engineered client-side JavaScript validation engines and tailored Canvas interfaces integrated with SharePoint, cutting data-entry errors by <strong>50%</strong> directly at the point of input.</li>
+        <li><strong>IT Helpdesk Assistant:</strong> Developed a 24/7 first-line generative AI agent in Copilot Studio using a 5-section prompt framework, multi-step Adaptive Card escalations, and a 2-table Dataverse ticketing schema.</li>
+      </ul>
       <p>
         <strong>Currently:</strong> PL-900 certified · PL-200 scheduled July 2026 · Open to Power Platform roles in the <strong>West Midlands / Birmingham</strong> (hybrid or remote UK). Regular contributor to the Power Platform community on <a href="https://www.linkedin.com/in/gurdip-mikey-b-07aa12292/" target="_blank" rel="noopener" style="color:var(--accent)">LinkedIn</a> (2,000+ followers).
       </p>
