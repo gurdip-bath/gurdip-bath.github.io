@@ -842,64 +842,6 @@
       line-height: 1.55;
     }
 
-    /* Work experience */
-    .work-item {
-      margin: 0 0 2.5em 0;
-      padding-bottom: 2.5em;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .work-item:last-child {
-      margin-bottom: 0;
-      padding-bottom: 0;
-      border-bottom: none;
-    }
-
-    .work-item h3 {
-      font-size: 1.1em;
-      color: var(--text);
-      margin: 0 0 0.35em 0;
-      font-weight: 500;
-    }
-
-    .work-item h4 {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      letter-spacing: 0.06em;
-      color: var(--accent);
-      margin: 0 0 1em 0;
-      font-weight: 500;
-    }
-
-    .work-item p,
-    .work-item li {
-      font-size: 0.95em;
-      color: var(--text);
-      line-height: 1.75;
-    }
-
-    .work-item ul {
-      list-style: none;
-      margin: 1em 0 0 0;
-      padding: 0;
-    }
-
-    .work-item li {
-      padding: 0.45em 0;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      gap: 0.75em;
-    }
-
-    .work-item li:last-child { border-bottom: none; }
-
-    .work-item li::before {
-      content: '→';
-      color: var(--accent);
-      font-family: var(--mono);
-      flex-shrink: 0;
-    }
-
     .tag-list {
       display: flex;
       flex-wrap: wrap;
@@ -1204,7 +1146,6 @@
         <li><a href="#about">About</a></li>  
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Experience</a></li>
         <li><a href="#certifications">Certifications</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -1233,8 +1174,8 @@
       <span class="stack-glance-eyebrow">At a glance</span>
       <h2 class="stack-glance-title">Power Platform stack</h2>
       <div class="stack-glance-pills">
-        <a href="#experience" class="tech-pill tech-pill--lg tech-pill--purple">Canvas App</a>
-        <a href="#experience" class="tech-pill tech-pill--lg tech-pill--teal">SharePoint</a>
+        <a href="#employee-lifecycle-hub" class="tech-pill tech-pill--lg tech-pill--purple">Canvas App</a>
+        <a href="#employee-lifecycle-hub" class="tech-pill tech-pill--lg tech-pill--teal">SharePoint</a>
         <a href="#skills" class="tech-pill tech-pill--lg tech-pill--blue">Power Automate</a>
         <a href="#projects" class="tech-pill tech-pill--lg tech-pill--pink">Model-Driven App</a>
         <a href="#projects" class="tech-pill tech-pill--lg tech-pill--green">Dataverse</a>
@@ -1397,7 +1338,7 @@
       </p>
 
       <div class="projects-showcase-list">
-        <article class="project-showcase reveal">
+        <article id="employee-lifecycle-hub" class="project-showcase reveal">
           <div class="project-showcase-content">
             <h3 class="project-showcase-title">Employee Lifecycle Hub</h3>
             <span class="project-showcase-accent" aria-hidden="true"></span>
@@ -1480,42 +1421,6 @@
           </div>
         </article>
       </div>
-    </section>
-
-    <section id="experience" class="content-block">
-      <h2 class="block-title block-title--major">Work Experience</h2>
-
-      <article class="work-item reveal">
-        <h3>Shaw Trust</h3>
-        <h4>HRSS Administrator (Power Platform Developer) · Oldbury, UK · Oct 2024 — Present</h4>
-        <p>Built a canvas app integrated with SharePoint and Power Automate, saving 19 hours of manual work per week. Administer end-to-end employee lifecycle processes including onboarding, offboarding, and contract changes. HR domain knowledge from this role directly informs how I design Power Platform solutions.</p>
-        <ul>
-          <li>Automated employee probation process using Power Automate, reducing manual intervention by 4 hours per week</li>
-          <li>Manage high-volume transactional HR cases to strict SLA and data accuracy standards</li>
-          <li>Working knowledge of HR data structures, business rules, and compliance requirements</li>
-        </ul>
-      </article>
-
-      <article class="work-item reveal">
-        <h3>UK Home Office / Brook Street</h3>
-        <h4>HR Support Officer · Remote, UK · Jul 2022 — Oct 2024</h4>
-        <p>Candidate lifecycle administration across live resourcing campaigns — experience that directly informed the Employee Lifecycle Hub entity and automation design.</p>
-        <ul>
-          <li>Structured onboarding workflows and real-time candidate pipeline tracking</li>
-          <li>Smart Forms lifecycle: data gathering, government forms, and automated routing to departments</li>
-          <li>Diagnosed progression blockers — same solution-oriented approach used in Power Automate flows</li>
-        </ul>
-      </article>
-
-      <article class="work-item reveal">
-        <h3>GMB Software Solutions</h3>
-        <h4>Freelance Developer · Birmingham, UK · 2024</h4>
-        <p>Sole developer contracted to design, build, and deploy a production Progressive Web App for Bengal Welding — a real UK business client.</p>
-        <ul>
-          <li>Built with React, Node.js, Express, Supabase — deployed live on Vercel with real user traffic</li>
-          <li>Full project lifecycle: requirements gathering, delivery, and invoicing as a registered freelance business</li>
-        </ul>
-      </article>
     </section>
 
     <section id="certifications" class="content-block">
