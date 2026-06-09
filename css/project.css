@@ -141,7 +141,8 @@ a.tech-pill:focus-visible {
 }
 
 #employee-lifecycle-hub,
-#contractor-hub {
+#contractor-hub,
+#contoso-it-helpdesk {
   scroll-margin-top: 2rem;
 }
 
@@ -292,6 +293,49 @@ a.tech-pill:focus-visible {
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
   object-fit: cover;
   aspect-ratio: 4/3;
+}
+
+.visual-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  min-height: 300px;
+  padding: 2.5rem 2rem;
+  background: linear-gradient(145deg, #1a1f28 0%, #12161e 100%);
+  border: 2px dashed var(--border);
+  border-radius: 18px;
+  text-align: center;
+}
+
+.visual-placeholder-icon {
+  font-family: var(--mono);
+  font-size: 2rem;
+  color: var(--accent);
+  opacity: 0.7;
+  line-height: 1;
+}
+
+.visual-placeholder-label {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.visual-placeholder-sub {
+  font-size: 0.88rem;
+  color: #d8d8d8;
+  opacity: 0.85;
+  max-width: 18em;
+  line-height: 1.5;
+}
+
+.project-showcase--coming-soon {
+  opacity: 0.95;
 }
 
 /* ── Project detail page layout ────────────────────────────── */
