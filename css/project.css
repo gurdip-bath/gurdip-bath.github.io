@@ -20,14 +20,18 @@
   --pill-azure:  #7db9e8;
 }
 
-/* ── Tech pills (shared: sidebar, hero strip, projects, skills) ─ */
+/* ── Tech pills (shared: hero, projects, skills) ─────────────── */
 .tech-pill {
   font-family: var(--mono);
-  font-size: 0.62rem;
+  font-size: 0.65rem;
   font-weight: 500;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  padding: 0.45rem 0.85rem;
+  padding: 0.55rem 0.95rem;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 999px;
   color: #0a0a0a;
   border: none;
@@ -110,28 +114,28 @@ a.tech-pill:focus-visible {
   opacity: 0.9;
 }
 
-/* ── Sidebar tech stack ──────────────────────────────────────── */
+/* ── Hero tech stack ─────────────────────────────────────────── */
 .intro-tech-stack {
   width: 100%;
-  margin: 0.85em 0 0.5em 0;
+  margin: 0 0 0.25em 0;
 }
 
 .intro-tech-label {
   font-family: var(--mono);
-  font-size: 0.58rem;
+  font-size: 0.62rem;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent);
-  margin: 0 0 0.65em 0;
-  text-align: right;
+  margin: 0 0 0.75em 0;
+  text-align: left;
 }
 
 .intro-tech-pills {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
-  justify-content: flex-end;
+  gap: 0.5rem;
+  justify-content: flex-start;
 }
 
 /* ── Showcase cards (reference-style layout) ─────────────────── */
@@ -145,7 +149,7 @@ a.tech-pill:focus-visible {
 #employee-lifecycle-hub,
 #contractor-hub,
 #contoso-it-helpdesk {
-  scroll-margin-top: 2rem;
+  scroll-margin-top: calc(var(--nav-height, 3.25rem) + 1rem);
 }
 
 .project-showcase {
@@ -795,10 +799,13 @@ a.tech-pill:focus-visible {
     margin-bottom: 2.5em;
   }
 
-  .intro-tech-label,
   .intro-tech-pills {
-    text-align: center;
-    justify-content: center;
+    gap: 0.45rem;
+  }
+
+  .tech-pill {
+    font-size: 0.62rem;
+    padding: 0.5rem 0.85rem;
   }
   .visual-frame { min-height: 220px; }
   .visual-overlay { width: 32%; }
