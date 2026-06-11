@@ -17,6 +17,7 @@
   --pill-peach:  #f4c4a0;
   --pill-yellow: #f7e08a;
   --pill-teal:   #5eead4;
+  --pill-azure:  #7db9e8;
 }
 
 /* ── Tech pills (shared: sidebar, hero strip, projects, skills) ─ */
@@ -46,6 +47,7 @@
 .tech-pill--peach  { background: var(--pill-peach); }
 .tech-pill--yellow { background: var(--pill-yellow); }
 .tech-pill--teal   { background: var(--pill-teal); }
+.tech-pill--azure  { background: var(--pill-azure); }
 
 a.tech-pill {
   text-decoration: none;
