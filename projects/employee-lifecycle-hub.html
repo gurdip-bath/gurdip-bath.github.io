@@ -26,6 +26,9 @@
         <span class="tech-pill tech-pill--peach">Security &amp; ALM</span>
         <span class="tech-pill tech-pill--yellow">Power BI</span>
         <span class="tech-pill tech-pill--azure">Azure DevOps</span>
+        <span class="tech-pill tech-pill--yellow">C#</span>
+        <span class="tech-pill tech-pill--green">Dataverse SDK</span>
+        <span class="tech-pill tech-pill--teal">Plugin Development</span>
       </div>
     </header>
 
@@ -45,7 +48,7 @@
         </div>
         <div class="case-meta-item">
           <dt>Stack</dt>
-          <dd>Dataverse · MDA · Canvas · Power Automate · Power BI</dd>
+          <dd>Dataverse · MDA · Canvas · Power Automate · C# Plugin · Power BI</dd>
         </div>
       </dl>
 
@@ -85,6 +88,7 @@
           <li>Structured Business Process Flows cut operational data errors by 60%</li>
           <li>Star-schema Power BI reporting layer — 12–15 hrs/month manual spreadsheet work removed</li>
           <li>Managed solution ALM with environment variables and connection references</li>
+          <li>C# Dataverse plugin — registered via Plugin Registration Tool to provision onboarding tasks on lifecycle case create</li>
         </ul>
       </div>
     </div>
@@ -212,6 +216,24 @@
           <li>Managers can see which lifecycle tasks are overdue or still outstanding</li>
           <li>Reduces HR admin chasing managers for onboarding action items</li>
           <li>Same task data as the HR app, presented through a manager-scoped canvas view</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="project-chapter project-chapter--reverse">
+      <div class="chapter-visual">
+        <a class="chapter-frame chapter-frame--has-stack" title="Click to enlarge screenshot" aria-label="Open full size screenshot" href="../images/portfolio/plugin/PRT.png" target="_blank" rel="noopener">
+          <img src="../images/portfolio/plugin/PRT.png" alt="Plugin Registration Tool — OnboardingTaskPlugin registered on lifecycle case create" />
+          <span class="chapter-built-with" aria-label="Built with C#, Dataverse SDK, and Plugin Development">C# · Dataverse SDK · Plugin Development</span>
+        </a>
+      </div>
+      <div class="chapter-content">
+        <h2>Onboarding Task Plugin</h2>
+        <ul class="chapter-features">
+          <li>C# plugin assembly registered in Plugin Registration Tool against the lifecycle case table</li>
+          <li>Create step fires synchronously when HR submits a new onboarding case — no flow latency on task seeding</li>
+          <li>Server-side Dataverse SDK logic keeps mandatory task provisioning inside the platform boundary</li>
+          <li>Plugin ships in the managed solution alongside apps, flows, and security — same ALM pipeline</li>
         </ul>
       </div>
     </article>

@@ -731,6 +731,30 @@ a.tech-pill:focus-visible {
   object-position: center top;
 }
 
+.chapter-built-with {
+  position: absolute;
+  bottom: 1.4rem;
+  left: 1.4rem;
+  z-index: 2;
+  max-width: calc(100% - 11rem);
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: rgba(10, 10, 10, 0.92);
+  border: 1px solid rgba(0, 200, 160, 0.55);
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .chapter-content h2 {
   font-family: var(--sans);
   font-size: clamp(1.65rem, 3.2vw, 2.35rem);
@@ -834,6 +858,16 @@ a.tech-pill:focus-visible {
   .chapter-frame img {
     min-height: 280px;
     max-height: none;
+  }
+
+  .chapter-built-with {
+    max-width: calc(100% - 2.8rem);
+    white-space: normal;
+    text-align: center;
+    bottom: 1.1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.52rem;
   }
 
   .chapter-content h2 {
