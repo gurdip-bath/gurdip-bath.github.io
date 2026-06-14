@@ -94,8 +94,24 @@
   <section class="project-chapters" aria-label="Project walkthrough — scroll to explore">
     <div class="project-chapters-intro">
       <h2>Walkthrough</h2>
-      <p>Scroll down — each section pairs a screenshot with what it does in the solution.</p>
+      <p>Scroll by layer — contractor intake in the model-driven app, BPF-governed stage advance, and Outlook / Power Automate notifications. Use the jump links to skip to each part.</p>
     </div>
+
+    <nav class="walkthrough-jump-nav" aria-label="Jump to walkthrough section">
+      <a href="#walkthrough-mda" class="walkthrough-jump-link is-active" data-walkthrough="walkthrough-mda">Model-Driven App / JavaScript</a>
+      <a href="#walkthrough-bpf" class="walkthrough-jump-link" data-walkthrough="walkthrough-bpf">Business Process Flow</a>
+      <a href="#walkthrough-automation" class="walkthrough-jump-link" data-walkthrough="walkthrough-automation">Outlook / Power Automate</a>
+    </nav>
+
+    <div id="walkthrough-mda" class="walkthrough-part">
+      <header class="walkthrough-part-header">
+        <div class="walkthrough-part-header-inner">
+          <h3 class="walkthrough-part-eyebrow">Model-Driven App</h3>
+          <span class="tech-pill tech-pill--pink">Model-Driven App</span>
+          <span class="tech-pill tech-pill--yellow">JavaScript</span>
+          <p class="walkthrough-part-desc">Contractor intake &amp; certifications · 4 screens</p>
+        </div>
+      </header>
 
     <article class="project-chapter">
       <div class="chapter-visual">
@@ -104,6 +120,7 @@
         </a>
       </div>
       <div class="chapter-content">
+        <p class="chapter-step" aria-label="Step 1 of 4">Step 1 of 4</p>
         <h2>Create A Contractor Record</h2>
         <ul class="chapter-features">
           <li>Model-driven intake form captures contractor details at the start of the lifecycle</li>
@@ -121,6 +138,7 @@
         </a>
       </div>
       <div class="chapter-content">
+        <p class="chapter-step" aria-label="Step 2 of 4">Step 2 of 4</p>
         <h2>Contractor Certifications View</h2>
         <ul class="chapter-features">
           <li>Certifications subgrid on the contractor record shows linked compliance at a glance</li>
@@ -138,6 +156,7 @@
         </a>
       </div>
       <div class="chapter-content">
+        <p class="chapter-step" aria-label="Step 3 of 4">Step 3 of 4</p>
         <h2>Add A Certification</h2>
         <ul class="chapter-features">
           <li>Dedicated form to create a new certification record for a contractor</li>
@@ -155,6 +174,7 @@
         </a>
       </div>
       <div class="chapter-content">
+        <p class="chapter-step" aria-label="Step 4 of 4">Step 4 of 4</p>
         <h2>Certification Linked</h2>
         <ul class="chapter-features">
           <li>Junction table enforces the many-to-many contractor–certification relationship</li>
@@ -164,6 +184,16 @@
         </ul>
       </div>
     </article>
+    </div>
+
+    <div id="walkthrough-bpf" class="walkthrough-part">
+      <header class="walkthrough-part-header">
+        <div class="walkthrough-part-header-inner">
+          <h3 class="walkthrough-part-eyebrow">Business Process Flow</h3>
+          <span class="tech-pill tech-pill--purple">Business Process Flow</span>
+          <p class="walkthrough-part-desc">Governed intake stages · 1 screen</p>
+        </div>
+      </header>
 
     <article class="project-chapter">
       <div class="chapter-visual">
@@ -181,6 +211,16 @@
         </ul>
       </div>
     </article>
+    </div>
+
+    <div id="walkthrough-automation" class="walkthrough-part">
+      <header class="walkthrough-part-header">
+        <div class="walkthrough-part-header-inner">
+          <h3 class="walkthrough-part-eyebrow">Outlook / Power Automate</h3>
+          <span class="tech-pill tech-pill--blue">Power Automate</span>
+          <p class="walkthrough-part-desc">Notify-team flow &amp; stakeholder email · 4 screens</p>
+        </div>
+      </header>
 
     <article class="project-chapter project-chapter--reverse">
       <div class="chapter-visual">
@@ -189,6 +229,7 @@
         </a>
       </div>
       <div class="chapter-content">
+        <p class="chapter-step" aria-label="Step 1 of 4">Step 1 of 4</p>
         <h2>Reason Capture Popup</h2>
         <ul class="chapter-features">
           <li>Popup prompts the user for the reason a contractor is being onboarded</li>
@@ -206,6 +247,7 @@
         </a>
       </div>
       <div class="chapter-content">
+        <p class="chapter-step" aria-label="Step 2 of 4">Step 2 of 4</p>
         <h2>BPF Success Confirmation</h2>
         <ul class="chapter-features">
           <li>BPF confirms the automation ran successfully before the user moves on</li>
@@ -223,6 +265,7 @@
         </a>
       </div>
       <div class="chapter-content">
+        <p class="chapter-step" aria-label="Step 3 of 4">Step 3 of 4</p>
         <h2>Team Email Delivered</h2>
         <ul class="chapter-features">
           <li>Outlook 365 delivers the notification to the team inbox automatically</li>
@@ -240,6 +283,7 @@
         </a>
       </div>
       <div class="chapter-content">
+        <p class="chapter-step" aria-label="Step 4 of 4">Step 4 of 4</p>
         <h2>Power Automate Flow</h2>
         <ul class="chapter-features">
           <li>Cloud flow triggered from BPF stage advance in the model-driven app</li>
@@ -249,7 +293,33 @@
         </ul>
       </div>
     </article>
+    </div>
   </section>
+
+  <script>
+    (function () {
+      var parts = document.querySelectorAll('.walkthrough-part');
+      var links = document.querySelectorAll('.walkthrough-jump-link');
+      if (!parts.length || !links.length) return;
+
+      var setActive = function (id) {
+        links.forEach(function (link) {
+          link.classList.toggle('is-active', link.getAttribute('data-walkthrough') === id);
+        });
+      };
+
+      var observer = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) setActive(entry.target.id);
+          });
+        },
+        { rootMargin: '-25% 0px -55% 0px', threshold: 0 }
+      );
+
+      parts.forEach(function (part) { observer.observe(part); });
+    })();
+  </script>
 
   <div class="project-page-inner">
     <div class="project-case" style="margin-top:3rem;border-bottom:none;padding-bottom:0">
