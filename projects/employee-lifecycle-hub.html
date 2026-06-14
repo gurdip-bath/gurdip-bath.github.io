@@ -98,8 +98,24 @@
   <section class="project-chapters" aria-label="Project walkthrough — scroll to explore">
     <div class="project-chapters-intro">
       <h2>Walkthrough</h2>
-      <p>Scroll down — each section pairs a screenshot with what it does in the solution.</p>
+      <p>Scroll by layer — HR model-driven app, automated Outlook notifications, manager canvas app, and C# plugin. Use the jump links to skip to each part.</p>
     </div>
+
+    <nav class="walkthrough-jump-nav" aria-label="Jump to walkthrough section">
+      <a href="#walkthrough-mda" class="walkthrough-jump-link is-active" data-walkthrough="walkthrough-mda">Model-Driven App</a>
+      <a href="#walkthrough-outlook" class="walkthrough-jump-link" data-walkthrough="walkthrough-outlook">Outlook / Power Automate</a>
+      <a href="#walkthrough-canvas" class="walkthrough-jump-link" data-walkthrough="walkthrough-canvas">Canvas App</a>
+      <a href="#walkthrough-plugin" class="walkthrough-jump-link" data-walkthrough="walkthrough-plugin">C# Plugin</a>
+    </nav>
+
+    <div id="walkthrough-mda" class="walkthrough-part">
+      <header class="walkthrough-part-header">
+        <div class="walkthrough-part-header-inner">
+          <h3 class="walkthrough-part-eyebrow">Model-Driven App</h3>
+          <span class="tech-pill tech-pill--pink">Model-Driven App</span>
+          <p class="walkthrough-part-desc">For HR coordinators · 5 screens</p>
+        </div>
+      </header>
 
     <article class="project-chapter">
       <div class="chapter-visual">
@@ -108,6 +124,7 @@
         </a>
       </div>
       <div class="chapter-content">
+        <p class="chapter-step" aria-label="Step 1 of 5">Step 1 of 5</p>
         <h2>Lifecycle Cases Dashboard</h2>
         <ul class="chapter-features">
           <li>HR users see every open onboarding and offboarding case in one model-driven list view</li>
@@ -125,6 +142,7 @@
         </a>
       </div>
       <div class="chapter-content">
+        <p class="chapter-step" aria-label="Step 2 of 5">Step 2 of 5</p>
         <h2>Create A Lifecycle Case</h2>
         <ul class="chapter-features">
           <li>Guided intake form captures employee details and lifecycle event type in one place</li>
@@ -137,20 +155,67 @@
 
     <article class="project-chapter">
       <div class="chapter-visual">
-        <a class="chapter-frame" title="Click to enlarge screenshot" aria-label="Open full size screenshot" href="../employee%20lifecycle%20hub/model-driven/03-tasks-page.png" target="_blank" rel="noopener">
-          <img src="../employee%20lifecycle%20hub/model-driven/03-tasks-page.png" alt="Tasks page with generated onboarding tasks" />
+        <a class="chapter-frame" title="Click to enlarge screenshot" aria-label="Open full size screenshot" href="../employee%20lifecycle%20hub/model-driven/1406%20open%20lifecycle%20title.png" target="_blank" rel="noopener">
+          <img src="../employee%20lifecycle%20hub/model-driven/1406%20open%20lifecycle%20title.png" alt="Active Onboarding Cases list — click Lifecycle Case Title to open a case" />
         </a>
       </div>
       <div class="chapter-content">
-        <h2>Auto-Generated Tasks</h2>
+        <p class="chapter-step" aria-label="Step 3 of 5">Step 3 of 5</p>
+        <h2>Open A Lifecycle Case</h2>
         <ul class="chapter-features">
-          <li>Power Automate creates onboarding and offboarding tasks when a lifecycle case is raised</li>
-          <li>Tasks page shows every action item linked to the parent case with status tracking</li>
-          <li>HR can monitor overdue and incomplete tasks without manual checklist chasing</li>
-          <li>Replaces ad-hoc email reminders with a governed, auditable task list in Dataverse</li>
+          <li>Active Onboarding Cases view filters to open onboarding and joiner cases — Status: Active, Case Type: Onboarding</li>
+          <li>HR scans the list for the employee or case number they need without leaving the model-driven app</li>
+          <li>Click the Lifecycle Case Title hyperlink on any row to open the full case record</li>
+          <li>Entry point from the dashboard into case-level task tracking for that employee</li>
         </ul>
       </div>
     </article>
+
+    <article class="project-chapter project-chapter--reverse">
+      <div class="chapter-visual">
+        <a class="chapter-frame" title="Click to enlarge screenshot" aria-label="Open full size screenshot" href="../employee%20lifecycle%20hub/model-driven/1406%20open%20tasks.png" target="_blank" rel="noopener">
+          <img src="../employee%20lifecycle%20hub/model-driven/1406%20open%20tasks.png" alt="Lifecycle case form — Active Tasks tab highlighted" />
+        </a>
+      </div>
+      <div class="chapter-content">
+        <p class="chapter-step" aria-label="Step 4 of 5">Step 4 of 5</p>
+        <h2>Open Active Tasks</h2>
+        <ul class="chapter-features">
+          <li>Lifecycle case record opens on Case Identity — employee, case number, case type, and timeline in one place</li>
+          <li>Active Tasks tab sits alongside Case Identity and Related on the case form header</li>
+          <li>Click Active Tasks to load every onboarding action item still outstanding for that employee</li>
+          <li>Replaces hunting through email threads — tasks live on the case the moment flows or the plugin provision them</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="project-chapter">
+      <div class="chapter-visual">
+        <a class="chapter-frame" title="Click to enlarge screenshot" aria-label="Open full size screenshot" href="../employee%20lifecycle%20hub/model-driven/1406%20task%20status.png" target="_blank" rel="noopener">
+          <img src="../employee%20lifecycle%20hub/model-driven/1406%20task%20status.png" alt="Active Tasks subgrid with color-coded Completion Status" />
+        </a>
+      </div>
+      <div class="chapter-content">
+        <p class="chapter-step" aria-label="Step 5 of 5">Step 5 of 5</p>
+        <h2>Color-Coded Task Status</h2>
+        <ul class="chapter-features">
+          <li>Active Tasks For Employee subgrid lists all eight mandatory onboarding steps — offer letter through first-week check-in</li>
+          <li>Completion Status column is color-coded: Not Started (grey), In Progress (orange), Completed (green)</li>
+          <li>HR updates status in-line from the dropdown — no separate spreadsheet or status chase</li>
+          <li>At-a-glance progress on the case record so coordinators spot blockers before steps go overdue</li>
+        </ul>
+      </div>
+    </article>
+    </div>
+
+    <div id="walkthrough-outlook" class="walkthrough-part">
+      <header class="walkthrough-part-header">
+        <div class="walkthrough-part-header-inner">
+          <h3 class="walkthrough-part-eyebrow">Outlook Notifications</h3>
+          <span class="tech-pill tech-pill--blue">Power Automate</span>
+          <p class="walkthrough-part-desc">Automated stakeholder comms · 1 screen</p>
+        </div>
+      </header>
 
     <article class="project-chapter project-chapter--reverse">
       <div class="chapter-visual">
@@ -168,6 +233,16 @@
         </ul>
       </div>
     </article>
+    </div>
+
+    <div id="walkthrough-canvas" class="walkthrough-part">
+      <header class="walkthrough-part-header">
+        <div class="walkthrough-part-header-inner">
+          <h3 class="walkthrough-part-eyebrow">Canvas App</h3>
+          <span class="tech-pill tech-pill--purple">Canvas App</span>
+          <p class="walkthrough-part-desc">For line managers · 3 screens</p>
+        </div>
+      </header>
 
     <article class="project-chapter">
       <div class="chapter-visual">
@@ -176,6 +251,7 @@
         </a>
       </div>
       <div class="chapter-content">
+        <p class="chapter-step" aria-label="Step 1 of 3">Step 1 of 3</p>
         <h2>Line Manager Homepage</h2>
         <ul class="chapter-features">
           <li>Canvas app gives line managers a dedicated, mobile-friendly entry point</li>
@@ -193,6 +269,7 @@
         </a>
       </div>
       <div class="chapter-content">
+        <p class="chapter-step" aria-label="Step 2 of 3">Step 2 of 3</p>
         <h2>Case Details For Managers</h2>
         <ul class="chapter-features">
           <li>Managers drill into lifecycle case details for employees on their team</li>
@@ -210,6 +287,7 @@
         </a>
       </div>
       <div class="chapter-content">
+        <p class="chapter-step" aria-label="Step 3 of 3">Step 3 of 3</p>
         <h2>Team Task List</h2>
         <ul class="chapter-features">
           <li>Task list filtered to the manager's direct reports — closing the loop on missed steps</li>
@@ -219,6 +297,17 @@
         </ul>
       </div>
     </article>
+    </div>
+
+    <div id="walkthrough-plugin" class="walkthrough-part">
+      <header class="walkthrough-part-header">
+        <div class="walkthrough-part-header-inner">
+          <h3 class="walkthrough-part-eyebrow">C# Plugin</h3>
+          <span class="tech-pill tech-pill--yellow">C#</span>
+          <span class="tech-pill tech-pill--teal">Plugin Development</span>
+          <p class="walkthrough-part-desc">Server-side Dataverse logic · 1 screen</p>
+        </div>
+      </header>
 
     <article class="project-chapter project-chapter--reverse">
       <div class="chapter-visual">
@@ -237,7 +326,33 @@
         </ul>
       </div>
     </article>
+    </div>
   </section>
+
+  <script>
+    (function () {
+      var parts = document.querySelectorAll('.walkthrough-part');
+      var links = document.querySelectorAll('.walkthrough-jump-link');
+      if (!parts.length || !links.length) return;
+
+      var setActive = function (id) {
+        links.forEach(function (link) {
+          link.classList.toggle('is-active', link.getAttribute('data-walkthrough') === id);
+        });
+      };
+
+      var observer = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) setActive(entry.target.id);
+          });
+        },
+        { rootMargin: '-25% 0px -55% 0px', threshold: 0 }
+      );
+
+      parts.forEach(function (part) { observer.observe(part); });
+    })();
+  </script>
 
   <div class="project-page-inner">
     <div class="project-case" style="margin-top:3rem;border-bottom:none;padding-bottom:0">
