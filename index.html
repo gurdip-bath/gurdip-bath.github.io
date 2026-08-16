@@ -78,8 +78,9 @@
           </p>
         </div>
 
-        <div class="outcome-highlights" aria-label="Technical scope">
-          <h3 class="outcome-highlights-title">TECHNICAL SCOPE</h3>
+        <div class="outcome-highlights" aria-label="Technical breadth">
+          <h3 class="outcome-highlights-title">TECHNICAL BREADTH</h3>
+          <p class="outcome-highlights-desc">WHAT I CAN BUILD</p>
           <div class="outcome-list">
             <div class="outcome-row">
               <div class="outcome-metric">
@@ -257,122 +258,71 @@
         </ul>
       </section>
 
-      <section id="skills" class="bc-section" aria-label="Skills">
+      <section id="skills" class="bc-section" aria-label="Technical Skills">
         <div class="bc-section-heading">
-          <h2>Skills</h2>
+          <h2>Technical Skills</h2>
+          <p class="bc-section-desc">Technologies I Use</p>
         </div>
-        <div class="skills-matrix" aria-label="Skills matrix">
-          <div class="skills-row">
-            <div class="skills-label">Power Apps<br />Canvas + Model-Driven</div>
-            <div class="skills-details">
-              <ul class="skills-bullets">
-                <li>Model-driven apps for HR personas: role-based views, forms, dashboards, sitemap.</li>
-                <li>Canvas apps for line managers: RBAC using Power FX Formula delegation-safe queries, responsive layout.</li>
-                <li>Multi-persona workflows with consistent UX and data integrity.</li>
-              </ul>
-              <div class="skills-chipline">
-                <span class="bc-tag">Model-Driven Apps</span>
-                <span class="bc-tag">Canvas Apps</span>
-                <span class="bc-tag">Views &amp; Forms</span>
-                <span class="bc-tag">Sitemap</span>
-              </div>
-            </div>
+        <div class="skills-inventory" aria-label="Technologies I use">
+          <div class="skills-inventory-group">
+            <h3 class="skills-inventory-cat">Apps</h3>
+            <ul class="skills-inventory-list">
+              <li>Model-Driven Apps</li>
+              <li>Canvas Apps</li>
+              <li>Power Fx</li>
+              <li>Business Process Flows</li>
+            </ul>
           </div>
-          <div class="skills-row">
-            <div class="skills-label">Power Automate</div>
-            <div class="skills-details">
-              <ul class="skills-bullets">
-                <li>Production flows with trigger gates and idempotency checks.</li>
-                <li>Scoped try/catch error handling and exponential backoff retry.</li>
-                <li>Environment variables for portability across DEV → PROD.</li>
-              </ul>
-              <div class="skills-chipline">
-                <span class="bc-tag">Cloud flows</span>
-                <span class="bc-tag">Idempotency</span>
-                <span class="bc-tag">Retries</span>
-                <span class="bc-tag">Env variables</span>
-              </div>
-            </div>
+          <div class="skills-inventory-group">
+            <h3 class="skills-inventory-cat">Automation</h3>
+            <ul class="skills-inventory-list">
+              <li>Power Automate</li>
+              <li>Expressions</li>
+              <li>OData</li>
+              <li>Error Handling</li>
+            </ul>
           </div>
-          <div class="skills-row">
-            <div class="skills-label">Dataverse + SharePoint</div>
-            <div class="skills-details">
-              <ul class="skills-bullets">
-                <li>Relational table design with lookups and validation rules.</li>
-                <li>OData filtering and star-schema thinking for reporting readiness.</li>
-                <li>Column security profiles for PII compliance.</li>
-              </ul>
-              <div class="skills-chipline">
-                <span class="bc-tag">Dataverse</span>
-                <span class="bc-tag">Lookups</span>
-                <span class="bc-tag">OData</span>
-                <span class="bc-tag">Column security</span>
-              </div>
-            </div>
+          <div class="skills-inventory-group">
+            <h3 class="skills-inventory-cat">Data</h3>
+            <ul class="skills-inventory-list">
+              <li>Dataverse</li>
+              <li>SharePoint</li>
+              <li>Relational Modelling</li>
+              <li>Business Rules</li>
+            </ul>
           </div>
-          <div class="skills-row">
-            <div class="skills-label">C# · Plugin Development</div>
-            <div class="skills-details">
-              <ul class="skills-bullets">
-                <li>Dataverse SDK plugins registered and deployed via Plugin Registration Tool.</li>
-                <li>Synchronous server-side logic on create/update messages — task seeding without flow latency.</li>
-                <li>Plugin assemblies packaged in managed solutions alongside apps, flows, and security.</li>
-              </ul>
-              <div class="skills-chipline">
-                <span class="bc-tag">C#</span>
-                <span class="bc-tag">Dataverse SDK</span>
-                <span class="bc-tag">Plugin Development</span>
-              </div>
-            </div>
+          <div class="skills-inventory-group">
+            <h3 class="skills-inventory-cat">Development</h3>
+            <ul class="skills-inventory-list">
+              <li>C#</li>
+              <li>Dataverse SDK</li>
+              <li>JavaScript</li>
+              <li>REST APIs</li>
+            </ul>
           </div>
-          <div id="alm-security" class="skills-row">
-            <div class="skills-label">ALM + Security</div>
-            <div class="skills-details">
-              <ul class="skills-bullets">
-                <li>Managed solutions for DEV → PROD promotion.</li>
-                <li>Azure DevOps pipelines for solution export, version control, and environment deployment.</li>
-                <li>Connection references and environment-aware configuration.</li>
-                <li>Custom security roles and column security (least privilege).</li>
-              </ul>
-              <div class="skills-chipline">
-                <span class="bc-tag">Managed solutions</span>
-                <span class="bc-tag">Azure DevOps</span>
-                <span class="bc-tag">Security roles</span>
-                <span class="bc-tag">Column security</span>
-                <span class="bc-tag">GDPR</span>
-              </div>
-            </div>
+          <div class="skills-inventory-group">
+            <h3 class="skills-inventory-cat">AI</h3>
+            <ul class="skills-inventory-list">
+              <li>Copilot Studio</li>
+              <li>Agent Design</li>
+              <li>Knowledge Grounding</li>
+            </ul>
           </div>
-          <div class="skills-row">
-            <div class="skills-label">Copilot Studio</div>
-            <div class="skills-details">
-              <ul class="skills-bullets">
-                <li>Generative AI agent creation with knowledge grounding and topic branching.</li>
-                <li>System prompt frameworks — role, scope, behaviour, constraints, and citation rules.</li>
-                <li>Adaptive Card escalation topics with GPT-5 Prompt nodes.</li>
-              </ul>
-              <div class="skills-chipline">
-                <span class="bc-tag">Agent creation</span>
-                <span class="bc-tag">Knowledge grounding</span>
-                <span class="bc-tag">Topic branching</span>
-                <span class="bc-tag">GPT-5</span>
-              </div>
-            </div>
+          <div class="skills-inventory-group">
+            <h3 class="skills-inventory-cat">Delivery</h3>
+            <ul class="skills-inventory-list">
+              <li>Solutions</li>
+              <li>Security Roles</li>
+              <li>Column Security</li>
+              <li>ALM</li>
+              <li>Environment Variables</li>
+            </ul>
           </div>
-          <div class="skills-row">
-            <div class="skills-label">Power BI</div>
-            <div class="skills-details">
-              <ul class="skills-bullets">
-                <li>Star-schema modelling for reporting readiness from Dataverse sources.</li>
-                <li>DAX measures and SLA-focused operational dashboards.</li>
-                <li>Star-schema reporting layer for lifecycle and case tracking views.</li>
-              </ul>
-              <div class="skills-chipline">
-                <span class="bc-tag">Star schema</span>
-                <span class="bc-tag">DAX</span>
-                <span class="bc-tag">SLA reporting</span>
-              </div>
-            </div>
+          <div class="skills-inventory-group">
+            <h3 class="skills-inventory-cat">Reporting</h3>
+            <ul class="skills-inventory-list">
+              <li>Power BI</li>
+            </ul>
           </div>
         </div>
       </section>

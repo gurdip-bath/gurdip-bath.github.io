@@ -229,6 +229,17 @@ body {
   color: var(--accent);
 }
 
+.bc-section-desc {
+  margin: 0.45rem 0 0 0;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
 .bc-section-heading.mobile-only { display: none; }
 
 .bc-section-lead {
@@ -449,7 +460,18 @@ body {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent);
-  margin: 0 0 0.85em 0;
+  margin: 0 0 0.4em 0;
+}
+
+.outcome-highlights-desc {
+  margin: 0 0 0.95rem 0;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.4;
 }
 
 .outcome-list {
@@ -505,67 +527,41 @@ body {
   gap: 0.35rem;
 }
 
-.skills-matrix {
-  margin-top: 0.5rem;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  overflow: hidden;
-  background: rgba(17, 17, 17, 0.7);
-}
-
-.skills-row {
+.skills-inventory {
   display: grid;
-  grid-template-columns: minmax(160px, 200px) 1fr;
-  gap: 1.15rem;
-  padding: 1.15rem 1.2rem;
-  border-bottom: 1px solid var(--border);
-  align-items: start;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.35rem 2rem;
+  margin-top: 0.15rem;
 }
 
-.skills-row:last-child { border-bottom: none; }
+.skills-inventory-group {
+  min-width: 0;
+}
 
-.skills-label {
+.skills-inventory-cat {
+  margin: 0 0 0.45rem 0;
   font-family: var(--mono);
   font-size: 0.68rem;
+  font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent);
-  line-height: 1.4;
-  padding-top: 0.1rem;
+  line-height: 1.35;
 }
 
-.skills-details {
-  color: var(--slate);
-  font-size: 0.92rem;
-  line-height: 1.65;
-}
-
-.skills-bullets {
+.skills-inventory-list {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  gap: 0.45rem;
 }
 
-.skills-bullets li {
-  display: flex;
-  gap: 0.55rem;
-  align-items: flex-start;
-}
-
-.skills-bullets li::before {
-  content: '→';
-  color: var(--accent);
-  font-family: var(--mono);
-  flex-shrink: 0;
-}
-
-.skills-chipline {
-  margin-top: 0.75rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
+.skills-inventory-list li {
+  margin: 0;
+  padding: 0.12rem 0;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--slate);
+  word-break: break-word;
 }
 
 .cert-showcase {
@@ -1281,9 +1277,9 @@ body {
 
   .outcome-metric { text-align: left; }
 
-  .skills-row {
+  .skills-inventory {
     grid-template-columns: 1fr;
-    gap: 0.65rem;
+    gap: 1.1rem;
   }
 
   .site-footer-inner { flex-direction: column; align-items: flex-start; }
