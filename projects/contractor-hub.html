@@ -19,43 +19,24 @@
   </header>
 
   <div class="project-page-inner">
-    <a href="../index.html#projects" class="project-back">← Back to portfolio</a>
-
-    <header>
+    <header class="project-hero">
       <h1 class="project-hero-title">Contractor Hub</h1>
       <p class="project-hero-sub">Contractor Management System · Dataverse Solution</p>
-      <span class="project-type-badge">Portfolio project</span>
+      <p class="project-hero-meta">
+        <strong>Sole developer</strong> — data model, app, BPF, flows, JS, ALM · Portfolio build · UAT-tested · Dataverse · MDA · BPF · Power Automate · JS
+      </p>
       <div class="project-hero-tags">
-        <span class="tech-pill tech-pill--pink">Model-Driven App</span>
-        <span class="tech-pill tech-pill--green">Dataverse</span>
-        <span class="tech-pill tech-pill--purple">Business Process Flow</span>
-        <span class="tech-pill tech-pill--blue">Power Automate</span>
-        <span class="tech-pill tech-pill--yellow">JavaScript</span>
-        <span class="tech-pill tech-pill--peach">Security Roles</span>
-        <span class="tech-pill tech-pill--azure">Azure DevOps</span>
+        <span class="bc-tag">Model-Driven App</span>
+        <span class="bc-tag">Dataverse</span>
+        <span class="bc-tag">Business Process Flow</span>
+        <span class="bc-tag">Power Automate</span>
+        <span class="bc-tag">JavaScript</span>
+        <span class="bc-tag">Security Roles</span>
+        <span class="bc-tag">Azure DevOps</span>
       </div>
     </header>
 
     <div class="project-case">
-      <dl class="case-meta">
-        <div class="case-meta-item">
-          <dt>Role</dt>
-          <dd>Sole developer — data model, app, BPF, flows, JS, ALM</dd>
-        </div>
-        <div class="case-meta-item">
-          <dt>Domain</dt>
-          <dd>Contractor management · Compliance</dd>
-        </div>
-        <div class="case-meta-item">
-          <dt>Type</dt>
-          <dd>Portfolio build · UAT-tested</dd>
-        </div>
-        <div class="case-meta-item">
-          <dt>Stack</dt>
-          <dd>Dataverse · MDA · BPF · Power Automate · JS</dd>
-        </div>
-      </dl>
-
       <div class="project-case-section">
         <p class="case-label">Problem</p>
         <p class="case-text">
@@ -86,11 +67,43 @@
 
       <div class="project-case-section">
         <p class="case-label">Outcomes</p>
-        <div class="project-results">
-          <div class="result-card"><strong>13</strong><span>Custom Dataverse tables</span></div>
-          <div class="result-card"><strong>2</strong><span>BPF governance stages</span></div>
-          <div class="result-card"><strong>3</strong><span>JavaScript web resources</span></div>
-          <div class="result-card"><strong>3</strong><span>Custom security roles</span></div>
+        <div class="outcome-list">
+          <div class="outcome-row">
+            <div class="outcome-metric">
+              <span class="outcome-value">13</span>
+              <span class="outcome-unit">custom tables</span>
+            </div>
+            <div class="outcome-detail">
+              <p>End-to-end Dataverse model with auto-number IDs, lookups, and junction tables.</p>
+            </div>
+          </div>
+          <div class="outcome-row">
+            <div class="outcome-metric">
+              <span class="outcome-value">2</span>
+              <span class="outcome-unit">BPF stages</span>
+            </div>
+            <div class="outcome-detail">
+              <p>Governance pipeline guiding intake and triggering Power Automate on stage advance.</p>
+            </div>
+          </div>
+          <div class="outcome-row">
+            <div class="outcome-metric">
+              <span class="outcome-value">3</span>
+              <span class="outcome-unit">JS web resources</span>
+            </div>
+            <div class="outcome-detail">
+              <p>On-form compliance warnings and risk-scoring before contractor assignment.</p>
+            </div>
+          </div>
+          <div class="outcome-row">
+            <div class="outcome-metric">
+              <span class="outcome-value">3</span>
+              <span class="outcome-unit">security roles</span>
+            </div>
+            <div class="outcome-detail">
+              <p>Custom roles packaged in a versioned managed solution.</p>
+            </div>
+          </div>
         </div>
         <p class="project-results-footnote">Includes risk-scoring engine and versioned managed solution packaging.</p>
       </div>
@@ -114,8 +127,8 @@
       <header class="walkthrough-part-header">
         <div class="walkthrough-part-header-inner">
           <h3 class="walkthrough-part-eyebrow">Model-Driven App</h3>
-          <span class="tech-pill tech-pill--pink">Model-Driven App</span>
-          <span class="tech-pill tech-pill--yellow">JavaScript</span>
+          <span class="bc-tag">Model-Driven App</span>
+          <span class="bc-tag">JavaScript</span>
           <p class="walkthrough-part-desc">Contractor intake &amp; certifications · 4 screens</p>
         </div>
       </header>
@@ -197,7 +210,7 @@
       <header class="walkthrough-part-header">
         <div class="walkthrough-part-header-inner">
           <h3 class="walkthrough-part-eyebrow">Business Process Flow</h3>
-          <span class="tech-pill tech-pill--purple">Business Process Flow</span>
+          <span class="bc-tag">Business Process Flow</span>
           <p class="walkthrough-part-desc">Governed intake stages · 1 screen</p>
         </div>
       </header>
@@ -224,7 +237,7 @@
       <header class="walkthrough-part-header">
         <div class="walkthrough-part-header-inner">
           <h3 class="walkthrough-part-eyebrow">Outlook / Power Automate</h3>
-          <span class="tech-pill tech-pill--blue">Power Automate</span>
+          <span class="bc-tag">Power Automate</span>
           <p class="walkthrough-part-desc">Notify-team flow &amp; stakeholder email · 4 screens</p>
         </div>
       </header>
@@ -329,7 +342,7 @@
   </script>
 
   <div class="project-page-inner">
-    <div class="project-case" style="margin-top:3rem;border-bottom:none;padding-bottom:0">
+    <div class="project-case project-case--loose">
       <div class="project-case-section">
         <p class="case-label">Learnings</p>
         <ul class="case-list">
@@ -342,10 +355,7 @@
 
     <footer class="project-footer-cta">
       <p>Open to Power Platform roles · West Midlands / remote UK</p>
-      <a href="../index.html#contact" class="btn-pill btn-pill--primary">
-        <span>Get in touch</span>
-        <span class="btn-pill-icon" aria-hidden="true">↗</span>
-      </a>
+      <a href="../index.html#contact" class="project-footer-link">Get in touch →</a>
     </footer>
   </div>
 
