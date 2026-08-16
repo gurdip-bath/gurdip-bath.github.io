@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Contract Variation Hub — flagship independent Power Platform portfolio solution by Gurdip Mikey Bath. Designed around a real contract variation workflow." />
+  <meta name="description" content="Contract Variation Hub — independently designed Power Platform portfolio solution for end-to-end HR contract change management by Gurdip Mikey Bath." />
   <title>Contract Variation Hub · Gurdip Mikey Bath</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -21,15 +21,17 @@
   <div class="project-page-inner">
     <header class="project-hero">
       <h1 class="project-hero-title">Contract Variation Hub</h1>
-      <p class="project-hero-sub">Flagship portfolio solution · Contract variation workflow</p>
+      <p class="project-hero-sub">End-to-end HR contract change management solution</p>
       <p class="project-hero-meta">
-        <strong>Sole developer</strong> — independent Power Platform build designed around a real operational contract variation process
+        <strong>Sole developer</strong> — independently designed Power Platform portfolio solution based on a real operational HR process · Dataverse · MDA · Power Automate · Outlook · SharePoint · ALM
       </p>
       <div class="project-hero-tags">
+        <span class="bc-tag">Model-Driven App</span>
         <span class="bc-tag">Dataverse</span>
-        <span class="bc-tag">Power Apps</span>
         <span class="bc-tag">Power Automate</span>
-        <span class="bc-tag">Solution architecture</span>
+        <span class="bc-tag">SharePoint</span>
+        <span class="bc-tag">Outlook</span>
+        <span class="bc-tag">ALM</span>
       </div>
     </header>
 
@@ -37,23 +39,36 @@
       <div class="project-case-section">
         <p class="case-label">Problem</p>
         <p class="case-text">
-          Contract variations are often tracked across email, spreadsheets, and disconnected approval threads. That makes change requests hard to govern, audit, and hand off cleanly between operational and commercial stakeholders.
+          Contract variation requests are handled through fragmented manual processes involving Outlook, HR systems, Word documents, SharePoint, Excel, and stakeholder emails. Tracking, validation, and hand-offs are slow and hard to audit.
         </p>
       </div>
 
       <div class="project-case-section">
         <p class="case-label">Solution</p>
         <ul class="case-list">
-          <li>Independent Power Platform solution designed around a real contract variation workflow</li>
-          <li>End-to-end approach: process analysis, Dataverse modelling, app design, automation, validation, and security</li>
-          <li>Structured intake and governed tracking for commercial change requests</li>
+          <li>Centralises and automates the contract variation lifecycle on Power Platform</li>
+          <li>Outlook email intake with automated parsing, request validation, and employee validation against Dataverse</li>
+          <li>Creates Contract Variation and typed Variation Item records — salary, hours, position, contract type and related changes stored in correctly typed fields</li>
+          <li>Model-driven app with views, operational dashboards, business rules, and conditional form behaviour</li>
+          <li>SharePoint document storage; Word/PDF document automation planned / in progress</li>
+          <li>Manager, payroll, and employee communication flows with scoped TRY/CATCH error handling and duplicate-prevention considerations</li>
+        </ul>
+      </div>
+
+      <div class="project-case-section">
+        <p class="case-label">Architecture</p>
+        <ul class="case-list">
+          <li>Dataverse relational model: Employee → Contract Variation → Variation Item → Variation Document → Email Log</li>
+          <li>One Contract Variation can contain multiple Variation Items for individual change lines</li>
+          <li>Model-driven app for operational work; Power Automate for intake, validation, and stakeholder communication</li>
+          <li>SharePoint for document storage; environment and ALM considerations for solution packaging</li>
         </ul>
       </div>
 
       <div class="project-case-section" id="screenshots">
-        <p class="case-label">Case study</p>
+        <p class="case-label">Screenshots</p>
         <p class="screenshots-note">
-          Full architecture detail, walkthrough screenshots, and technical breakdown will be added here — same case-study pattern as the other portfolio projects.
+          Walkthrough screenshots will be added here — same chapter pattern as the other portfolio case studies.
         </p>
       </div>
     </div>
