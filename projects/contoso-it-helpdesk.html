@@ -11,8 +11,15 @@
 </head>
 <body class="project-page">
 
+  <header class="project-topbar">
+    <div class="project-topbar-inner">
+      <a class="project-topbar-brand" href="../index.html">Gurdip Mikey Bath</a>
+      <a class="project-topbar-back" href="../index.html#projects">← Projects</a>
+    </div>
+  </header>
+
   <div class="project-page-inner">
-    <a href="../index.html#contoso-it-helpdesk" class="project-back">← Back to portfolio</a>
+    <a href="../index.html#projects" class="project-back">← Back to portfolio</a>
 
     <header>
       <h1 class="project-hero-title">Contoso IT Helpdesk Assistant</h1>
@@ -47,15 +54,15 @@
         </div>
       </dl>
 
-      <div>
-        <p class="case-label">The problem</p>
+      <div class="project-case-section">
+        <p class="case-label">Problem</p>
         <p class="case-text">
           IT support teams field repetitive first-line queries around password resets, software access, and device issues — often outside core hours. Staff need a consistent, governed AI assistant that can answer from knowledge sources and escalate complex tickets without losing context.
         </p>
       </div>
 
-      <div>
-        <p class="case-label">Key decisions</p>
+      <div class="project-case-section">
+        <p class="case-label">Solution</p>
         <ul class="case-list">
           <li>5-section system prompt framework — Role, Scope, Behaviour, Constraints, Citation Rules, and Fallback</li>
           <li>Knowledge grounding from SharePoint and structured Dataverse sources</li>
@@ -63,18 +70,8 @@
         </ul>
       </div>
 
-      <div>
-        <p class="case-label">Impact</p>
-        <div class="project-results">
-          <div class="result-card"><strong>24/7</strong><span>First-line IT support</span></div>
-          <div class="result-card"><strong>5</strong><span>Prompt framework sections</span></div>
-          <div class="result-card"><strong>2</strong><span>Dataverse tables</span></div>
-          <div class="result-card"><strong>1</strong><span>Priority-mapping flow</span></div>
-        </div>
-      </div>
-
-      <div>
-        <p class="case-label">What I built</p>
+      <div class="project-case-section">
+        <p class="case-label">Architecture</p>
         <ul class="case-list">
           <li>Generative AI agent in Microsoft Copilot Studio serving as a 24/7 first-line IT support assistant</li>
           <li>5-section system prompt framework governing role, scope, behaviour, constraints, and citation rules</li>
@@ -85,12 +82,25 @@
         </ul>
       </div>
 
-      <div class="visual-placeholder" style="margin-top: 2rem;" aria-label="Screenshots coming soon">
+      <div class="project-case-section">
+        <p class="case-label">Outcomes</p>
+        <div class="project-results">
+          <div class="result-card"><strong>24/7</strong><span>First-line IT support</span></div>
+          <div class="result-card"><strong>5</strong><span>Prompt framework sections</span></div>
+          <div class="result-card"><strong>2</strong><span>Dataverse tables</span></div>
+          <div class="result-card"><strong>1</strong><span>Priority-mapping flow</span></div>
+        </div>
+      </div>
+    </div>
+
+    <section id="screenshots" class="project-case-section" style="margin-top: 2.5rem;" aria-label="Screenshots">
+      <p class="case-label">Screenshots</p>
+      <div class="visual-placeholder" aria-label="Screenshots coming soon">
         <span class="visual-placeholder-icon" aria-hidden="true">◇</span>
         <span class="visual-placeholder-label">Images coming soon</span>
         <span class="visual-placeholder-sub">Copilot Studio agent, topic flows, and model-driven app screenshots will be added here.</span>
       </div>
-    </div>
+    </section>
 
     <footer class="project-footer-cta">
       <p>Open to Power Platform roles · West Midlands / remote UK</p>
@@ -100,6 +110,26 @@
       </a>
     </footer>
   </div>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="site-footer-social">
+        <a href="https://github.com/gurdip-bath" target="_blank" rel="noopener" aria-label="GitHub profile">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A8.205 8.205 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/gurdip-mikey-b-07aa12292/" target="_blank" rel="noopener" aria-label="LinkedIn profile">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="mailto:bathgurdip1@gmail.com" aria-label="Send email">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </a>
+      </div>
+      <div class="site-footer-meta">
+        <p>West Midlands, UK · <a href="../index.html">Portfolio home</a></p>
+        <p>© 2026 Gurdip Mikey Bath</p>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>

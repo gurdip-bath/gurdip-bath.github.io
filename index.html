@@ -6,1774 +6,404 @@
   <meta name="description" content="Gurdip Mikey Bath — Power Platform Developer. Live canvas apps &amp; automation at Shaw Trust. Portfolio Dataverse solutions. HR background. PL-200 in progress. West Midlands, UK." />
   <title>Gurdip Mikey Bath · Power Platform Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/project.css" />
-  <style>
-    /* ── Reset & Tokens ────────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg:        #0a0a0a;       /* near-black base */
-      --surface:   #111111;       /* card/section bg */
-      --border:    #2e2e2e;       /* dividers — visible without competing with text */
-      --accent:    #00c8a0;       /* teal — Power Platform green-adjacent */
-      --accent2:   #005f4b;       /* deep teal for hover fills */
-      --text:      #f5f5f5;       /* primary text */
-      --muted:     #d8d8d8;       /* secondary / body text — high contrast on dark bg */
-      --mono:      'DM Mono', monospace;
-      --serif:     'DM Serif Display', serif;
-      --sans:      'DM Sans', sans-serif;
-      --nav-height: 3.25rem;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--sans);
-      font-weight: 400;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-
-    /* ── Noise texture overlay ─────────────────────────────────── */
-    body::before {
-      content: '';
-      position: fixed; inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.4;
-    }
-
-    /* ── Scrollbar ─────────────────────────────────────────────── */
-    ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
-
-    .btn {
-      display: inline-block;
-      padding: 0.75rem 1.75rem;
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 2px;
-      transition: all 0.25s;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #000;
-      border: 1px solid var(--accent);
-    }
-
-    .btn-primary:hover {
-      background: transparent;
-      color: var(--accent);
-    }
-
-    .btn-ghost {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
-
-    .btn-ghost:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    /* ── Top hero header ───────────────────────────────────────── */
-    .intro-hero {
-      position: relative;
-      width: 100%;
-      z-index: 2;
-      overflow: hidden;
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      color: var(--text);
-    }
-
-    .intro-hero::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 10%;
-      width: 80%;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--accent), transparent);
-      opacity: 0.35;
-      pointer-events: none;
-    }
-
-    .intro-hero-container {
-      position: relative;
-      z-index: 1;
-      max-width: 72rem;
-      margin: 0 auto;
-      padding: clamp(1.5rem, 4vw, 2.75rem) clamp(1.25rem, 4vw, 3rem) clamp(1.25rem, 3vw, 2rem);
-    }
-
-    .scroll-main {
-      width: 100%;
-      max-width: 54em;
-      margin: 0 auto;
-      padding: clamp(2rem, 5vw, 4rem) clamp(1.25rem, 4vw, 4rem);
-      min-height: 50vh;
-      position: relative;
-      z-index: 1;
-      background: var(--bg);
-    }
-
-    .intro-hero-bg {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 70% 80% at 50% 0%, rgba(0, 200, 160, 0.12) 0%, transparent 55%),
-        radial-gradient(ellipse 40% 50% at 90% 90%, rgba(0, 95, 75, 0.08) 0%, transparent 50%),
-        linear-gradient(180deg, var(--bg) 0%, var(--surface) 55%, #0d1210 100%);
-    }
-
-    .intro-hero-bg::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(var(--border) 1px, transparent 1px),
-        linear-gradient(90deg, var(--border) 1px, transparent 1px);
-      background-size: 48px 48px;
-      opacity: 0.35;
-      mask-image: radial-gradient(ellipse 90% 80% at 70% 50%, black 20%, transparent 75%);
-    }
-
-    .intro-hero-bg::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, transparent 0%, var(--surface) 88%);
-    }
-
-    .intro-hero-top {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.25rem 2rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .intro-hero-identity {
-      display: flex;
-      align-items: center;
-      gap: clamp(1rem, 3vw, 1.5rem);
-      flex: 1 1 16rem;
-      min-width: 0;
-    }
-
-    .intro-hero-text {
-      text-align: left;
-      min-width: 0;
-    }
-
-    .intro-hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 1rem 1.5rem;
-      flex: 0 1 auto;
-    }
-
-    .intro-photo {
-      width: clamp(4.5rem, 12vw, 5.5rem);
-      height: clamp(4.5rem, 12vw, 5.5rem);
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--accent);
-      margin: 0;
-      flex-shrink: 0;
-      box-shadow: 0 0 40px rgba(0, 200, 160, 0.15);
-    }
-
-    .intro-name {
-      font-family: var(--sans);
-      font-size: clamp(1.25rem, 3.5vw, 1.75rem);
-      line-height: 1.3;
-      font-weight: 400;
-      color: var(--text);
-      margin: 0 0 0.25em 0;
-    }
-
-    .intro-role {
-      font-size: 0.95em;
-      color: var(--text);
-      margin: 0 0 0.35em 0;
-      line-height: 1.6;
-      font-weight: 500;
-    }
-
-    .intro-tagline {
-      font-family: var(--mono);
-      font-size: 0.81rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      color: var(--accent);
-      margin: 0 0 0.75em 0;
-      line-height: 1.5;
-      opacity: 1;
-    }
-
-    .intro-portfolio-link {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.08em;
-      color: var(--text);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      min-height: 44px;
-      padding: 0.35rem 0;
-      border-bottom: 1px dotted var(--border);
-    }
-
-    .intro-portfolio-link:hover { color: var(--accent); border-bottom-color: transparent; }
-
-    .intro-cert {
-      height: clamp(52px, 10vw, 72px);
-      width: auto;
-      margin: 0;
-      border-radius: 4px;
-      filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.45));
-    }
-
-    .site-nav-bar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(10, 10, 10, 0.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .site-nav-bar-inner {
-      max-width: 72rem;
-      margin: 0 auto;
-      padding: 0 clamp(0.75rem, 3vw, 1.5rem);
-    }
-
-    .site-nav {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: stretch;
-      justify-content: center;
-      gap: 0.35rem;
-      min-height: var(--nav-height);
-      margin: 0;
-      padding: 0;
-    }
-
-    .site-nav li {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .site-nav a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      padding: 0.5rem 1rem;
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text);
-      text-decoration: none;
-      border-radius: 4px;
-      transition: color 0.2s, background 0.2s;
-    }
-
-    .site-nav a:hover {
-      color: var(--accent);
-      background: rgba(0, 200, 160, 0.08);
-    }
-
-    .site-nav a:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 2px;
-    }
-
-    .intro-hero-footer {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem 1.5rem;
-      margin-top: 1.5rem;
-      padding-top: 1.25rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .intro-social-label {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin: 0;
-      text-shadow: 0 0 20px rgba(0, 200, 160, 0.35);
-    }
-
-    .intro-social-group {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.75rem 1rem;
-    }
-
-    .intro-social {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.65rem;
-      margin: 0;
-    }
-
-    .intro-social a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 48px;
-      height: 48px;
-      color: var(--text);
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      text-decoration: none;
-      cursor: pointer;
-      transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s, box-shadow 0.2s;
-    }
-
-    .intro-social a:hover {
-      color: var(--accent);
-      border-color: var(--accent);
-      background: rgba(0, 200, 160, 0.1);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(0, 200, 160, 0.2);
-    }
-
-    .intro-social a:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 2px;
-    }
-
-    .intro-social svg {
-      width: 22px;
-      height: 22px;
-      fill: currentColor;
-    }
-
-    .intro-copyright {
-      font-size: 0.78rem;
-      color: var(--text);
-      line-height: 1.5;
-      margin: 0;
-      text-align: right;
-    }
-
-    #about,
-    #skills,
-    #projects,
-    #certifications,
-    #contact,
-    #employee-lifecycle-hub,
-    #contractor-hub,
-    #contoso-it-helpdesk,
-    #alm-security {
-      scroll-margin-top: calc(var(--nav-height) + 1rem);
-    }
-
-    /* ── Main content sections (Strata-style) ──────────────────── */
-    .scroll-main > section {
-      border-top: solid 2px var(--border);
-      margin: 4em 0 0 0;
-      padding: 4em 0 0 0;
-    }
-
-    .scroll-main > section:first-child {
-      border-top: 0;
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    .block-title {
-      font-family: var(--serif);
-      font-size: 1.5em;
-      line-height: 1.5em;
-      color: var(--text);
-      margin: 0 0 1em 0;
-      font-weight: 400;
-    }
-
-    .block-title--major {
-      font-size: clamp(1.75rem, 2.5vw, 2.25rem);
-      margin-bottom: 1.25em;
-    }
-
-    .block-subtitle {
-      font-size: 1.1em;
-      color: var(--text);
-      margin: 2em 0 0.75em 0;
-      font-weight: 500;
-    }
-
-    .content-block p {
-      color: var(--text);
-      font-size: 1rem;
-      font-weight: 400;
-      line-height: 1.75em;
-      margin: 0 0 1.5em 0;
-    }
-
-    .content-block p:last-child { margin-bottom: 0; }
-
-    .content-block p strong {
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    .topic-block {
-      margin-bottom: 2.5em;
-    }
-
-    .topic-block:last-child { margin-bottom: 0; }
-
-    .topic-block h3 {
-      font-size: 1.15em;
-      color: var(--text);
-      margin: 0 0 0.65em 0;
-      font-weight: 500;
-    }
-
-    .topic-block p {
-      font-size: 0.95em;
-      color: var(--text);
-      line-height: 1.7;
-      margin: 0;
-    }
-
-    /* Skills matrix (quick-skim) */
-    .skills-matrix {
-      margin-top: 1.25em;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      overflow: hidden;
-      background: var(--surface);
-    }
-
-    #alm-security {
-      scroll-margin-top: 2rem;
-    }
-
-    .skills-row {
-      display: grid;
-      grid-template-columns: minmax(200px, 240px) 1fr;
-      gap: 1.25rem;
-      padding: 1.25rem 1.25rem;
-      border-bottom: 1px solid var(--border);
-      align-items: start;
-    }
-
-    .skills-row:last-child { border-bottom: none; }
-
-    .skills-label {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      line-height: 1.4;
-      padding-top: 0.15rem;
-    }
-
-    .skills-details {
-      color: var(--text);
-      font-size: 0.95em;
-      line-height: 1.7;
-    }
-
-    .skills-matrix .skills-bullets li {
-      color: var(--text);
-      font-weight: 400;
-    }
-
-    .skills-bullets {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: grid;
-      gap: 0.5rem;
-    }
-
-    .skills-bullets li {
-      display: flex;
-      gap: 0.65rem;
-      align-items: flex-start;
-      padding: 0.25rem 0;
-      border-bottom: 1px solid rgba(30, 30, 30, 0.65);
-    }
-
-    .portfolio-project .skills-bullets li {
-      color: var(--text);
-      font-weight: 400;
-    }
-
-    .skills-bullets li:last-child { border-bottom: none; }
-
-    .skills-bullets li::before {
-      content: '→';
-      color: var(--accent);
-      font-family: var(--mono);
-      flex-shrink: 0;
-      margin-top: 0.05rem;
-    }
-
-    .skills-chipline {
-      margin-top: 0.85rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .chip {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 0.25rem 0.55rem;
-      border-radius: 999px;
-      background: var(--bg);
-    }
-
-    .chip--strong {
-      border-color: var(--accent2);
-      color: var(--accent);
-      background: rgba(0, 200, 160, 0.08);
-    }
-
-    .about-cta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 2em;
-    }
-
-    .about-cta .btn-primary {
-      box-shadow: 0 0 24px rgba(0, 200, 160, 0.25);
-    }
-
-    .outcome-highlights {
-      margin: 2em 0 0 0;
-    }
-
-    .outcome-highlights-title {
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin: 0 0 0.85em 0;
-    }
-
-    .outcome-list {
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-      background: var(--surface);
-    }
-
-    .outcome-row {
-      display: grid;
-      grid-template-columns: 7.5rem 1fr;
-      gap: 1.5rem;
-      padding: 1.15rem 1.35rem;
-      border-bottom: 1px solid var(--border);
-      align-items: start;
-    }
-
-    .outcome-row:last-child { border-bottom: none; }
-
-    .outcome-metric {
-      text-align: right;
-      padding-top: 0.1rem;
-    }
-
-    .outcome-value {
-      display: block;
-      font-family: var(--serif);
-      font-size: clamp(1.25rem, 2vw, 1.5rem);
-      color: var(--accent);
-      line-height: 1.15;
-      font-weight: 400;
-    }
-
-    .outcome-unit {
-      display: block;
-      font-family: var(--mono);
-      font-size: 0.58rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-top: 0.2rem;
-      line-height: 1.35;
-    }
-
-    .outcome-detail p {
-      margin: 0 0 0.65rem 0;
-      font-size: 0.92rem;
-      line-height: 1.6;
-      color: var(--text);
-    }
-
-    .outcome-detail p:last-child { margin-bottom: 0; }
-
-    .outcome-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
-
-    .outcome-tags .tech-pill {
-      font-size: 0.56rem;
-      padding: 0.35rem 0.65rem;
-    }
-
-    @media (max-width: 560px) {
-      .outcome-row {
-        grid-template-columns: 1fr;
-        gap: 0.5rem;
-      }
-      .outcome-metric { text-align: left; }
-    }
-
-    .project-results {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 0.75rem;
-      margin: 1.25em 0 0.5em 0;
-    }
-
-    .project-results-footnote {
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      letter-spacing: 0.05em;
-      color: var(--text);
-      opacity: 0.8;
-      margin: 0 0 1.5em 0;
-      line-height: 1.5;
-    }
-
-    .result-card {
-      padding: 1rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      text-align: center;
-    }
-
-    .result-card strong {
-      display: block;
-      font-family: var(--serif);
-      font-size: 1.35rem;
-      color: var(--accent);
-      margin-bottom: 0.25rem;
-      line-height: 1.2;
-    }
-
-    .result-card span {
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text);
-      line-height: 1.4;
-    }
-
-    .project-owned-title,
-    .case-label {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin: 0 0 0.75em 0;
-      opacity: 1;
-      filter: brightness(1.2);
-    }
-
-    .case-block {
-      margin-bottom: 2em;
-    }
-
-    .case-block:last-child { margin-bottom: 0; }
-
-    .case-text {
-      font-size: 0.95em;
-      color: var(--text);
-      line-height: 1.75;
-      margin: 0;
-    }
-
-    .case-meta {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 0.65rem;
-      margin-bottom: 2em;
-    }
-
-    .case-meta-item {
-      padding: 0.75rem 1rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-    }
-
-    .case-meta-item dt {
-      font-family: var(--mono);
-      font-size: 0.58rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.35rem;
-    }
-
-    .case-meta-item dd {
-      font-size: 0.88em;
-      color: var(--text);
-      margin: 0;
-      line-height: 1.45;
-    }
-
-    .project-type-badge {
-      display: inline-block;
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      border: 1px solid var(--accent2);
-      background: rgba(0, 200, 160, 0.08);
-      padding: 0.3rem 0.55rem;
-      border-radius: 2px;
-      margin-bottom: 1em;
-    }
-
-    .case-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: grid;
-      gap: 0.5rem;
-    }
-
-    .case-list li {
-      font-size: 0.92em;
-      color: var(--text);
-      line-height: 1.6;
-      padding-left: 1.1rem;
-      position: relative;
-    }
-
-    .case-list li::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-family: var(--mono);
-    }
-
-    .about-intro,
-    .about-portfolio-lead {
-      margin: 0 0 1.25em 0;
-    }
-
-    .about-portfolio-lead {
-      margin-bottom: 1em;
-    }
-
-    .about-highlights {
-      margin: 0 0 1.75em 0;
-      gap: 1rem;
-    }
-
-    .about-highlights li strong {
-      font-weight: 500;
-      color: var(--text);
-    }
-
-    .star-block {
-      display: grid;
-      gap: 0.65rem;
-      padding: 1.1rem 1.25rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--accent);
-      border-radius: 0 4px 4px 0;
-    }
-
-    .star-item {
-      display: grid;
-      grid-template-columns: 1.75rem 1fr;
-      gap: 0.65rem;
-      align-items: start;
-    }
-
-    .star-letter {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: var(--accent);
-      line-height: 1.6;
-    }
-
-    .star-item p {
-      font-size: 0.9em;
-      color: var(--text);
-      line-height: 1.6;
-      margin: 0;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.25rem;
-      margin-top: 1.5em;
-    }
-
-    .project-card {
-      display: flex;
-      flex-direction: column;
-      padding: 1.35rem 1.35rem 1.5rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-
-    .project-card:hover {
-      border-color: var(--accent2);
-      transform: translateY(-2px);
-    }
-
-    .project-card-badge {
-      font-family: var(--mono);
-      font-size: 0.58rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.65rem;
-    }
-
-    .project-card h3 {
-      font-size: 1.1em;
-      color: var(--text);
-      margin: 0 0 0.35em 0;
-      font-weight: 500;
-    }
-
-    .project-card-domain {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.06em;
-      color: var(--text);
-      opacity: 0.85;
-      margin: 0 0 1em 0;
-    }
-
-    .project-card-hook {
-      font-size: 0.95em;
-      color: var(--text);
-      margin: 0 0 0.5em 0;
-      line-height: 1.5;
-    }
-
-    .project-card-hook strong {
-      color: var(--accent);
-      font-family: var(--serif);
-      font-size: 1.15em;
-    }
-
-    .project-card-stack {
-      font-size: 0.85em;
-      color: var(--text);
-      opacity: 0.9;
-      margin: 0 0 1.25em 0;
-      flex-grow: 1;
-      line-height: 1.55;
-    }
-
-    .project-card .btn {
-      align-self: flex-start;
-      margin-top: auto;
-    }
-
-    .evidence-chapters {
-      display: grid;
-      gap: 2em;
-    }
-
-    .evidence-chapter h4 {
-      font-size: 0.95em;
-      font-weight: 500;
-      color: var(--text);
-      margin: 0 0 0.35em 0;
-    }
-
-    .evidence-chapter-desc {
-      font-size: 0.88em;
-      color: var(--text);
-      opacity: 0.9;
-      margin: 0 0 1em 0;
-      line-height: 1.55;
-    }
-
-    .tag-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1em;
-    }
-
-    .tag {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 0.25rem 0.6rem;
-      border-radius: 2px;
-    }
-
-    /* Certifications */
-    .cert-showcase {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2em;
-      align-items: flex-start;
-      margin-top: 1em;
-    }
-
-    .cert-showcase img {
-      height: 110px;
-      width: auto;
-      border-radius: 4px;
-      filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.4));
-    }
-
-    .cert-list {
-      list-style: none;
-      flex: 1;
-      min-width: 220px;
-    }
-
-    .cert-list li {
-      padding: 0.85em 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 0.95em;
-      color: var(--text);
-    }
-
-    .cert-list li:last-child { border-bottom: none; }
-
-    .cert-list strong {
-      display: block;
-      color: var(--text);
-      font-weight: 500;
-      margin-bottom: 0.2em;
-    }
-
-    .cert-list .status {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-
-    .cert-list .status.in-progress { color: #f5a623; }
-
-    /* Contact */
-    .contact-list {
-      list-style: none;
-      margin-top: 1.5em;
-    }
-
-    .contact-list li {
-      padding: 0.6em 0;
-      font-size: 0.95em;
-      color: var(--text);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .contact-list li:last-child { border-bottom: none; }
-
-    .contact-list strong {
-      color: var(--text);
-      font-weight: 500;
-      margin-right: 0.35em;
-    }
-
-    .contact-list a {
-      color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px dotted var(--accent2);
-    }
-
-    .contact-list a:hover {
-      border-bottom-color: transparent;
-    }
-
-    /* Portfolio slideshow (Jay-style) */
-    .portfolio-project {
-      margin-top: 1.5em;
-    }
-
-    .portfolio-project h3 {
-      font-size: 1.1em;
-      color: var(--text);
-      margin: 0 0 0.5em 0;
-      font-weight: 500;
-    }
-
-    .portfolio-project .project-intro {
-      font-size: 0.95em;
-      color: var(--text);
-      line-height: 1.7;
-      margin: 0 0 1.5em 0;
-    }
-
-    .slideshow-container {
-      position: relative;
-      max-width: 100%;
-      margin: 0 auto;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      overflow: hidden;
-    }
-
-    .portfolio-slide {
-      display: none;
-      padding: 1rem 1rem 1.25rem;
-      text-align: center;
-    }
-
-    .portfolio-slide.is-active {
-      display: block;
-    }
-
-    .portfolio-slide img {
-      max-width: 100%;
-      width: auto;
-      max-height: 420px;
-      height: auto;
-      border-radius: 2px;
-      border: 1px solid var(--border);
-      cursor: zoom-in;
-    }
-
-    .slide-caption {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      color: var(--accent);
-      margin: 1em 0 0 0;
-      text-align: center;
-      filter: brightness(1.15);
-    }
-
-    .slide-nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 44px;
-      height: 44px;
-      padding: 0;
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      background: rgba(10, 10, 10, 0.85);
-      color: var(--text);
-      font-size: 1.5rem;
-      line-height: 1;
-      cursor: pointer;
-      z-index: 2;
-      transition: color 0.2s, border-color 0.2s, background 0.2s;
-    }
-
-    .slide-nav:hover {
-      color: var(--accent);
-      border-color: var(--accent);
-      background: rgba(0, 200, 160, 0.12);
-    }
-
-    .slide-nav:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 2px;
-    }
-
-    .slide-prev { left: 0.75rem; }
-    .slide-next { right: 0.75rem; }
-
-    .slide-dots {
-      display: flex;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 0 1rem 1rem;
-    }
-
-    .slide-dot {
-      width: 8px;
-      height: 8px;
-      padding: 0;
-      border: none;
-      border-radius: 50%;
-      background: var(--border);
-      cursor: pointer;
-      transition: background 0.2s, transform 0.2s;
-    }
-
-    .slide-dot.is-active,
-    .slide-dot:hover {
-      background: var(--accent);
-      transform: scale(1.15);
-    }
-
-    /* ── Animations ────────────────────────────────────────────── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
-
-    /* Scroll reveal */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s, transform 0.6s;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    /* ── Responsive ────────────────────────────────────────────── */
-    @media (max-width: 640px) {
-      .intro-hero-top {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .intro-hero-meta {
-        width: 100%;
-        justify-content: flex-start;
-      }
-
-      .intro-hero-footer {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .intro-copyright { text-align: left; }
-
-      .site-nav {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        justify-content: flex-start;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        padding-bottom: 0.15rem;
-      }
-
-      .site-nav::-webkit-scrollbar { display: none; }
-
-      .site-nav a {
-        flex-shrink: 0;
-        white-space: nowrap;
-      }
-    }
-
-    @media (max-width: 900px) {
-      .about-cta { justify-content: center; }
-      .cert-showcase { flex-direction: column; align-items: center; }
-      .project-results { grid-template-columns: repeat(2, 1fr); }
-      .projects-grid { grid-template-columns: 1fr; }
-      .case-meta { grid-template-columns: repeat(2, 1fr); }
-      .skills-row { grid-template-columns: 1fr; gap: 0.75rem; }
-    }
-  </style>
 </head>
-<body>
+<body class="home-page">
 
-  <!-- Top hero header -->
-  <header class="intro-hero" id="header">
-    <div class="intro-hero-bg" aria-hidden="true"></div>
-    <div class="intro-hero-container">
-      <div class="intro-hero-top">
-        <div class="intro-hero-identity">
-          <img class="intro-photo" src="photo.jpg" alt="Gurdip Mikey Bath" />
-          <div class="intro-hero-text">
-            <h1 class="intro-name">Gurdip Mikey Bath</h1>
-            <p class="intro-role">Power Platform Developer</p>
-            <p class="intro-tagline">3+ Years of production delivery · HR domain background · PL-200 in progress</p>
-          </div>
-        </div>
-        <div class="intro-hero-meta">
-          <a class="intro-portfolio-link" href="https://gurdip-bath.github.io" target="_blank" rel="noopener">gurdip-bath.github.io</a>
-          <img
-            class="intro-cert"
-            src="powerplatformfundamental.jpg"
-            alt="Microsoft Certified: Power Platform Fundamentals (PL-900)"
-          />
-        </div>
-      </div>
-      <div class="intro-hero-actions">
-        <a href="#projects" class="btn-pill btn-pill--primary">
-          <span>View projects</span>
-          <span class="btn-pill-icon" aria-hidden="true">↗</span>
-        </a>
-        <a href="#contact" class="btn-pill btn-pill--secondary">
-          <span>Contact me</span>
-          <span class="btn-pill-icon" aria-hidden="true">↗</span>
-        </a>
-      </div>
-      <div class="intro-tech-stack" aria-label="Power Platform stack">
-        <p class="intro-tech-label">Stack at a glance</p>
-        <div class="pill-groups">
-          <div class="pill-group">
-            <span class="pill-group-label">Apps</span>
-            <div class="pill-group-pills">
-              <a href="#employee-lifecycle-hub" class="tech-pill tech-pill--pink">Model-Driven App</a>
-              <a href="#employee-lifecycle-hub" class="tech-pill tech-pill--purple">Canvas App</a>
-            </div>
-          </div>
-          <div class="pill-group">
-            <span class="pill-group-label">Data</span>
-            <div class="pill-group-pills">
-              <a href="#employee-lifecycle-hub" class="tech-pill tech-pill--green">Dataverse</a>
-              <a href="#employee-lifecycle-hub" class="tech-pill tech-pill--teal">SharePoint</a>
-            </div>
-          </div>
-          <div class="pill-group">
-            <span class="pill-group-label">Automation</span>
-            <div class="pill-group-pills">
-              <a href="#employee-lifecycle-hub" class="tech-pill tech-pill--blue">Power Automate</a>
-              <a href="#contractor-hub" class="tech-pill tech-pill--purple">Business Process Flow</a>
-            </div>
-          </div>
-          <div class="pill-group">
-            <span class="pill-group-label">Code</span>
-            <div class="pill-group-pills">
-              <a href="#employee-lifecycle-hub" class="tech-pill tech-pill--yellow">C#</a>
-              <a href="#employee-lifecycle-hub" class="tech-pill tech-pill--green">Dataverse SDK</a>
-              <a href="#employee-lifecycle-hub" class="tech-pill tech-pill--teal">Plugin Development</a>
-              <a href="#contractor-hub" class="tech-pill tech-pill--yellow">JavaScript</a>
-            </div>
-          </div>
-          <div class="pill-group">
-            <span class="pill-group-label">AI</span>
-            <div class="pill-group-pills">
-              <a href="#contoso-it-helpdesk" class="tech-pill tech-pill--blue">Copilot Studio</a>
-            </div>
-          </div>
-          <div class="pill-group">
-            <span class="pill-group-label">Governance</span>
-            <div class="pill-group-pills">
-              <a href="#employee-lifecycle-hub" class="tech-pill tech-pill--peach">Security &amp; ALM</a>
-              <a href="#alm-security" class="tech-pill tech-pill--azure">Azure DevOps</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <footer class="intro-hero-footer">
-        <div class="intro-social-group">
-          <p class="intro-social-label">Connect</p>
-          <div class="intro-social">
-            <a href="https://github.com/gurdip-bath" target="_blank" rel="noopener" aria-label="GitHub profile">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A8.205 8.205 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-            </a>
-            <a href="https://www.linkedin.com/in/gurdip-mikey-b-07aa12292/" target="_blank" rel="noopener" aria-label="LinkedIn profile">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            </a>
-            <a href="mailto:bathgurdip1@gmail.com" aria-label="Send email">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            </a>
-          </div>
-        </div>
-        <p class="intro-copyright">© 2026 Gurdip Mikey Bath · West Midlands, UK</p>
-      </footer>
-    </div>
-  </header>
+  <div class="spotlight" id="spotlight" aria-hidden="true"></div>
 
-  <nav class="site-nav-bar" aria-label="Page sections">
-    <div class="site-nav-bar-inner">
-      <ul class="site-nav">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#certifications">Certifications</a></li>
-        <li><a href="#contact">Contact</a></li>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <div class="bc-layout">
+    <header class="bc-rail">
+      <div class="bc-rail-top">
+        <h1 class="bc-name">
+          <a href="#">Gurdip Mikey Bath</a>
+        </h1>
+        <h2 class="bc-role">Power Platform Developer</h2>
+        <p class="bc-blurb">3+ years of production delivery · HR domain background · PL-200 in progress</p>
+
+        <nav class="bc-nav" aria-label="In-page sections">
+          <ol class="bc-nav-list">
+            <li><a class="bc-nav-link is-active" href="#about" data-section="about"><span class="bc-nav-line" aria-hidden="true"></span><span class="bc-nav-text">About</span></a></li>
+            <li><a class="bc-nav-link" href="#projects" data-section="projects"><span class="bc-nav-line" aria-hidden="true"></span><span class="bc-nav-text">Projects</span></a></li>
+            <li><a class="bc-nav-link" href="#skills" data-section="skills"><span class="bc-nav-line" aria-hidden="true"></span><span class="bc-nav-text">Skills</span></a></li>
+            <li><a class="bc-nav-link" href="#certifications" data-section="certifications"><span class="bc-nav-line" aria-hidden="true"></span><span class="bc-nav-text">Certifications</span></a></li>
+            <li><a class="bc-nav-link" href="#contact" data-section="contact"><span class="bc-nav-line" aria-hidden="true"></span><span class="bc-nav-text">Contact</span></a></li>
+          </ol>
+        </nav>
+      </div>
+
+      <ul class="bc-social">
+        <li>
+          <a href="https://github.com/gurdip-bath" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A8.205 8.205 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/gurdip-mikey-b-07aa12292/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </li>
+        <li>
+          <a href="mailto:bathgurdip1@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </a>
+        </li>
       </ul>
-    </div>
-  </nav>
+    </header>
 
-  <!-- Scrollable main column -->
-  <main id="main" class="scroll-main">
+    <main id="content" class="bc-content">
 
-    <section id="about" class="content-block">
-      <h2 class="block-title block-title--major">About Me</h2>
-      <p class="about-intro">
-        <strong>Power Platform Developer</strong> with deep HR domain expertise and hands-on technical delivery experience. I specialize in bridging the gap between messy operational workflows and secure, intelligent infrastructure. 
-        By transforming manual procedures into structured Dataverse, Canvas, Model-Driven, and Copilot architectures, I build systems that measurably reclaim team capacity, eliminate data corruption, and automate user support.
-      </p>
-      <p class="about-portfolio-lead">
-        My portfolio highlights how I design from real-world process experience to deliver quantifiable business value:
-      </p>
-      <ul class="case-list about-highlights">
-        <li><strong>Employee Lifecycle Hub:</strong> Built a Model-Driven app on a 5-table Dataverse backend with 3 automated cloud flows, scaled for an administration team of 10.</li>
-        <li><strong>Probation Process Automation:</strong> Streamlined tracking workflows via multi-stage Business Process Flows, successfully returning <strong>4+ hours of weekly team capacity</strong>.</li>
-        <li><strong>Contractor Hub &amp; Canvas Apps:</strong> Engineered client-side JavaScript validation engines and tailored Canvas interfaces integrated with SharePoint, cutting data-entry errors by <strong>50%</strong> directly at the point of input.</li>
-        <li><strong>IT Helpdesk Assistant:</strong> Developed a 24/7 first-line generative AI agent in Copilot Studio using a 5-section prompt framework, multi-step Adaptive Card escalations, and a 2-table Dataverse ticketing schema.</li>
-      </ul>
-      <p>
-        <strong>Currently:</strong> PL-900 certified · PL-200 scheduled July 2026 · Open to Power Platform roles in the <strong>West Midlands / Birmingham</strong> (hybrid or remote UK). Regular contributor to the Power Platform community on <a href="https://www.linkedin.com/in/gurdip-mikey-b-07aa12292/" target="_blank" rel="noopener" style="color:var(--accent)">LinkedIn</a> (2,000+ followers).
-      </p>
-      <div class="outcome-highlights" aria-label="Deliverables and outcomes">
-        <h3 class="outcome-highlights-title">Deliverables &amp; outcomes</h3>
-        <div class="outcome-list">
-          <div class="outcome-row">
-            <div class="outcome-metric">
-              <span class="outcome-value">50%</span>
-              <span class="outcome-unit">fewer errors</span>
-            </div>
-            <div class="outcome-detail">
-              <p>Canvas app integrated with SharePoint lists — data-entry errors cut by half across high-volume HR admin.</p>
-              <div class="outcome-tags">
-                <a href="#employee-lifecycle-hub" class="tech-pill tech-pill--purple">Canvas App</a>
-                <a href="#employee-lifecycle-hub" class="tech-pill tech-pill--teal">SharePoint</a>
+      <section id="about" class="bc-section" aria-label="About">
+        <div class="bc-section-heading mobile-only">
+          <h2>About</h2>
+        </div>
+        <div class="bc-prose">
+          <p>
+            <strong>Power Platform Developer</strong> with deep HR domain expertise and hands-on technical delivery experience. I specialize in bridging the gap between messy operational workflows and secure, intelligent infrastructure. By transforming manual procedures into structured Dataverse, Canvas, Model-Driven, and Copilot architectures, I build systems that measurably reclaim team capacity, eliminate data corruption, and automate user support.
+          </p>
+          <p>
+            My portfolio highlights how I design from real-world process experience to deliver quantifiable business value:
+          </p>
+          <ul class="bc-bullets">
+            <li><strong>Employee Lifecycle Hub:</strong> Built a Model-Driven app on a 5-table Dataverse backend with 3 automated cloud flows, scaled for an administration team of 10.</li>
+            <li><strong>Probation Process Automation:</strong> Streamlined tracking workflows via multi-stage Business Process Flows, successfully returning <strong>4+ hours of weekly team capacity</strong>.</li>
+            <li><strong>Contractor Hub &amp; Canvas Apps:</strong> Engineered client-side JavaScript validation engines and tailored Canvas interfaces integrated with SharePoint, cutting data-entry errors by <strong>50%</strong> directly at the point of input.</li>
+            <li><strong>IT Helpdesk Assistant:</strong> Developed a 24/7 first-line generative AI agent in Copilot Studio using a 5-section prompt framework, multi-step Adaptive Card escalations, and a 2-table Dataverse ticketing schema.</li>
+          </ul>
+          <p>
+            <strong>Currently:</strong> PL-900 certified · PL-200 scheduled July 2026 · Open to Power Platform roles in the <strong>West Midlands / Birmingham</strong> (hybrid or remote UK). Regular contributor to the Power Platform community on <a href="https://www.linkedin.com/in/gurdip-mikey-b-07aa12292/" target="_blank" rel="noopener">LinkedIn</a> (2,000+ followers).
+          </p>
+        </div>
+
+        <div class="outcome-highlights" aria-label="Deliverables and outcomes">
+          <h3 class="outcome-highlights-title">Deliverables &amp; outcomes</h3>
+          <div class="outcome-list">
+            <div class="outcome-row">
+              <div class="outcome-metric">
+                <span class="outcome-value">50%</span>
+                <span class="outcome-unit">fewer errors</span>
+              </div>
+              <div class="outcome-detail">
+                <p>Canvas app integrated with SharePoint lists — data-entry errors cut by half across high-volume HR admin.</p>
+                <div class="outcome-tags">
+                  <span class="bc-tag">Canvas App</span>
+                  <span class="bc-tag">SharePoint</span>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="outcome-row">
-            <div class="outcome-metric">
-              <span class="outcome-value">40 hrs</span>
-              <span class="outcome-unit">reclaimed / week</span>
-            </div>
-            <div class="outcome-detail">
-              <p>Model-driven app with Dataverse backend and 3 Power Automate flows — returned 40 hours of admin capacity per week across 10 HR admins.</p>
-              <div class="outcome-tags">
-                <a href="#employee-lifecycle-hub" class="tech-pill tech-pill--pink">Model-Driven App</a>
-                <a href="#employee-lifecycle-hub" class="tech-pill tech-pill--green">Dataverse</a>
-                <a href="#employee-lifecycle-hub" class="tech-pill tech-pill--blue">Power Automate</a>
+            <div class="outcome-row">
+              <div class="outcome-metric">
+                <span class="outcome-value">40 hrs</span>
+                <span class="outcome-unit">reclaimed / week</span>
+              </div>
+              <div class="outcome-detail">
+                <p>Model-driven app with Dataverse backend and 3 Power Automate flows — returned 40 hours of admin capacity per week across 10 HR admins.</p>
+                <div class="outcome-tags">
+                  <span class="bc-tag">Model-Driven App</span>
+                  <span class="bc-tag">Dataverse</span>
+                  <span class="bc-tag">Power Automate</span>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="outcome-row">
-            <div class="outcome-metric">
-              <span class="outcome-value">4+ hrs</span>
-              <span class="outcome-unit">capacity / week</span>
-            </div>
-            <div class="outcome-detail">
-              <p>Employee probation process automated with Power Automate — stage triggers, notifications, and manual chasing eliminated.</p>
-              <div class="outcome-tags">
-                <a href="#employee-lifecycle-hub" class="tech-pill tech-pill--blue">Power Automate</a>
+            <div class="outcome-row">
+              <div class="outcome-metric">
+                <span class="outcome-value">4+ hrs</span>
+                <span class="outcome-unit">capacity / week</span>
+              </div>
+              <div class="outcome-detail">
+                <p>Employee probation process automated with Power Automate — stage triggers, notifications, and manual chasing eliminated.</p>
+                <div class="outcome-tags">
+                  <span class="bc-tag">Power Automate</span>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="outcome-row">
-            <div class="outcome-metric">
-              <span class="outcome-value">PL-900</span>
-              <span class="outcome-unit">certified</span>
-            </div>
-            <div class="outcome-detail">
-              <p>Microsoft Power Platform Fundamentals — PL-200 Functional Consultant scheduled July 2026.</p>
+            <div class="outcome-row">
+              <div class="outcome-metric">
+                <span class="outcome-value">PL-900</span>
+                <span class="outcome-unit">certified</span>
+              </div>
+              <div class="outcome-detail">
+                <p>Microsoft Power Platform Fundamentals — PL-200 Functional Consultant scheduled July 2026.</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="about-cta">
-        <!-- CV buttons hidden for now
-        <a href="Gurdip_Bath_CV_Final.pdf" class="btn btn-primary" target="_blank" rel="noopener">View My CV</a>
-        <a href="Gurdip_Bath_CV_Final.docx" class="btn btn-ghost" download="Gurdip_Bath_CV_Final.docx">Download My CV</a>
-        -->
-        <a href="#projects" class="btn btn-ghost">View Project Case Study</a>
-      </div>
-    </section>
+      </section>
 
-    <section id="projects" class="content-block">
-      <h2 class="block-title block-title--major">Projects</h2>
-      <p class="case-text">
-        Three end-to-end Power Platform solutions — built solo from schema design through apps, automation, security, and ALM. Click <strong>View project</strong> for the full case study and scroll-through screenshots.
-      </p>
+      <section id="projects" class="bc-section" aria-label="Projects">
+        <div class="bc-section-heading">
+          <h2>Projects</h2>
+        </div>
+        <p class="bc-section-lead">
+          Three end-to-end Power Platform solutions — built solo from schema design through apps, automation, security, and ALM.
+        </p>
 
-      <div class="projects-showcase-list">
-        <article id="employee-lifecycle-hub" class="project-showcase reveal">
-          <div class="project-showcase-content">
-            <h3 class="project-showcase-title">Employee Lifecycle Hub</h3>
-            <span class="project-showcase-accent" aria-hidden="true"></span>
-            <p class="project-showcase-desc">
-              Case study based on a live HR build — 5-table Dataverse architecture with model-driven and canvas apps, Power Automate, and Power BI. Reclaimed <strong>40 hrs/week</strong> of admin capacity, cut operational data errors by <strong>60%</strong>, and provisions <strong>8 mandatory onboarding tasks</strong> automatically. Power BI reporting saves <strong>12–15 hrs/month</strong> of manual spreadsheet work.
-            </p>
-            <div class="project-showcase-tags pill-groups">
-              <div class="pill-group">
-                <span class="pill-group-label">Apps &amp; data</span>
-                <div class="pill-group-pills">
-                  <a href="projects/employee-lifecycle-hub.html" class="tech-pill tech-pill--pink">Model-Driven App</a>
-                  <a href="projects/employee-lifecycle-hub.html" class="tech-pill tech-pill--purple">Canvas App</a>
-                  <a href="projects/employee-lifecycle-hub.html" class="tech-pill tech-pill--green">Dataverse</a>
-                </div>
-              </div>
-              <div class="pill-group">
-                <span class="pill-group-label">Automation</span>
-                <div class="pill-group-pills">
-                  <a href="projects/employee-lifecycle-hub.html" class="tech-pill tech-pill--blue">Power Automate</a>
-                  <a href="projects/employee-lifecycle-hub.html" class="tech-pill tech-pill--yellow">Power BI</a>
-                </div>
-              </div>
-              <div class="pill-group">
-                <span class="pill-group-label">Code</span>
-                <div class="pill-group-pills">
-                  <a href="projects/employee-lifecycle-hub.html" class="tech-pill tech-pill--yellow">C#</a>
-                  <a href="projects/employee-lifecycle-hub.html" class="tech-pill tech-pill--green">Dataverse SDK</a>
-                  <a href="projects/employee-lifecycle-hub.html" class="tech-pill tech-pill--teal">Plugin Development</a>
-                </div>
-              </div>
-              <div class="pill-group">
-                <span class="pill-group-label">Governance</span>
-                <div class="pill-group-pills">
-                  <a href="projects/employee-lifecycle-hub.html" class="tech-pill tech-pill--peach">Security &amp; ALM</a>
-                  <a href="projects/employee-lifecycle-hub.html" class="tech-pill tech-pill--azure">Azure DevOps</a>
-                </div>
-              </div>
-            </div>
-            <div class="project-showcase-actions">
-              <a href="projects/employee-lifecycle-hub.html" class="btn-pill btn-pill--primary">
-                <span>View project</span>
-                <span class="btn-pill-icon" aria-hidden="true">↗</span>
-              </a>
-              <a href="#contact" class="btn-pill btn-pill--secondary">
-                <span>Contact me</span>
-                <span class="btn-pill-icon" aria-hidden="true">↗</span>
-              </a>
-            </div>
-          </div>
-          <div class="project-showcase-visual">
-            <div class="visual-frame">
-              <img
-                class="visual-main"
-                src="employee%20lifecycle%20hub/model-driven/01-lifecycle-case-view.png?v=2"
-                alt="Employee Lifecycle Hub — lifecycle cases list view"
-              />
-              <img
-                class="visual-overlay"
-                src="employee%20lifecycle%20hub/canvas%20app%20images/1%20-%20Canvas%20App%20Homepage.png"
-                alt="Canvas app homepage preview"
-              />
-            </div>
-          </div>
-        </article>
-
-        <article id="contractor-hub" class="project-showcase reveal">
-          <div class="project-showcase-content">
-            <h3 class="project-showcase-title">Contractor Hub</h3>
-            <span class="project-showcase-accent" aria-hidden="true"></span>
-            <p class="project-showcase-desc">
-               13-table Dataverse schema with custom auto-numbering and junction tables. <strong>2-stage</strong> BPF governance pipeline, <strong>3 JavaScript</strong> web resources including a risk-scoring engine, and <strong>3 custom security roles</strong> in a versioned managed solution.
-            </p>
-            <div class="project-showcase-tags pill-groups">
-              <div class="pill-group">
-                <span class="pill-group-label">Apps &amp; data</span>
-                <div class="pill-group-pills">
-                  <a href="projects/contractor-hub.html" class="tech-pill tech-pill--pink">Model-Driven App</a>
-                  <a href="projects/contractor-hub.html" class="tech-pill tech-pill--green">Dataverse</a>
-                  <a href="projects/contractor-hub.html" class="tech-pill tech-pill--purple">Business Process Flow</a>
-                </div>
-              </div>
-              <div class="pill-group">
-                <span class="pill-group-label">Automation</span>
-                <div class="pill-group-pills">
-                  <a href="projects/contractor-hub.html" class="tech-pill tech-pill--blue">Power Automate</a>
-                </div>
-              </div>
-              <div class="pill-group">
-                <span class="pill-group-label">Code</span>
-                <div class="pill-group-pills">
-                  <a href="projects/contractor-hub.html" class="tech-pill tech-pill--yellow">JavaScript</a>
-                </div>
-              </div>
-              <div class="pill-group">
-                <span class="pill-group-label">Governance</span>
-                <div class="pill-group-pills">
-                  <a href="projects/contractor-hub.html" class="tech-pill tech-pill--peach">Security Roles</a>
-                  <a href="projects/contractor-hub.html" class="tech-pill tech-pill--azure">Azure DevOps</a>
-                </div>
-              </div>
-            </div>
-            <div class="project-showcase-actions">
-              <a href="projects/contractor-hub.html" class="btn-pill btn-pill--primary">
-                <span>View project</span>
-                <span class="btn-pill-icon" aria-hidden="true">↗</span>
-              </a>
-              <a href="#contact" class="btn-pill btn-pill--secondary">
-                <span>Contact me</span>
-                <span class="btn-pill-icon" aria-hidden="true">↗</span>
-              </a>
-            </div>
-          </div>
-          <div class="project-showcase-visual">
-            <div class="visual-frame">
-              <img
-                class="visual-main"
-                src="images/portfolio/contractor/01-create-contractor.png"
-                alt="Contractor Hub — create contractor intake form"
-              />
-              <img
-                class="visual-overlay"
-                src="images/portfolio/contractor/05-bpf-trigger-flow.png"
-                alt="Business Process Flow preview"
-              />
-            </div>
-          </div>
-        </article>
-
-        <article id="contoso-it-helpdesk" class="project-showcase project-showcase--coming-soon reveal">
-          <div class="project-showcase-content">
-            <h3 class="project-showcase-title">Contoso IT Helpdesk Assistant</h3>
-            <span class="project-showcase-accent" aria-hidden="true"></span>
-            <p class="project-showcase-desc">
-              Generative AI agent in Microsoft Copilot Studio — <strong>24/7</strong> first-line IT support. <strong>5-section</strong> system prompt framework, multi-step ticket escalation with Adaptive Card and GPT-5 Prompt node, and a <strong>2-table</strong> Dataverse schema (Support Tickets &amp; IT Asset Inventories).
-            </p>
-            <div class="project-showcase-tags pill-groups">
-              <div class="pill-group">
-                <span class="pill-group-label">AI</span>
-                <div class="pill-group-pills">
-                  <a href="projects/contoso-it-helpdesk.html" class="tech-pill tech-pill--blue">Copilot Studio</a>
-                  <a href="projects/contoso-it-helpdesk.html" class="tech-pill tech-pill--purple">GPT-5</a>
-                </div>
-              </div>
-              <div class="pill-group">
-                <span class="pill-group-label">Platform</span>
-                <div class="pill-group-pills">
-                  <a href="projects/contoso-it-helpdesk.html" class="tech-pill tech-pill--green">Dataverse</a>
-                  <a href="projects/contoso-it-helpdesk.html" class="tech-pill tech-pill--teal">SharePoint</a>
-                  <a href="projects/contoso-it-helpdesk.html" class="tech-pill tech-pill--pink">Model-Driven App</a>
-                </div>
-              </div>
-            </div>
-            <div class="project-showcase-actions">
-              <a href="projects/contoso-it-helpdesk.html" class="btn-pill btn-pill--primary">
-                <span>View project</span>
-                <span class="btn-pill-icon" aria-hidden="true">↗</span>
-              </a>
-              <a href="#contact" class="btn-pill btn-pill--secondary">
-                <span>Contact me</span>
-                <span class="btn-pill-icon" aria-hidden="true">↗</span>
-              </a>
-            </div>
-          </div>
-          <div class="project-showcase-visual">
-            <div class="visual-placeholder" aria-label="Screenshots coming soon">
-              <span class="visual-placeholder-icon" aria-hidden="true">◇</span>
-              <span class="visual-placeholder-label">Images coming soon</span>
-              <span class="visual-placeholder-sub">Copilot Studio walkthrough screenshots will be added here.</span>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="skills" class="content-block">
-      <h2 class="block-title block-title--major">Skills Snapshot</h2>
-      <div class="skills-matrix reveal" aria-label="Skills matrix">
-        <div class="skills-row">
-          <div class="skills-label">Power Apps<br />Canvas + Model-Driven</div>
-          <div class="skills-details">
-            <ul class="skills-bullets">
-              <li>Model-driven apps for HR personas: role-based views, forms, dashboards, sitemap.</li>
-              <li>Canvas apps for line managers: RBAC using Power FX Formula delegation-safe queries, responsive layout.</li>
-              <li>Multi-persona workflows with consistent UX and data integrity.</li>
-            </ul>
-            <div class="skills-chipline">
-              <a href="#employee-lifecycle-hub" class="tech-pill tech-pill--pink">Model-Driven Apps</a>
-              <a href="#employee-lifecycle-hub" class="tech-pill tech-pill--purple">Canvas Apps</a>
-              <a href="#employee-lifecycle-hub" class="tech-pill tech-pill--peach">Views &amp; Forms</a>
-              <a href="#employee-lifecycle-hub" class="tech-pill tech-pill--peach">Sitemap</a>
-            </div>
-          </div>
-        </div>
-        <div class="skills-row">
-          <div class="skills-label">Power Automate</div>
-          <div class="skills-details">
-            <ul class="skills-bullets">
-              <li>Production flows with trigger gates and idempotency checks.</li>
-              <li>Scoped try/catch error handling and exponential backoff retry.</li>
-              <li>Environment variables for portability across DEV → PROD.</li>
-            </ul>
-            <div class="skills-chipline">
-              <a href="#employee-lifecycle-hub" class="tech-pill tech-pill--blue">Cloud flows</a>
-              <a href="#contractor-hub" class="tech-pill tech-pill--blue">Idempotency</a>
-              <a href="#employee-lifecycle-hub" class="tech-pill tech-pill--blue">Retries</a>
-              <a href="#employee-lifecycle-hub" class="tech-pill tech-pill--blue">Env variables</a>
-            </div>
-          </div>
-        </div>
-        <div class="skills-row">
-          <div class="skills-label">Dataverse + SharePoint</div>
-          <div class="skills-details">
-            <ul class="skills-bullets">
-              <li>Relational table design with lookups and validation rules.</li>
-              <li>OData filtering and star-schema thinking for reporting readiness.</li>
-              <li>Column security profiles for PII compliance.</li>
-            </ul>
-            <div class="skills-chipline">
-              <a href="#employee-lifecycle-hub" class="tech-pill tech-pill--green">Dataverse</a>
-              <a href="#contractor-hub" class="tech-pill tech-pill--green">Lookups</a>
-              <a href="#employee-lifecycle-hub" class="tech-pill tech-pill--green">OData</a>
-              <a href="#employee-lifecycle-hub" class="tech-pill tech-pill--green">Column security</a>
-            </div>
-          </div>
-        </div>
-        <div class="skills-row">
-          <div class="skills-label">C# · Plugin Development</div>
-          <div class="skills-details">
-            <ul class="skills-bullets">
-              <li>Dataverse SDK plugins registered and deployed via Plugin Registration Tool.</li>
-              <li>Synchronous server-side logic on create/update messages — task seeding without flow latency.</li>
-              <li>Plugin assemblies packaged in managed solutions alongside apps, flows, and security.</li>
-            </ul>
-            <div class="skills-chipline">
-              <a href="#employee-lifecycle-hub" class="tech-pill tech-pill--yellow">C#</a>
-              <a href="#employee-lifecycle-hub" class="tech-pill tech-pill--green">Dataverse SDK</a>
-              <a href="#employee-lifecycle-hub" class="tech-pill tech-pill--teal">Plugin Development</a>
-            </div>
-          </div>
-        </div>
-        <div id="alm-security" class="skills-row">
-          <div class="skills-label">ALM + Security</div>
-          <div class="skills-details">
-            <ul class="skills-bullets">
-              <li>Managed solutions for DEV → PROD promotion.</li>
-              <li>Azure DevOps pipelines for solution export, version control, and environment deployment.</li>
-              <li>Connection references and environment-aware configuration.</li>
-              <li>Custom security roles and column security (least privilege).</li>
-            </ul>
-            <div class="skills-chipline">
-              <a href="#employee-lifecycle-hub" class="tech-pill tech-pill--peach">Managed solutions</a>
-              <a href="#alm-security" class="tech-pill tech-pill--azure">Azure DevOps</a>
-              <a href="#contractor-hub" class="tech-pill tech-pill--peach">Security roles</a>
-              <a href="#employee-lifecycle-hub" class="tech-pill tech-pill--peach">Column security</a>
-              <a href="#employee-lifecycle-hub" class="tech-pill tech-pill--peach">GDPR</a>
-            </div>
-          </div>
-        </div>
-        <div class="skills-row">
-          <div class="skills-label">Copilot Studio</div>
-          <div class="skills-details">
-            <ul class="skills-bullets">
-              <li>Generative AI agent creation with knowledge grounding and topic branching.</li>
-              <li>System prompt frameworks — role, scope, behaviour, constraints, and citation rules.</li>
-              <li>Adaptive Card escalation topics with GPT-5 Prompt nodes.</li>
-            </ul>
-            <div class="skills-chipline">
-              <a href="#contoso-it-helpdesk" class="tech-pill tech-pill--blue">Agent creation</a>
-              <a href="#contoso-it-helpdesk" class="tech-pill tech-pill--blue">Knowledge grounding</a>
-              <a href="#contoso-it-helpdesk" class="tech-pill tech-pill--blue">Topic branching</a>
-              <a href="#contoso-it-helpdesk" class="tech-pill tech-pill--purple">GPT-5</a>
-            </div>
-          </div>
-        </div>
-        <div class="skills-row">
-          <div class="skills-label">Power BI</div>
-          <div class="skills-details">
-            <ul class="skills-bullets">
-              <li>Star-schema modelling for reporting readiness from Dataverse sources.</li>
-              <li>DAX measures and SLA-focused operational dashboards.</li>
-              <li>Saves 12–15 hrs/month of manual spreadsheet reporting work.</li>
-            </ul>
-            <div class="skills-chipline">
-              <a href="#employee-lifecycle-hub" class="tech-pill tech-pill--yellow">Star schema</a>
-              <a href="#employee-lifecycle-hub" class="tech-pill tech-pill--yellow">DAX</a>
-              <a href="#employee-lifecycle-hub" class="tech-pill tech-pill--yellow">SLA reporting</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="certifications" class="content-block">
-      <h2 class="block-title block-title--major">Certifications and Training</h2>
-      <h3 class="block-subtitle">Microsoft Certifications</h3>
-      <div class="cert-showcase reveal">
-        <img src="powerplatformfundamental.jpg" alt="Microsoft Certified: Power Platform Fundamentals" />
-        <ul class="cert-list">
+        <ul class="bc-project-list">
           <li>
-            <span class="status">Completed May 2026</span>
-            <strong>PL-900 — Microsoft Power Platform Fundamentals</strong>
-            Power Apps, Power Automate, and platform foundations.
+            <a class="bc-project-row" href="projects/employee-lifecycle-hub.html">
+              <div class="bc-project-media">
+                <img src="employee%20lifecycle%20hub/model-driven/01-lifecycle-case-view.png?v=2" alt="" />
+              </div>
+              <div class="bc-project-body">
+                <h3 class="bc-project-title">
+                  Employee Lifecycle Hub
+                  <span class="bc-project-arrow" aria-hidden="true">↗</span>
+                </h3>
+                <p class="bc-project-desc">
+                  Case study based on a live HR build — 5-table Dataverse architecture with model-driven and canvas apps, Power Automate, and Power BI. Reclaimed <strong>40 hrs/week</strong> of admin capacity and cut operational data errors by <strong>60%</strong>.
+                </p>
+                <ul class="bc-tag-list">
+                  <li class="bc-tag">Model-Driven App</li>
+                  <li class="bc-tag">Canvas App</li>
+                  <li class="bc-tag">Dataverse</li>
+                  <li class="bc-tag">Power Automate</li>
+                </ul>
+              </div>
+            </a>
           </li>
           <li>
-            <span class="status in-progress">Scheduled July 2026</span>
-            <strong>PL-200 — Power Platform Functional Consultant</strong>
-            Studying toward Functional Consultant certification while delivering production solutions at Shaw Trust and portfolio builds on Dataverse.
+            <a class="bc-project-row" href="projects/contractor-hub.html">
+              <div class="bc-project-media">
+                <img src="images/portfolio/contractor/01-create-contractor.png" alt="" />
+              </div>
+              <div class="bc-project-body">
+                <h3 class="bc-project-title">
+                  Contractor Hub
+                  <span class="bc-project-arrow" aria-hidden="true">↗</span>
+                </h3>
+                <p class="bc-project-desc">
+                  13-table Dataverse schema with custom auto-numbering and junction tables. <strong>2-stage</strong> BPF governance pipeline, <strong>3 JavaScript</strong> web resources including a risk-scoring engine, and <strong>3 custom security roles</strong>.
+                </p>
+                <ul class="bc-tag-list">
+                  <li class="bc-tag">Model-Driven App</li>
+                  <li class="bc-tag">Dataverse</li>
+                  <li class="bc-tag">BPF</li>
+                  <li class="bc-tag">JavaScript</li>
+                </ul>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a class="bc-project-row" href="projects/contoso-it-helpdesk.html">
+              <div class="bc-project-media bc-project-media--placeholder">
+                <span>◇</span>
+              </div>
+              <div class="bc-project-body">
+                <h3 class="bc-project-title">
+                  Contoso IT Helpdesk Assistant
+                  <span class="bc-project-arrow" aria-hidden="true">↗</span>
+                </h3>
+                <p class="bc-project-desc">
+                  Generative AI agent in Microsoft Copilot Studio — <strong>24/7</strong> first-line IT support. <strong>5-section</strong> system prompt framework, Adaptive Card escalations, and a <strong>2-table</strong> Dataverse ticketing schema.
+                </p>
+                <ul class="bc-tag-list">
+                  <li class="bc-tag">Copilot Studio</li>
+                  <li class="bc-tag">Dataverse</li>
+                  <li class="bc-tag">GPT-5</li>
+                </ul>
+              </div>
+            </a>
           </li>
         </ul>
-      </div>
-    </section>
+      </section>
 
-    <section id="contact" class="content-block">
-      <h2 class="block-title block-title--major">Contact Me</h2>
-      <p>
-        Open to <strong> Power Platform developer</strong> and <strong>associate functional consultant</strong> roles. Based in Oldbury / West Midlands — happy with hybrid Birmingham or remote UK.
-      </p>
-      <ul class="contact-list">
-        <li><strong>Roles sought</strong>  Power Platform Developer · Associate Functional Consultant</li>
-        <li><strong>Location</strong> West Midlands / Birmingham — hybrid or remote UK</li>
-        <li><strong>Availability</strong> Open to opportunities now</li>
-        <li><strong>Email</strong> <a href="mailto:bathgurdip1@gmail.com">bathgurdip1@gmail.com</a></li>
-        <li><strong>LinkedIn</strong> <a href="https://www.linkedin.com/in/gurdip-mikey-b-07aa12292/" target="_blank" rel="noopener">Gurdip Mikey Bath</a> (2,000+ followers)</li>
-        <li><strong>Portfolio</strong> <a href="https://gurdip-bath.github.io" target="_blank" rel="noopener">gurdip-bath.github.io</a></li>
-        <li><strong>GitHub</strong> <a href="https://github.com/gurdip-bath" target="_blank" rel="noopener">github.com/gurdip-bath</a></li>
-      </ul>
-    </section>
+      <section id="skills" class="bc-section" aria-label="Skills">
+        <div class="bc-section-heading">
+          <h2>Skills</h2>
+        </div>
+        <div class="skills-matrix" aria-label="Skills matrix">
+          <div class="skills-row">
+            <div class="skills-label">Power Apps<br />Canvas + Model-Driven</div>
+            <div class="skills-details">
+              <ul class="skills-bullets">
+                <li>Model-driven apps for HR personas: role-based views, forms, dashboards, sitemap.</li>
+                <li>Canvas apps for line managers: RBAC using Power FX Formula delegation-safe queries, responsive layout.</li>
+                <li>Multi-persona workflows with consistent UX and data integrity.</li>
+              </ul>
+              <div class="skills-chipline">
+                <span class="bc-tag">Model-Driven Apps</span>
+                <span class="bc-tag">Canvas Apps</span>
+                <span class="bc-tag">Views &amp; Forms</span>
+                <span class="bc-tag">Sitemap</span>
+              </div>
+            </div>
+          </div>
+          <div class="skills-row">
+            <div class="skills-label">Power Automate</div>
+            <div class="skills-details">
+              <ul class="skills-bullets">
+                <li>Production flows with trigger gates and idempotency checks.</li>
+                <li>Scoped try/catch error handling and exponential backoff retry.</li>
+                <li>Environment variables for portability across DEV → PROD.</li>
+              </ul>
+              <div class="skills-chipline">
+                <span class="bc-tag">Cloud flows</span>
+                <span class="bc-tag">Idempotency</span>
+                <span class="bc-tag">Retries</span>
+                <span class="bc-tag">Env variables</span>
+              </div>
+            </div>
+          </div>
+          <div class="skills-row">
+            <div class="skills-label">Dataverse + SharePoint</div>
+            <div class="skills-details">
+              <ul class="skills-bullets">
+                <li>Relational table design with lookups and validation rules.</li>
+                <li>OData filtering and star-schema thinking for reporting readiness.</li>
+                <li>Column security profiles for PII compliance.</li>
+              </ul>
+              <div class="skills-chipline">
+                <span class="bc-tag">Dataverse</span>
+                <span class="bc-tag">Lookups</span>
+                <span class="bc-tag">OData</span>
+                <span class="bc-tag">Column security</span>
+              </div>
+            </div>
+          </div>
+          <div class="skills-row">
+            <div class="skills-label">C# · Plugin Development</div>
+            <div class="skills-details">
+              <ul class="skills-bullets">
+                <li>Dataverse SDK plugins registered and deployed via Plugin Registration Tool.</li>
+                <li>Synchronous server-side logic on create/update messages — task seeding without flow latency.</li>
+                <li>Plugin assemblies packaged in managed solutions alongside apps, flows, and security.</li>
+              </ul>
+              <div class="skills-chipline">
+                <span class="bc-tag">C#</span>
+                <span class="bc-tag">Dataverse SDK</span>
+                <span class="bc-tag">Plugin Development</span>
+              </div>
+            </div>
+          </div>
+          <div id="alm-security" class="skills-row">
+            <div class="skills-label">ALM + Security</div>
+            <div class="skills-details">
+              <ul class="skills-bullets">
+                <li>Managed solutions for DEV → PROD promotion.</li>
+                <li>Azure DevOps pipelines for solution export, version control, and environment deployment.</li>
+                <li>Connection references and environment-aware configuration.</li>
+                <li>Custom security roles and column security (least privilege).</li>
+              </ul>
+              <div class="skills-chipline">
+                <span class="bc-tag">Managed solutions</span>
+                <span class="bc-tag">Azure DevOps</span>
+                <span class="bc-tag">Security roles</span>
+                <span class="bc-tag">Column security</span>
+                <span class="bc-tag">GDPR</span>
+              </div>
+            </div>
+          </div>
+          <div class="skills-row">
+            <div class="skills-label">Copilot Studio</div>
+            <div class="skills-details">
+              <ul class="skills-bullets">
+                <li>Generative AI agent creation with knowledge grounding and topic branching.</li>
+                <li>System prompt frameworks — role, scope, behaviour, constraints, and citation rules.</li>
+                <li>Adaptive Card escalation topics with GPT-5 Prompt nodes.</li>
+              </ul>
+              <div class="skills-chipline">
+                <span class="bc-tag">Agent creation</span>
+                <span class="bc-tag">Knowledge grounding</span>
+                <span class="bc-tag">Topic branching</span>
+                <span class="bc-tag">GPT-5</span>
+              </div>
+            </div>
+          </div>
+          <div class="skills-row">
+            <div class="skills-label">Power BI</div>
+            <div class="skills-details">
+              <ul class="skills-bullets">
+                <li>Star-schema modelling for reporting readiness from Dataverse sources.</li>
+                <li>DAX measures and SLA-focused operational dashboards.</li>
+                <li>Saves 12–15 hrs/month of manual spreadsheet reporting work.</li>
+              </ul>
+              <div class="skills-chipline">
+                <span class="bc-tag">Star schema</span>
+                <span class="bc-tag">DAX</span>
+                <span class="bc-tag">SLA reporting</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  </main>
+      <section id="certifications" class="bc-section" aria-label="Certifications">
+        <div class="bc-section-heading">
+          <h2>Certifications</h2>
+        </div>
+        <div class="cert-showcase">
+          <img src="powerplatformfundamental.jpg" alt="Microsoft Certified: Power Platform Fundamentals" />
+          <ul class="cert-list">
+            <li>
+              <span class="status">Completed May 2026</span>
+              <strong>PL-900 — Microsoft Power Platform Fundamentals</strong>
+              Power Apps, Power Automate, and platform foundations.
+            </li>
+            <li>
+              <span class="status in-progress">Scheduled July 2026</span>
+              <strong>PL-200 — Power Platform Functional Consultant</strong>
+              Studying toward Functional Consultant certification while delivering production solutions at Shaw Trust and portfolio builds on Dataverse.
+            </li>
+          </ul>
+        </div>
+      </section>
 
-  <!-- Scroll reveal + portfolio slideshow -->
+      <section id="contact" class="bc-section" aria-label="Contact">
+        <div class="bc-section-heading">
+          <h2>Contact</h2>
+        </div>
+        <p class="bc-section-lead">
+          Open to <strong>Power Platform developer</strong> and <strong>associate functional consultant</strong> roles. Based in Oldbury / West Midlands — happy with hybrid Birmingham or remote UK.
+        </p>
+        <ul class="contact-list">
+          <li><strong>Roles sought</strong> Power Platform Developer · Associate Functional Consultant</li>
+          <li><strong>Location</strong> West Midlands / Birmingham — hybrid or remote UK</li>
+          <li><strong>Availability</strong> Open to opportunities now</li>
+          <li><strong>Email</strong> <a href="mailto:bathgurdip1@gmail.com">bathgurdip1@gmail.com</a></li>
+          <li><strong>LinkedIn</strong> <a href="https://www.linkedin.com/in/gurdip-mikey-b-07aa12292/" target="_blank" rel="noopener">Gurdip Mikey Bath</a> (2,000+ followers)</li>
+          <li><strong>Portfolio</strong> <a href="https://gurdip-bath.github.io" target="_blank" rel="noopener">gurdip-bath.github.io</a></li>
+          <li><strong>GitHub</strong> <a href="https://github.com/gurdip-bath" target="_blank" rel="noopener">github.com/gurdip-bath</a></li>
+        </ul>
+        <p class="bc-footer-note">© 2026 Gurdip Mikey Bath · West Midlands, UK</p>
+      </section>
+
+    </main>
+  </div>
+
   <script>
-    const observer = new IntersectionObserver(
-      (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
-      { threshold: 0.12 }
-    );
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    (function () {
+      var spotlight = document.getElementById('spotlight');
+      if (spotlight) {
+        window.addEventListener('pointermove', function (e) {
+          spotlight.style.setProperty('--x', e.clientX + 'px');
+          spotlight.style.setProperty('--y', e.clientY + 'px');
+        }, { passive: true });
+      }
+
+      var sections = document.querySelectorAll('.bc-section[id]');
+      var links = document.querySelectorAll('.bc-nav-link');
+      if (!sections.length || !links.length) return;
+
+      var setActive = function (id) {
+        links.forEach(function (link) {
+          link.classList.toggle('is-active', link.getAttribute('data-section') === id);
+        });
+      };
+
+      var observer = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) setActive(entry.target.id);
+          });
+        },
+        { rootMargin: '-35% 0px -50% 0px', threshold: 0 }
+      );
+
+      sections.forEach(function (section) { observer.observe(section); });
+    })();
   </script>
 
 </body>
