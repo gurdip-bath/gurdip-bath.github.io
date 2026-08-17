@@ -21,62 +21,94 @@
   <div class="project-page-inner">
     <header class="project-hero">
       <h1 class="project-hero-title">Contract Variation Hub</h1>
-      <p class="project-hero-sub">End-to-end HR contract change management solution</p>
+      <p class="project-hero-sub">End-to-end HR contract change management</p>
       <p class="project-hero-meta">
-        <strong>Sole developer</strong> — independently designed Power Platform portfolio solution based on a real operational HR process · Dataverse · MDA · Power Automate · Outlook · SharePoint · ALM
+        Designed around a real HR Shared Services process to replace fragmented email and spreadsheet tracking with structured Dataverse case management and Power Automate orchestration.
       </p>
-      <div class="project-hero-tags">
-        <span class="bc-tag">Model-Driven App</span>
-        <span class="bc-tag">Dataverse</span>
-        <span class="bc-tag">Power Automate</span>
-        <span class="bc-tag">SharePoint</span>
-        <span class="bc-tag">Outlook</span>
-        <span class="bc-tag">ALM</span>
-      </div>
+      <p class="project-tech-line"><strong>Model-Driven App · Dataverse · Power Automate · Outlook · SharePoint</strong></p>
     </header>
 
     <div class="project-case">
       <div class="project-case-section">
         <p class="case-label">Problem</p>
         <p class="case-text">
-          Contract variation requests are handled through fragmented manual processes involving Outlook, HR systems, Word documents, SharePoint, Excel, and stakeholder emails. Tracking, validation, and hand-offs are slow and hard to audit.
+          Contract variations move through email, HR systems, Word documents, SharePoint, spreadsheets and multiple stakeholders — creating repeated data entry and limited visibility of case progress.
         </p>
+        <p class="case-text case-text--follow"><strong>Goal:</strong> create one controlled process to capture, validate, track and progress each request.</p>
       </div>
 
       <div class="project-case-section">
         <p class="case-label">Solution</p>
-        <ul class="case-list">
-          <li>Centralises and automates the contract variation lifecycle on Power Platform</li>
-          <li>Outlook email intake with automated parsing, request validation, and employee validation against Dataverse</li>
-          <li>Creates Contract Variation and typed Variation Item records — salary, hours, position, contract type and related changes stored in correctly typed fields</li>
-          <li>Model-driven app with views, operational dashboards, business rules, and conditional form behaviour</li>
-          <li>SharePoint document storage; Word/PDF document automation planned / in progress</li>
-          <li>Manager, payroll, and employee communication flows with scoped TRY/CATCH error handling and duplicate-prevention considerations</li>
-        </ul>
+        <p class="case-text">A Dataverse-backed Model-Driven App provides the operational hub, while Power Automate handles email intake, validation and workflow orchestration.</p>
+        <p class="project-flow-line">Outlook → Power Automate → Dataverse → Model-Driven App → SharePoint / Outlook</p>
       </div>
 
       <div class="project-case-section">
-        <p class="case-label">Architecture</p>
-        <ul class="case-list">
-          <li>Dataverse relational model: Employee → Contract Variation → Variation Item → Variation Document → Email Log</li>
-          <li>One Contract Variation can contain multiple Variation Items for individual change lines</li>
-          <li>Model-driven app for operational work; Power Automate for intake, validation, and stakeholder communication</li>
-          <li>SharePoint for document storage; environment and ALM considerations for solution packaging</li>
-        </ul>
+        <p class="case-label">Application</p>
+        <figure class="contract-proof">
+          <a class="chapter-frame" title="Click to enlarge screenshot" aria-label="Open full size screenshot" href="../images/portfolio/contract-variation/01-main-form.png" target="_blank" rel="noopener">
+            <img src="../images/portfolio/contract-variation/01-main-form.png" alt="Contract Variation record main form with processing status and related Variation Items" />
+          </a>
+          <figcaption><strong>Centralised case management</strong><br />Forms, business rules, statuses and related Variation Items give HR one structured place to manage each request.</figcaption>
+        </figure>
+        <figure class="contract-proof">
+          <a class="chapter-frame" title="Click to enlarge screenshot" aria-label="Open full size screenshot" href="../images/portfolio/contract-variation/02-dashboard.png" target="_blank" rel="noopener">
+            <img src="../images/portfolio/contract-variation/02-dashboard.png" alt="Contract Variation dashboard showing active cases, manager confirmations, and variations ready to send" />
+          </a>
+          <figcaption><strong>Operational visibility</strong><br />Views surface variations awaiting action, active/overdue cases and overall case status.</figcaption>
+        </figure>
       </div>
 
-      <div class="project-case-section" id="screenshots">
-        <p class="case-label">Screenshots</p>
-        <p class="screenshots-note">
-          Walkthrough screenshots will be added here — same chapter pattern as the other portfolio case studies.
-        </p>
+      <div class="project-case-section">
+        <p class="case-label">Data Model</p>
+        <figure class="contract-proof">
+          <a class="chapter-frame contract-data-model-frame" title="Click to enlarge diagram" aria-label="Open full size data model diagram" href="../images/portfolio/contract-variation/03-data-model.png" target="_blank" rel="noopener">
+            <img src="../images/portfolio/contract-variation/03-data-model.png" alt="Dataverse relationship diagram from Employee to Contract Variation, Variation Item, Variation Document, and Email Log" />
+          </a>
+          <figcaption><strong>Employee → Contract Variation → Variation Items</strong><br />I used a 1:N structure so one request can contain multiple contractual changes without duplicating the parent case.</figcaption>
+        </figure>
+      </div>
+
+      <div class="project-case-section">
+        <p class="case-label">Automation</p>
+        <figure class="contract-proof">
+          <a class="chapter-frame contract-flow-frame" title="Click to enlarge screenshot" aria-label="Open full size case creation flow screenshot" href="../images/portfolio/contract-variation/04-full-case-creation-flow.png" target="_blank" rel="noopener">
+            <img src="../images/portfolio/contract-variation/04-full-case-creation-flow.png" alt="Power Automate case creation flow with email intake, parsing, validation, record creation, and catch scopes" />
+          </a>
+          <figcaption><strong>Structured case creation</strong><br />Email Intake → Parse → Validate Request → Validate Employee → Create Variation, with scoped TRY/CATCH error handling.</figcaption>
+        </figure>
+        <figure class="contract-proof contract-proof--prominent">
+          <a class="chapter-frame contract-parse-frame" title="Click to enlarge screenshot" aria-label="Open full size Parse Email scope screenshot" href="../images/portfolio/contract-variation/05-parse-email-scope.png" target="_blank" rel="noopener">
+            <img src="../images/portfolio/contract-variation/05-parse-email-scope.png" alt="Power Automate Parse Email scope splitting email lines and extracting fields into a reusable object" />
+          </a>
+          <figcaption><strong>Unstructured email → structured data</strong><br />The flow splits email content into an array and uses Power Automate expressions including <code>substring()</code>, <code>indexOf()</code>, <code>trim()</code> and <code>addProperty()</code> to construct a reusable object for downstream processing.</figcaption>
+        </figure>
+        <figure class="contract-proof">
+          <a class="chapter-frame contract-validation-frame" title="Click to enlarge screenshot" aria-label="Open full size validation screenshot" href="../images/portfolio/contract-variation/06-validation.png" target="_blank" rel="noopener">
+            <img src="../images/portfolio/contract-variation/06-validation.png" alt="Power Automate validation scopes checking required email fields and matching the employee record" />
+          </a>
+          <figcaption><strong>Validate before creating</strong><br />Mandatory fields and the employee record are validated before Dataverse records are created, preventing incomplete requests entering the application.</figcaption>
+        </figure>
+      </div>
+
+      <div class="project-case-section">
+        <p class="case-label">Built / Next</p>
+        <div class="contract-scope-pair">
+          <p class="case-text"><strong>Built</strong><br />Model-Driven App · Dataverse model · Business rules · Dashboard · Email parsing · Validation · Case creation · Error handling</p>
+          <p class="case-text"><strong>Next</strong><br />Document generation · SharePoint storage · Stakeholder communications · Multi-change processing · Duplicate prevention</p>
+        </div>
+      </div>
+
+      <div class="project-case-section">
+        <p class="case-label">Technical Scope</p>
+        <div class="contract-technical-scope">
+          <p><strong>Power Apps</strong> — Model-Driven Apps, forms, views, business rules</p>
+          <p><strong>Dataverse</strong> — relational modelling, lookups, 1:N relationships</p>
+          <p><strong>Power Automate</strong> — arrays, objects, expressions, validation, error handling</p>
+          <p><strong>Delivery</strong> — requirements, solution design, testing, debugging, MVP scoping</p>
+        </div>
       </div>
     </div>
-
-    <footer class="project-footer-cta">
-      <p>Open to Power Platform roles · West Midlands / remote UK</p>
-      <a href="../index.html#contact" class="project-footer-link">Get in touch →</a>
-    </footer>
   </div>
 
   <footer class="site-footer">

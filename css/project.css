@@ -837,6 +837,142 @@ body {
   line-height: 1.65;
 }
 
+.project-tech-line,
+.project-flow-line {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  line-height: 1.6;
+  color: var(--accent);
+}
+
+.project-tech-line strong {
+  font-weight: 500;
+}
+
+.project-flow-line {
+  margin-top: 1rem;
+  color: var(--slate);
+}
+
+.case-text--follow {
+  margin-top: 0.9rem;
+}
+
+.case-text strong,
+.contract-proof figcaption strong,
+.contract-scope-pair strong,
+.contract-technical-scope strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.contract-proof {
+  margin: 0 0 1.75rem;
+}
+
+.contract-proof:last-child {
+  margin-bottom: 0;
+}
+
+.contract-proof-placeholder {
+  min-height: clamp(15rem, 42vw, 22rem);
+  display: grid;
+  place-items: center;
+  cursor: default;
+  background:
+    linear-gradient(rgba(0, 200, 160, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 200, 160, 0.035) 1px, transparent 1px),
+    var(--surface);
+  background-size: 24px 24px;
+}
+
+.contract-proof-placeholder:hover {
+  transform: none;
+  border-color: var(--border);
+  box-shadow: none;
+}
+
+.contract-proof-placeholder span {
+  padding: 1rem;
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  line-height: 1.6;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.contract-proof figcaption {
+  margin-top: 0.8rem;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--slate);
+}
+
+.contract-proof--prominent {
+  margin-top: 2.25rem;
+  margin-bottom: 2.25rem;
+}
+
+.contract-proof--prominent .contract-proof-placeholder {
+  min-height: clamp(18rem, 52vw, 28rem);
+  border-color: rgba(0, 200, 160, 0.35);
+}
+
+.contract-data-model-frame {
+  width: min(100%, 12rem);
+  margin: 0 auto;
+}
+
+.contract-flow-frame {
+  width: min(100%, 11rem);
+  margin: 0 auto;
+}
+
+.contract-parse-frame {
+  width: min(100%, 15rem);
+  margin: 0 auto;
+  border-color: rgba(0, 200, 160, 0.35);
+}
+
+.contract-validation-frame {
+  width: min(100%, 18rem);
+  margin: 0 auto;
+}
+
+.contract-data-model-frame img,
+.contract-flow-frame img,
+.contract-parse-frame img,
+.contract-validation-frame img {
+  width: 100%;
+  height: auto;
+}
+
+.contract-proof code {
+  font-family: var(--mono);
+  font-size: 0.84em;
+  color: var(--accent);
+}
+
+.contract-scope-pair {
+  display: grid;
+  gap: 1rem;
+}
+
+.contract-technical-scope {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.contract-technical-scope p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--slate);
+}
+
 .project-footer-cta {
   margin-top: 3rem;
   padding-top: 2rem;
