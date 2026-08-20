@@ -823,6 +823,20 @@ body {
   font-family: var(--mono);
 }
 
+.case-list--numbered {
+  counter-reset: case-step;
+}
+
+.case-list--numbered li {
+  counter-increment: case-step;
+  padding-left: 1.75rem;
+}
+
+.case-list--numbered li::before {
+  content: counter(case-step) '.';
+  font-size: 0.75rem;
+}
+
 .project-results-footnote {
   font-size: 0.85rem;
   color: var(--muted);
@@ -942,10 +956,16 @@ body {
   margin: 0 auto;
 }
 
+.contract-agent-action-frame {
+  width: min(100%, 28rem);
+  margin: 0 auto;
+}
+
 .contract-data-model-frame img,
 .contract-flow-frame img,
 .contract-parse-frame img,
-.contract-validation-frame img {
+.contract-validation-frame img,
+.contract-agent-action-frame img {
   width: 100%;
   height: auto;
 }
