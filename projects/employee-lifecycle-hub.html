@@ -1,337 +1,263 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Employee Lifecycle Hub — Dataverse HR portfolio project by Gurdip Mikey Bath. Model-driven app, canvas app, and Power Automate." />
-  <title>Employee Lifecycle Hub · Gurdip Mikey Bath</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/project.css" />
-</head>
-<body class="project-page">
-
-  <header class="project-topbar">
-    <div class="project-topbar-inner">
-      <a class="project-topbar-brand" href="../index.html">Gurdip Mikey Bath</a>
-      <a class="project-topbar-back" href="../index.html#projects">← Projects</a>
-    </div>
-  </header>
-
-  <div class="project-page-inner">
-    <header class="project-hero">
-      <h1 class="project-hero-title">Employee Lifecycle Hub</h1>
-      <p class="project-hero-sub">Dataverse Solution · HR onboarding &amp; offboarding</p>
-      <p class="project-hero-meta">
-        <strong>Sole developer</strong> — schema, apps, flows, security, ALM · Portfolio case study based on a live HR build · Dataverse · MDA · Canvas · Power Automate · C# Plugin · Power BI
-      </p>
-      <div class="project-hero-tags">
-        <span class="bc-tag">Model-Driven App</span>
-        <span class="bc-tag">Dataverse</span>
-        <span class="bc-tag">Canvas App</span>
-        <span class="bc-tag">Power Automate</span>
-        <span class="bc-tag">Security &amp; ALM</span>
-        <span class="bc-tag">Power BI</span>
-        <span class="bc-tag">Azure DevOps</span>
-        <span class="bc-tag">C#</span>
-        <span class="bc-tag">Dataverse SDK</span>
-        <span class="bc-tag">Plugin Development</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Employee Lifecycle Hub — Dataverse HR portfolio project by Gurdip Mikey Bath. Model-driven app, canvas app, and Power Automate." />
+    <title>Employee Lifecycle Hub · Gurdip Mikey Bath</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/project.css" />
+  </head>
+  <body class="project-page">
+    <header class="project-topbar">
+      <div class="project-topbar-inner">
+        <a class="project-topbar-brand" href="../index.html">Gurdip Mikey Bath</a>
+        <a class="project-topbar-back" href="../index.html#projects">← Projects</a>
       </div>
     </header>
 
-    <div class="project-case">
-      <div class="project-case-section">
-        <p class="case-label">Problem</p>
-        <p class="case-text">
-          HR coordinators chased onboarding and offboarding steps across email and spreadsheets. Line managers had no single view of their team's lifecycle cases. Missed tasks were common and hard to audit.
+    <div class="project-page-inner">
+      <header class="project-hero">
+        <h1 class="project-hero-title">Employee Lifecycle Hub</h1>
+        <p class="project-hero-sub">Dataverse Solution · HR onboarding &amp; offboarding</p>
+        <p class="project-hero-meta"><strong>Sole developer</strong> — schema, apps, flows, security, ALM · Portfolio case study based on a live HR build · Dataverse · MDA · Canvas · Power Automate · C# Plugin · Power BI</p>
+        <p class="project-tech-line">
+          <strong>Model-Driven App · Dataverse · Canvas App · Power Automate · Security &amp; ALM · Power BI · Azure DevOps · C# · Dataverse SDK · Plugin Development</strong>
         </p>
-      </div>
+      </header>
 
-      <div class="project-case-section">
-        <p class="case-label">Solution</p>
-        <ul class="case-list">
-          <li>Model-driven app for HR vs canvas for line managers (delegation-safe Power Fx)</li>
-          <li>Task generation via Power Automate instead of manual checklists</li>
-          <li>Column security profiles for PII at the data layer</li>
-        </ul>
-      </div>
-
-      <div class="project-case-section">
-        <p class="case-label">Architecture</p>
-        <ul class="case-list">
-          <li>5-table Dataverse architecture with least-privilege security across Business Units, security roles, and column security profiles</li>
-          <li>Model-driven app for HR and canvas app for line managers (direct reports only)</li>
-          <li>Cloud flows provision 8 mandatory onboarding tasks in Dataverse on case creation</li>
-          <li>Structured Business Process Flows cut operational data errors by 60%</li>
-          <li>Star-schema Power BI reporting layer — 12–15 hrs/month manual spreadsheet work removed</li>
-          <li>Managed solution ALM with environment variables and connection references</li>
-          <li>C# Dataverse plugin — registered via Plugin Registration Tool to provision onboarding tasks on lifecycle case create</li>
-        </ul>
-      </div>
-
-      <div class="project-case-section">
-        <p class="case-label">Outcomes</p>
-        <div class="outcome-list">
-          <div class="outcome-row">
-            <div class="outcome-metric">
-              <span class="outcome-value">40 hrs</span>
-              <span class="outcome-unit">admin / week</span>
-            </div>
-            <div class="outcome-detail">
-              <p>Admin capacity reclaimed across the HR team through model-driven + Dataverse automation.</p>
-            </div>
-          </div>
-          <div class="outcome-row">
-            <div class="outcome-metric">
-              <span class="outcome-value">60%</span>
-              <span class="outcome-unit">fewer errors</span>
-            </div>
-            <div class="outcome-detail">
-              <p>Operational data errors cut via structured Business Process Flows and validation at entry.</p>
-            </div>
-          </div>
-          <div class="outcome-row">
-            <div class="outcome-metric">
-              <span class="outcome-value">8</span>
-              <span class="outcome-unit">tasks auto-provisioned</span>
-            </div>
-            <div class="outcome-detail">
-              <p>Mandatory onboarding tasks created automatically on lifecycle case create.</p>
-            </div>
-          </div>
-          <div class="outcome-row">
-            <div class="outcome-metric">
-              <span class="outcome-value">5</span>
-              <span class="outcome-unit">Dataverse tables</span>
-            </div>
-            <div class="outcome-detail">
-              <p>Relational backend with least-privilege security and reporting readiness.</p>
-            </div>
-          </div>
+      <div class="project-case">
+        <div class="project-case-section">
+          <p class="case-label">Problem</p>
+          <p class="case-text">HR coordinators chased onboarding and offboarding steps across email and spreadsheets. Line managers had no single view of their team's lifecycle cases. Missed tasks were common and hard to audit.</p>
         </div>
-        <p class="project-results-footnote">Power BI reporting layer saves 12–15 hrs/month of manual spreadsheet work.</p>
-      </div>
 
-      <div class="project-case-section" id="screenshots">
-        <p class="case-label">Screenshots</p>
-        <p class="case-text">Scroll by layer — HR model-driven app, automated Outlook notifications, manager canvas app, and C# plugin. Use the jump links to skip to each part.</p>
-      </div>
+        <div class="project-case-section">
+          <p class="case-label">Solution</p>
+          <ul class="case-list">
+            <li>Model-driven app for HR vs canvas for line managers (delegation-safe Power Fx)</li>
+            <li>Task generation via Power Automate instead of manual checklists</li>
+            <li>Column security profiles for PII at the data layer</li>
+          </ul>
+        </div>
 
-      <div class="project-case-section">
-        <p class="case-label">Model-Driven App</p>
-        <span class="bc-tag">Model-Driven App</span>
-        <p class="case-text">For HR coordinators · 5 screens</p>
-        <figure class="contract-proof">
-        <a class="chapter-frame" title="Click to enlarge screenshot" aria-label="Open full size screenshot" href="../employee%20lifecycle%20hub/model-driven/01-lifecycle-case-view.png?v=2" target="_blank" rel="noopener">
-          <img src="../employee%20lifecycle%20hub/model-driven/01-lifecycle-case-view.png?v=2" alt="Lifecycle cases list view in model-driven app" />
-        </a>
-        <figcaption>
-        <p class="chapter-step" aria-label="Step 1 of 5">Step 1 of 5</p>
-        <strong>Lifecycle Cases Dashboard</strong>
-        <ul class="chapter-features">
-          <li>HR users see every open onboarding and offboarding case in one model-driven list view</li>
-          <li>Filter and sort lifecycle cases by status, type, and owner without leaving the app</li>
-          <li>Single system of record replaces spreadsheet tracking across the HR team</li>
-          <li>Role-based views ensure users only see cases their security profile allows</li>
-        </ul>
-        </figcaption>
-        </figure>
+        <div class="project-case-section">
+          <p class="case-label">Application</p>
+          <p class="project-flow-line">Model-Driven App · For HR coordinators · 5 screens</p>
+          <figure class="contract-proof">
+            <a class="chapter-frame" title="Click to enlarge screenshot" aria-label="Open full size screenshot" href="../employee%20lifecycle%20hub/model-driven/01-lifecycle-case-view.png?v=2" target="_blank" rel="noopener">
+              <img src="../employee%20lifecycle%20hub/model-driven/01-lifecycle-case-view.png?v=2" alt="Lifecycle cases list view in model-driven app" />
+            </a>
+            <figcaption>
+              <p class="chapter-step" aria-label="Step 1 of 5">Step 1 of 5</p>
+              <strong>Lifecycle Cases Dashboard</strong>
+              <ul class="chapter-features">
+                <li>HR users see every open onboarding and offboarding case in one model-driven list view</li>
+                <li>Filter and sort lifecycle cases by status, type, and owner without leaving the app</li>
+                <li>Single system of record replaces spreadsheet tracking across the HR team</li>
+                <li>Role-based views ensure users only see cases their security profile allows</li>
+              </ul>
+            </figcaption>
+          </figure>
 
-        <figure class="contract-proof">
-        <a class="chapter-frame" title="Click to enlarge screenshot" aria-label="Open full size screenshot" href="../employee%20lifecycle%20hub/model-driven/02-create-lifecycle-case.png" target="_blank" rel="noopener">
-          <img src="../employee%20lifecycle%20hub/model-driven/02-create-lifecycle-case.png" alt="Create new lifecycle case form" />
-        </a>
-        <figcaption>
-        <p class="chapter-step" aria-label="Step 2 of 5">Step 2 of 5</p>
-        <strong>Create A Lifecycle Case</strong>
-        <ul class="chapter-features">
-          <li>Guided intake form captures employee details and lifecycle event type in one place</li>
-          <li>Required fields and validation rules enforce data quality at the point of entry</li>
-          <li>Lookup relationships link the case to employee records in the Dataverse model</li>
-          <li>Submitting a case kicks off automated task generation via Power Automate</li>
-        </ul>
-        </figcaption>
-        </figure>
+          <figure class="contract-proof">
+            <a class="chapter-frame" title="Click to enlarge screenshot" aria-label="Open full size screenshot" href="../employee%20lifecycle%20hub/model-driven/02-create-lifecycle-case.png" target="_blank" rel="noopener">
+              <img src="../employee%20lifecycle%20hub/model-driven/02-create-lifecycle-case.png" alt="Create new lifecycle case form" />
+            </a>
+            <figcaption>
+              <p class="chapter-step" aria-label="Step 2 of 5">Step 2 of 5</p>
+              <strong>Create A Lifecycle Case</strong>
+              <ul class="chapter-features">
+                <li>Guided intake form captures employee details and lifecycle event type in one place</li>
+                <li>Required fields and validation rules enforce data quality at the point of entry</li>
+                <li>Lookup relationships link the case to employee records in the Dataverse model</li>
+                <li>Submitting a case kicks off automated task generation via Power Automate</li>
+              </ul>
+            </figcaption>
+          </figure>
 
-        <figure class="contract-proof">
-        <a class="chapter-frame" title="Click to enlarge screenshot" aria-label="Open full size screenshot" href="../employee%20lifecycle%20hub/model-driven/1406%20open%20lifecycle%20title.png" target="_blank" rel="noopener">
-          <img src="../employee%20lifecycle%20hub/model-driven/1406%20open%20lifecycle%20title.png" alt="Active Onboarding Cases list — click Lifecycle Case Title to open a case" />
-        </a>
-        <figcaption>
-        <p class="chapter-step" aria-label="Step 3 of 5">Step 3 of 5</p>
-        <strong>Open A Lifecycle Case</strong>
-        <ul class="chapter-features">
-          <li>Active Onboarding Cases view filters to open onboarding and joiner cases — Status: Active, Case Type: Onboarding</li>
-          <li>HR scans the list for the employee or case number they need without leaving the model-driven app</li>
-          <li>Click the Lifecycle Case Title hyperlink on any row to open the full case record</li>
-          <li>Entry point from the dashboard into case-level task tracking for that employee</li>
-        </ul>
-        </figcaption>
-        </figure>
+          <figure class="contract-proof">
+            <a class="chapter-frame" title="Click to enlarge screenshot" aria-label="Open full size screenshot" href="../employee%20lifecycle%20hub/model-driven/1406%20open%20lifecycle%20title.png" target="_blank" rel="noopener">
+              <img src="../employee%20lifecycle%20hub/model-driven/1406%20open%20lifecycle%20title.png" alt="Active Onboarding Cases list — click Lifecycle Case Title to open a case" />
+            </a>
+            <figcaption>
+              <p class="chapter-step" aria-label="Step 3 of 5">Step 3 of 5</p>
+              <strong>Open A Lifecycle Case</strong>
+              <ul class="chapter-features">
+                <li>Active Onboarding Cases view filters to open onboarding and joiner cases — Status: Active, Case Type: Onboarding</li>
+                <li>HR scans the list for the employee or case number they need without leaving the model-driven app</li>
+                <li>Click the Lifecycle Case Title hyperlink on any row to open the full case record</li>
+                <li>Entry point from the dashboard into case-level task tracking for that employee</li>
+              </ul>
+            </figcaption>
+          </figure>
 
-        <figure class="contract-proof">
-        <a class="chapter-frame" title="Click to enlarge screenshot" aria-label="Open full size screenshot" href="../employee%20lifecycle%20hub/model-driven/1406%20open%20tasks.png" target="_blank" rel="noopener">
-          <img src="../employee%20lifecycle%20hub/model-driven/1406%20open%20tasks.png" alt="Lifecycle case form — Active Tasks tab highlighted" />
-        </a>
-        <figcaption>
-        <p class="chapter-step" aria-label="Step 4 of 5">Step 4 of 5</p>
-        <strong>Open Active Tasks</strong>
-        <ul class="chapter-features">
-          <li>Lifecycle case record opens on Case Identity — employee, case number, case type, and timeline in one place</li>
-          <li>Active Tasks tab sits alongside Case Identity and Related on the case form header</li>
-          <li>Click Active Tasks to load every onboarding action item still outstanding for that employee</li>
-          <li>Replaces hunting through email threads — tasks live on the case the moment flows or the plugin provision them</li>
-        </ul>
-        </figcaption>
-        </figure>
+          <figure class="contract-proof">
+            <a class="chapter-frame" title="Click to enlarge screenshot" aria-label="Open full size screenshot" href="../employee%20lifecycle%20hub/model-driven/1406%20open%20tasks.png" target="_blank" rel="noopener">
+              <img src="../employee%20lifecycle%20hub/model-driven/1406%20open%20tasks.png" alt="Lifecycle case form — Active Tasks tab highlighted" />
+            </a>
+            <figcaption>
+              <p class="chapter-step" aria-label="Step 4 of 5">Step 4 of 5</p>
+              <strong>Open Active Tasks</strong>
+              <ul class="chapter-features">
+                <li>Lifecycle case record opens on Case Identity — employee, case number, case type, and timeline in one place</li>
+                <li>Active Tasks tab sits alongside Case Identity and Related on the case form header</li>
+                <li>Click Active Tasks to load every onboarding action item still outstanding for that employee</li>
+                <li>Replaces hunting through email threads — tasks live on the case the moment flows or the plugin provision them</li>
+              </ul>
+            </figcaption>
+          </figure>
 
-        <figure class="contract-proof">
-        <a class="chapter-frame" title="Click to enlarge screenshot" aria-label="Open full size screenshot" href="../employee%20lifecycle%20hub/model-driven/1406%20task%20status.png" target="_blank" rel="noopener">
-          <img src="../employee%20lifecycle%20hub/model-driven/1406%20task%20status.png" alt="Active Tasks subgrid with color-coded Completion Status" />
-        </a>
-        <figcaption>
-        <p class="chapter-step" aria-label="Step 5 of 5">Step 5 of 5</p>
-        <strong>Color-Coded Task Status</strong>
-        <ul class="chapter-features">
-          <li>Active Tasks For Employee subgrid lists all eight mandatory onboarding steps — offer letter through first-week check-in</li>
-          <li>Completion Status column is color-coded: Not Started (grey), In Progress (orange), Completed (green)</li>
-          <li>HR updates status in-line from the dropdown — no separate spreadsheet or status chase</li>
-          <li>At-a-glance progress on the case record so coordinators spot blockers before steps go overdue</li>
-        </ul>
-        </figcaption>
-        </figure>
-      </div>
+          <figure class="contract-proof">
+            <a class="chapter-frame" title="Click to enlarge screenshot" aria-label="Open full size screenshot" href="../employee%20lifecycle%20hub/model-driven/1406%20task%20status.png" target="_blank" rel="noopener">
+              <img src="../employee%20lifecycle%20hub/model-driven/1406%20task%20status.png" alt="Active Tasks subgrid with color-coded Completion Status" />
+            </a>
+            <figcaption>
+              <p class="chapter-step" aria-label="Step 5 of 5">Step 5 of 5</p>
+              <strong>Color-Coded Task Status</strong>
+              <ul class="chapter-features">
+                <li>Active Tasks For Employee subgrid lists all eight mandatory onboarding steps — offer letter through first-week check-in</li>
+                <li>Completion Status column is color-coded: Not Started (grey), In Progress (orange), Completed (green)</li>
+                <li>HR updates status in-line from the dropdown — no separate spreadsheet or status chase</li>
+                <li>At-a-glance progress on the case record so coordinators spot blockers before steps go overdue</li>
+              </ul>
+            </figcaption>
+          </figure>
+          <p class="project-flow-line">Canvas App · For line managers · 3 screens</p>
+          <figure class="contract-proof">
+            <a class="chapter-frame" title="Click to enlarge screenshot" aria-label="Open full size screenshot" href="../employee%20lifecycle%20hub/canvas%20app%20images/1%20-%20Canvas%20App%20Homepage.png" target="_blank" rel="noopener">
+              <img src="../employee%20lifecycle%20hub/canvas%20app%20images/1%20-%20Canvas%20App%20Homepage.png" alt="Canvas app homepage for line managers" />
+            </a>
+            <figcaption>
+              <p class="chapter-step" aria-label="Step 1 of 3">Step 1 of 3</p>
+              <strong>Line Manager Homepage</strong>
+              <ul class="chapter-features">
+                <li>Canvas app gives line managers a dedicated, mobile-friendly entry point</li>
+                <li>Delegation-safe Power Fx queries scope data to each manager's direct reports only</li>
+                <li>Quick counts surface open cases and pending tasks for their team at a glance</li>
+                <li>Separate from the HR model-driven app — simpler UX for non-HR personas</li>
+              </ul>
+            </figcaption>
+          </figure>
 
-      <div class="project-case-section">
-        <p class="case-label">Outlook / Power Automate</p>
-        <span class="bc-tag">Power Automate</span>
-        <p class="case-text">Automated stakeholder comms · 1 screen</p>
-        <figure class="contract-proof">
-        <a class="chapter-frame" title="Click to enlarge screenshot" aria-label="Open full size screenshot" href="../employee%20lifecycle%20hub/model-driven/04-outlook-email.png" target="_blank" rel="noopener">
-          <img src="../employee%20lifecycle%20hub/model-driven/04-outlook-email.png" alt="Outlook email notification from Power Automate" />
-        </a>
-        <figcaption>
-        <strong>Outlook Notifications</strong>
-        <ul class="chapter-features">
-          <li>Stage-change flows send automated Outlook emails to the right stakeholders</li>
-          <li>Notifications fire on lifecycle events — no manual copy-paste into email templates</li>
-          <li>Email content is driven by case data written back from Dataverse</li>
-          <li>Keeps HR, managers, and IT aligned when cases move through each stage</li>
-        </ul>
-        </figcaption>
-        </figure>
-      </div>
+          <figure class="contract-proof">
+            <a class="chapter-frame" title="Click to enlarge screenshot" aria-label="Open full size screenshot" href="../employee%20lifecycle%20hub/canvas%20app%20images/2%20-%20Canvas%20App%20Case%20Details.png" target="_blank" rel="noopener">
+              <img src="../employee%20lifecycle%20hub/canvas%20app%20images/2%20-%20Canvas%20App%20Case%20Details.png" alt="Canvas app lifecycle case details" />
+            </a>
+            <figcaption>
+              <p class="chapter-step" aria-label="Step 2 of 3">Step 2 of 3</p>
+              <strong>Case Details For Managers</strong>
+              <ul class="chapter-features">
+                <li>Managers drill into lifecycle case details for employees on their team</li>
+                <li>Read-only fields protect sensitive HR data while showing relevant case progress</li>
+                <li>Consistent layout across onboarding and offboarding case types</li>
+                <li>No access to organisation-wide HR records outside their reporting line</li>
+              </ul>
+            </figcaption>
+          </figure>
 
-      <div class="project-case-section">
-        <p class="case-label">Canvas App</p>
-        <span class="bc-tag">Canvas App</span>
-        <p class="case-text">For line managers · 3 screens</p>
-        <figure class="contract-proof">
-        <a class="chapter-frame" title="Click to enlarge screenshot" aria-label="Open full size screenshot" href="../employee%20lifecycle%20hub/canvas%20app%20images/1%20-%20Canvas%20App%20Homepage.png" target="_blank" rel="noopener">
-          <img src="../employee%20lifecycle%20hub/canvas%20app%20images/1%20-%20Canvas%20App%20Homepage.png" alt="Canvas app homepage for line managers" />
-        </a>
-        <figcaption>
-        <p class="chapter-step" aria-label="Step 1 of 3">Step 1 of 3</p>
-        <strong>Line Manager Homepage</strong>
-        <ul class="chapter-features">
-          <li>Canvas app gives line managers a dedicated, mobile-friendly entry point</li>
-          <li>Delegation-safe Power Fx queries scope data to each manager's direct reports only</li>
-          <li>Quick counts surface open cases and pending tasks for their team at a glance</li>
-          <li>Separate from the HR model-driven app — simpler UX for non-HR personas</li>
-        </ul>
-        </figcaption>
-        </figure>
+          <figure class="contract-proof">
+            <a class="chapter-frame" title="Click to enlarge screenshot" aria-label="Open full size screenshot" href="../employee%20lifecycle%20hub/canvas%20app%20images/3%20-%20Task%20List.png" target="_blank" rel="noopener">
+              <img src="../employee%20lifecycle%20hub/canvas%20app%20images/3%20-%20Task%20List.png" alt="Canvas app task list for manager's team" />
+            </a>
+            <figcaption>
+              <p class="chapter-step" aria-label="Step 3 of 3">Step 3 of 3</p>
+              <strong>Team Task List</strong>
+              <ul class="chapter-features">
+                <li>Task list filtered to the manager's direct reports — closing the loop on missed steps</li>
+                <li>Managers can see which lifecycle tasks are overdue or still outstanding</li>
+                <li>Reduces HR admin chasing managers for onboarding action items</li>
+                <li>Same task data as the HR app, presented through a manager-scoped canvas view</li>
+              </ul>
+            </figcaption>
+          </figure>
+        </div>
 
-        <figure class="contract-proof">
-        <a class="chapter-frame" title="Click to enlarge screenshot" aria-label="Open full size screenshot" href="../employee%20lifecycle%20hub/canvas%20app%20images/2%20-%20Canvas%20App%20Case%20Details.png" target="_blank" rel="noopener">
-          <img src="../employee%20lifecycle%20hub/canvas%20app%20images/2%20-%20Canvas%20App%20Case%20Details.png" alt="Canvas app lifecycle case details" />
-        </a>
-        <figcaption>
-        <p class="chapter-step" aria-label="Step 2 of 3">Step 2 of 3</p>
-        <strong>Case Details For Managers</strong>
-        <ul class="chapter-features">
-          <li>Managers drill into lifecycle case details for employees on their team</li>
-          <li>Read-only fields protect sensitive HR data while showing relevant case progress</li>
-          <li>Consistent layout across onboarding and offboarding case types</li>
-          <li>No access to organisation-wide HR records outside their reporting line</li>
-        </ul>
-        </figcaption>
-        </figure>
+        <div class="project-case-section">
+          <p class="case-label">Data Model</p>
+          <ul class="case-list">
+            <li>5-table Dataverse architecture with least-privilege security across Business Units, security roles, and column security profiles</li>
+            <li>Model-driven app for HR and canvas app for line managers (direct reports only)</li>
+            <li>Cloud flows provision 8 mandatory onboarding tasks in Dataverse on case creation</li>
+            <li>Structured Business Process Flows cut operational data errors by 60%</li>
+            <li>Star-schema Power BI reporting layer — 12–15 hrs/month manual spreadsheet work removed</li>
+            <li>Managed solution ALM with environment variables and connection references</li>
+            <li>C# Dataverse plugin — registered via Plugin Registration Tool to provision onboarding tasks on lifecycle case create</li>
+          </ul>
+        </div>
 
-        <figure class="contract-proof">
-        <a class="chapter-frame" title="Click to enlarge screenshot" aria-label="Open full size screenshot" href="../employee%20lifecycle%20hub/canvas%20app%20images/3%20-%20Task%20List.png" target="_blank" rel="noopener">
-          <img src="../employee%20lifecycle%20hub/canvas%20app%20images/3%20-%20Task%20List.png" alt="Canvas app task list for manager's team" />
-        </a>
-        <figcaption>
-        <p class="chapter-step" aria-label="Step 3 of 3">Step 3 of 3</p>
-        <strong>Team Task List</strong>
-        <ul class="chapter-features">
-          <li>Task list filtered to the manager's direct reports — closing the loop on missed steps</li>
-          <li>Managers can see which lifecycle tasks are overdue or still outstanding</li>
-          <li>Reduces HR admin chasing managers for onboarding action items</li>
-          <li>Same task data as the HR app, presented through a manager-scoped canvas view</li>
-        </ul>
-        </figcaption>
-        </figure>
-      </div>
+        <div class="project-case-section">
+          <p class="case-label">Automation</p>
+          <p class="project-flow-line">Power Automate · Automated stakeholder comms · 1 screen</p>
+          <figure class="contract-proof">
+            <a class="chapter-frame" title="Click to enlarge screenshot" aria-label="Open full size screenshot" href="../employee%20lifecycle%20hub/model-driven/04-outlook-email.png" target="_blank" rel="noopener">
+              <img src="../employee%20lifecycle%20hub/model-driven/04-outlook-email.png" alt="Outlook email notification from Power Automate" />
+            </a>
+            <figcaption>
+              <strong>Outlook Notifications</strong>
+              <ul class="chapter-features">
+                <li>Stage-change flows send automated Outlook emails to the right stakeholders</li>
+                <li>Notifications fire on lifecycle events — no manual copy-paste into email templates</li>
+                <li>Email content is driven by case data written back from Dataverse</li>
+                <li>Keeps HR, managers, and IT aligned when cases move through each stage</li>
+              </ul>
+            </figcaption>
+          </figure>
 
-      <div class="project-case-section">
-        <p class="case-label">C# Plugin</p>
-        <span class="bc-tag">C#</span>
-        <span class="bc-tag">Plugin Development</span>
-        <p class="case-text">Server-side Dataverse logic · 1 screen</p>
-        <figure class="contract-proof">
-        <a class="chapter-frame chapter-frame--has-stack" title="Click to enlarge screenshot" aria-label="Open full size screenshot" href="../images/portfolio/plugin/PRT.png" target="_blank" rel="noopener">
-          <img src="../images/portfolio/plugin/PRT.png" alt="Plugin Registration Tool — OnboardingTaskPlugin registered on lifecycle case create" />
-          <span class="chapter-built-with" aria-label="Built with C#, Dataverse SDK, and Plugin Development">C# · Dataverse SDK · Plugin Development</span>
-        </a>
-        <figcaption>
-        <strong>Onboarding Task Plugin</strong>
-        <ul class="chapter-features">
-          <li>C# plugin assembly registered in Plugin Registration Tool against the lifecycle case table</li>
-          <li>Create step fires synchronously when HR submits a new onboarding case — no flow latency on task seeding</li>
-          <li>Server-side Dataverse SDK logic keeps mandatory task provisioning inside the platform boundary</li>
-          <li>Plugin ships in the managed solution alongside apps, flows, and security — same ALM pipeline</li>
-        </ul>
-        </figcaption>
-        </figure>
-      </div>
+          <p class="project-flow-line">C# · Plugin Development · Server-side Dataverse logic · 1 screen</p>
+          <figure class="contract-proof">
+            <a class="chapter-frame chapter-frame--has-stack" title="Click to enlarge screenshot" aria-label="Open full size screenshot" href="../images/portfolio/plugin/PRT.png" target="_blank" rel="noopener">
+              <img src="../images/portfolio/plugin/PRT.png" alt="Plugin Registration Tool — OnboardingTaskPlugin registered on lifecycle case create" />
+              <span class="chapter-built-with" aria-label="Built with C#, Dataverse SDK, and Plugin Development">C# · Dataverse SDK · Plugin Development</span>
+            </a>
+            <figcaption>
+              <strong>Onboarding Task Plugin</strong>
+              <ul class="chapter-features">
+                <li>C# plugin assembly registered in Plugin Registration Tool against the lifecycle case table</li>
+                <li>Create step fires synchronously when HR submits a new onboarding case — no flow latency on task seeding</li>
+                <li>Server-side Dataverse SDK logic keeps mandatory task provisioning inside the platform boundary</li>
+                <li>Plugin ships in the managed solution alongside apps, flows, and security — same ALM pipeline</li>
+              </ul>
+            </figcaption>
+          </figure>
+        </div>
 
-      <div class="project-case-section">
-        <p class="case-label">Learnings</p>
-        <ul class="case-list">
-          <li>Testing flow idempotency earlier in UAT would have reduced rework on edge-case triggers</li>
-          <li>Splitting HR and manager experiences into separate apps kept RBAC and delegation logic cleaner</li>
-          <li>Environment variables from day one made DEV → PROD promotion straightforward</li>
-        </ul>
+        <div class="project-case-section">
+          <p class="case-label">Learnings</p>
+          <ul class="case-list">
+            <li>Testing flow idempotency earlier in UAT would have reduced rework on edge-case triggers</li>
+            <li>Splitting HR and manager experiences into separate apps kept RBAC and delegation logic cleaner</li>
+            <li>Environment variables from day one made DEV → PROD promotion straightforward</li>
+          </ul>
+        </div>
       </div>
     </div>
 
-    <footer class="project-footer-cta">
-      <p>Open to Power Platform roles · West Midlands / remote UK</p>
-      <a href="../index.html#contact" class="project-footer-link">Get in touch →</a>
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-social">
+          <a href="https://github.com/gurdip-bath" target="_blank" rel="noopener" aria-label="GitHub profile">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A8.205 8.205 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/gurdip-mikey-b-07aa12292/" target="_blank" rel="noopener" aria-label="LinkedIn profile">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+            </svg>
+          </a>
+          <a href="mailto:bathgurdip1@gmail.com" aria-label="Send email">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
+            </svg>
+          </a>
+        </div>
+        <div class="site-footer-meta">
+          <p>West Midlands, UK · <a href="../index.html">Portfolio home</a></p>
+          <p>© 2026 Gurdip Mikey Bath</p>
+        </div>
+      </div>
     </footer>
-  </div>
-
-  <footer class="site-footer">
-    <div class="site-footer-inner">
-      <div class="site-footer-social">
-        <a href="https://github.com/gurdip-bath" target="_blank" rel="noopener" aria-label="GitHub profile">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A8.205 8.205 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-        </a>
-        <a href="https://www.linkedin.com/in/gurdip-mikey-b-07aa12292/" target="_blank" rel="noopener" aria-label="LinkedIn profile">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        </a>
-        <a href="mailto:bathgurdip1@gmail.com" aria-label="Send email">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        </a>
-      </div>
-      <div class="site-footer-meta">
-        <p>West Midlands, UK · <a href="../index.html">Portfolio home</a></p>
-        <p>© 2026 Gurdip Mikey Bath</p>
-      </div>
-    </div>
-  </footer>
-
-</body>
+  </body>
 </html>
